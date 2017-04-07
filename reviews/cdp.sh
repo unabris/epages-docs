@@ -16,22 +16,56 @@ else
   SINCE=$(date --utc -d "$1 $2" +%s)
 fi
 
-# fetch build history from CDP Jenkins
+# Fetch build history from CDP Jenkins.
 CDP=$(http --verify no --body https://cdp.epages.works/job/cdp/api/json tree==allBuilds[timestamp,result,description])
 
-# filter newest successful builds and transform their JSON structure by splitting off the repo name from description
-# sort the filtered list by number of deployments, highest first
+# Filter newest successful builds and transform their JSON structure by splitting off the repo name from description.
+# Sort the filtered list by number of deployments, highest first, followed by repo name.
 DEPLOYMENTS=$(echo $CDP | \
-  jq --arg since $SINCE '.allBuilds | map(select(.timestamp >= ($since | tonumber))) | map(select(.result | tostring | contains("SUCCESS"))) | map({repo: .description | split(" ") | (.[0])}) | group_by(.repo) | map( {"repo": .[0].repo, "deployments":length } ) | sort_by(-.deployments, .repo)')
-
-# calculate the total number of all deployments
-export TOTAL=$(echo $DEPLOYMENTS | \
-  jq 'map(to_entries) | add | group_by(.key) | map({key: .[0].key, value: map(.value) | add }) | from_entries | .deployments'
+  jq --arg since $SINCE '
+    .allBuilds
+    | map( select(.timestamp >= ($since | tonumber)) )
+    | map( select(.result | tostring | contains("SUCCESS")) )
+    | map( { repo: .description | split(" ") | (.[0]) } )
+    | group_by( .repo )
+    | map( { "repo": .[0].repo, "deployments": length } )
+    | sort_by( -.deployments, .repo )
+  '
 )
 
-# convert the JSON to CSV and print it as HTML table
-TABLE=$(echo $DEPLOYMENTS | jq -r '.[] | [.repo, .deployments] | @csv' | \
-  awk -v FS="," 'BEGIN{print "<table class=\"cdp\">"; print "<thead>"; print "<tr><th>repo</th><th>deployments</th></tr>"; print "</thead>"; print "<tbody>"} {gsub ("\"",""); printf "<tr><td>%s</td><td>%s</td></tr>%s",$1,$2,ORS} END{print "<tr class=\"all\"><td>all</td><td>"; print ENVIRON["TOTAL"]; print "</td></tr>";print "</tbody>"; print "</table>"}')
+# Calculate the total number of all deployments.
+export TOTAL=$(echo $DEPLOYMENTS | \
+  jq '
+    map( to_entries )
+    | add
+    | group_by( .key )
+    | map( { key: .[0].key, value: map(.value) | add } )
+    | from_entries
+    | .deployments
+  '
+)
 
+# Convert the JSON to CSV and print it as HTML table.
+TABLE=$(echo $DEPLOYMENTS | \
+  jq -r '.[] | [.repo, .deployments] | @csv' | \
+  awk -v FS="," '
+    BEGIN {
+      print "<table class=\"cdp\">";
+      print "<thead>";
+      print "<tr><th>repo</th><th>deployments</th></tr>";
+      print "</thead>";
+      print "<tbody>";
+    } {
+      gsub ("\"","");
+      printf "<tr><td>%s</td><td>%s</td></tr>%s",$1,$2,ORS;
+    } END {
+      print "<tr class=\"all\"><td>all</td><td>";
+      print ENVIRON["TOTAL"];
+      print "</td></tr>";
+      print "</tbody>";
+      print "</table>";
+    }
+  '
+)
 echo $TABLE
 echo
