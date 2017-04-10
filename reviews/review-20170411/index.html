@@ -750,7 +750,61 @@
         <!-- ================================================================= -->
 
         <section>
-            <h2>Provisioning</h2>
+            <h3>Provisioning</h2>
+
+            <section>
+              <h4>Initiating</h3>
+
+              <pre><code data-trim data-noescape>
+                POST https://.../api/provisioning/provisioning
+              </code></pre>
+
+<pre><code data-trim data-noescape>
+{
+  "site" : {
+    "hostname" : "shinythings.beyondshop.cloud",
+    "locale" : "de-DE",
+    "active" : true
+  },
+  "adminUser" : {
+    "username" : "user",
+    "initialPassword" : "****",
+    "email" : "user@me.de"
+  }
+  ...
+}
+            </code></pre>
+
+              <pre class="fragment"><code>HTTP/1.1 202 Accepted
+Location: https://.../api/provisioning/provisioning/1
+</pre></code>
+              </section>
+
+              <section>
+                <h4>Monitoring</h3>
+
+<pre><code>GET https://.../api/provisioning/provisioning/1
+</code></pre>
+
+                <code><pre>
+200 OK
+
+{
+  "id" : 1,
+  "status" : "STARTED",
+  "startTime" : "2017-04-10T14:33:58.811+0000",
+  "createTime" : "2017-04-10T14:33:58.778+0000",
+  "endTime" : null,
+  "lastUpdated" : "2017-04-10T14:33:58.811+0000",
+  "exitStatus" : {
+    "exitCode" : "UNKNOWN",
+    "exitDescription" : "",
+    "running" : true
+  }
+  ...
+}
+                </code></pre>
+              </section>
         </section>
 
         <!-- ================================================================= -->
