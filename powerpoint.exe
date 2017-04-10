@@ -1,0 +1,46 @@
+#!/bin/bash
+
+SCRIPTDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+while getopts ":d:p:" opt; do
+  case $opt in
+    d)
+      DIR="$OPTARG"
+      ;;
+    p)
+      HOST_PORT="$OPTARG"
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG"
+      exit 1
+      ;;
+  esac
+done
+
+shift $((OPTIND-1))
+
+# last non-option wins
+while [ $# -gt 0 ]; do
+  DIR="$1"
+  shift
+done
+
+DIR="${DIR:-$PWD}"
+PRESENTATION_DIR=$(cd "$DIR"; pwd)
+HOST_PORT="${HOST_PORT:-8000}"
+
+if [ "$HOST_PORT" != "8000" ]; then
+  CONTAINER_NAME_SUFFIX="_$HOST_PORT"
+fi
+
+echo "Starting up Wine environment..."
+echo "Using dir $PRESENTATION_DIR"
+
+touch $PRESENTATION_DIR/index.html
+
+docker run -it --rm \
+  --name reveal$CONTAINER_NAME_SUFFIX \
+  -v $PRESENTATION_DIR/index.html:/slides/index.html \
+  -v $PRESENTATION_DIR/img/:/slides/img/ \
+  -p $HOST_PORT:8000 \
+  "epages/reveal.js:latest"
