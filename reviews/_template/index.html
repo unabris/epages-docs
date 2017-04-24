@@ -37,6 +37,12 @@
       pre {
         width: 800px !important;
       }
+
+      .reveal .noborder {
+          border: none;
+          box-shadow: none;
+          background: none;
+      }
     </style>
 
     <!-- quality metrics -->
@@ -47,7 +53,7 @@
         }
 
         table.metrics {
-            font-size: 52%;
+            font-size: 70%;
         }
 
         table.metrics tr.glowing:focus {
@@ -137,6 +143,28 @@
 
         <!-- ================================================================= -->
 
+        <section data-state="deployments">
+            <h2>Production Deployments</h2>
+
+            <div id="deployments" style="font-size: 500%; color: green; text-shadow: 0 0 3px #0c3, 8px 8px 15px #333;">0</div>
+
+            <script src="js/custom/countUp.js"></script>
+            <script>
+            var options = {
+              useEasing : true,
+              useGrouping : true,
+              separator : ',',
+              decimal : '.',
+              prefix : '',
+              suffix : ''
+            };
+
+            var deployments = new CountUp("deployments", 0, 9999, 0, 5.0, options);
+            </script>
+        </section>
+
+        <!-- ================================================================= -->
+
         <section>
             <h2></h2>
         </section>
@@ -175,6 +203,11 @@
             { src: 'plugin/notes/notes.js', async: true }
         ]
     });
+
+    Reveal.addEventListener('deployments', function () {
+      deployments.reset();
+      deployments.start();
+    }, false);
 
 </script>
 
