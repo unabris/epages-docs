@@ -613,6 +613,94 @@
             <img src="img/ng-provisioning-roadmap-2.png" style="border:none; box-shadow:none; background:none;" />
           </section>
 
+          <section>
+            <h3>Payload to create a shop</h3>
+            <pre style="box-shadow:none;">
+              <code data-trim data-noescape>
+              POST https://.../api/provisioning/provisioning
+              </code>
+            </pre>
+            <pre style="box-shadow:none;">
+              <code data-trim data-noescape>
+{
+  "site" : {
+    "hostname" : "shinythings.beyondshop.cloud",
+    "locale" : "de-DE",
+    "active" : true
+  },
+  "adminUser" : {
+    "username" : "user",
+    "initialPassword" : "****",
+    "email" : "user@me.de"
+  }
+  ...
+}
+            </code>
+          </pre>
+          </section>
+
+          <section>
+            <h3>Payload to create a shop</h3>
+            <pre style="box-shadow:none;">
+              <code>{
+  "site" : {
+    "hostname" : "shinythings.beyondshop.cloud",
+    "locale" : "de_DE",
+    "active" : true
+  },
+  "adminUser" : {
+    "username" : "user",
+    "initialPassword" : "****",
+    "email" : "user@me.de"
+  },
+  "features" : [
+    {
+      "name" : "shop-admin.shop.languages",
+      "globalMaxValue" : 1
+    },
+    ...
+  ],
+  "shop" : {
+    "name" : "Shinythings for Sale",
+    "defaultServiceableCountry" : "DE",
+    "serviceableCountries" : ["DE","CH"],
+    "defaultCurrency" : "EUR",
+    "currencies" : ["EUR","CHF"],
+    "defaultLocale" : "de-DE",
+    "locales" : ["de-DE","de-CH"],
+    "taxModel" : "GROSS",
+    "vatExempted" : true,
+    "address" : { ... },
+    "closedShopMessage" : "This Shop is closed.",
+    "closedByMerchant" : true,
+    "listPriceText" : "Old SimplePrice",
+    "minimumOrderValue" : { ... }
+  },
+  "categories" : [
+    {
+      "name":"All Products",
+      "type":"SMART",
+      "query":{ "bool" : { "filter" : [{ "term" : { "tags" : "Men" }}]}}
+    }
+  ],
+  "shippingZones":[
+    {
+      "name" : "EU",
+      "serviceableCountries" : ["DE", "DK", "AT", "UK", ... ],
+      "shippingMethods":[
+        {
+          "description" : "DHL",
+          "taxClass" : "REGULAR",
+          "fixedPrice" : { ... }
+        }
+      ]
+    }
+  ]
+}
+              </code>
+            </pre>
+          </section>
+
         </section>
 
         <section>
