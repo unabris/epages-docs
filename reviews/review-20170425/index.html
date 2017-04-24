@@ -152,10 +152,6 @@
                 </tr>
                 <tr>
                     <td>Permission Handling Rollout</td>
-                    <td>10 min</td>
-                </tr>
-                <tr>
-                    <td>UI Improvements</td>
                     <td>05 min</td>
                 </tr>
                 <tr>
@@ -568,8 +564,25 @@
 
         <!-- ================================================================= -->
 
-        <section>
-            <h2></h2>
+        <section data-state="deployments">
+            <h2>Production Deployments</h2>
+
+            <div id="deployments" style="font-size: 300%;">0</div>
+
+            <script src="js/custom/countUp.js"></script>
+            <script>
+            var options = {
+              useEasing : true,
+              useGrouping : true,
+              separator : ',',
+              decimal : '.',
+              prefix : '',
+              suffix : ''
+            };
+
+            var deployments = new CountUp("deployments", 0, 52, 0, 5.0, options);
+            //deployments.start();
+            </script>
         </section>
 
         <!-- ================================================================= -->
@@ -607,6 +620,10 @@
         ]
     });
 
+    Reveal.addEventListener('deployments', function () {
+      deployments.reset();
+      deployments.start();
+    }, false);
 </script>
 
 </body>

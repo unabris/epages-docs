@@ -42,5 +42,6 @@ docker run -it --rm \
   --name reveal$CONTAINER_NAME_SUFFIX \
   -v $PRESENTATION_DIR/index.html:/slides/index.html \
   -v $PRESENTATION_DIR/img/:/slides/img/ \
+  -v $PRESENTATION_DIR/js/custom/:/slides/js/custom/ \
   -p $HOST_PORT:8000 \
   "epages/reveal.js:latest"
