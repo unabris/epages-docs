@@ -212,6 +212,8 @@
 
                         <th colspan="2" rowspan="1">Violations</th>
                         <th colspan="2" rowspan="1">Test Coverage</th>
+
+
                     </tr>
                 </thead>
 
@@ -247,10 +249,10 @@
                         </td>
 
                         <td class="metric-value" rowspan="1" colspan="1">
-                            <span>87.7%</span>
+                            <span>87.2%</span>
                         </td>
                         <td class="metric-delta" rowspan="1" colspan="1">
-                            <span class="metric-improve">(+0.9%)</span>
+                            <span class="metric-improve">(+0.4%)</span>
                         </td>
 
 
@@ -395,17 +397,17 @@
                         </td>
 
                         <td class="metric-value" rowspan="1" colspan="1">
-                            <span>1,152</span>
+                            <span>1,134</span>
                         </td>
                         <td class="metric-delta" rowspan="1" colspan="1">
-                            <span class="metric-decrease">(+472)</span>
+                            <span class="metric-decrease">(+454)</span>
                         </td>
 
                         <td class="metric-value" rowspan="1" colspan="1">
-                            <span>50</span>
+                            <span>48</span>
                         </td>
                         <td class="metric-delta" rowspan="1" colspan="1">
-                            <span class="metric-decrease">(+19)</span>
+                            <span class="metric-decrease">(+17)</span>
                         </td>
 
 
@@ -419,10 +421,10 @@
                         </td>
 
                         <td class="metric-value" rowspan="1" colspan="1">
-                            <span>70.6%</span>
+                            <span>80.6%</span>
                         </td>
                         <td class="metric-delta" rowspan="1" colspan="1">
-                            <span class="metric-improve">(+7.8%)</span>
+                            <span class="metric-improve">(+17.8%)</span>
                         </td>
 
 
@@ -524,17 +526,17 @@
                         </td>
 
                         <td class="metric-value" rowspan="1" colspan="1">
-                            <span>15,054</span>
+                            <span>15,036</span>
                         </td>
                         <td class="metric-delta" rowspan="1" colspan="1">
-                            <span class="metric-decrease">(+571)</span>
+                            <span class="metric-decrease">(+553)</span>
                         </td>
 
                         <td class="metric-value" rowspan="1" colspan="1">
-                            <span>466</span>
+                            <span>464</span>
                         </td>
                         <td class="metric-delta" rowspan="1" colspan="1">
-                            <span class="metric-decrease">(+21)</span>
+                            <span class="metric-decrease">(+19)</span>
                         </td>
 
 
@@ -548,22 +550,14 @@
                         </td>
 
                         <td class="metric-value" rowspan="1" colspan="1">
-                            <span>71.4%</span>
+                            <span>72.8%</span>
                         </td>
                         <td class="metric-delta" rowspan="1" colspan="1">
-                            <span class="metric-improve">(+1.0%)</span>
+                            <span class="metric-improve">(+2.3%)</span>
                         </td>
-
-
-
-
-
-
                     </tr>
                 </tbody>
             </table>
-
-
         </section>
 
         <!-- ================================================================= -->
@@ -573,18 +567,8 @@
 
             <div id="deployments" style="font-size: 500%; color: green; text-shadow: 0 0 3px #0c3, 8px 8px 15px #333;">0</div>
 
-            <script src="js/custom/countUp.js"></script>
             <script>
-            var options = {
-              useEasing : true,
-              useGrouping : true,
-              separator : ',',
-              decimal : '.',
-              prefix : '',
-              suffix : ''
-            };
-
-            var deployments = new CountUp("deployments", 0, 57, 0, 5.0, options);
+              var deployments = 61;
             </script>
         </section>
 
@@ -707,9 +691,9 @@
           <section>
               <h3>Next Steps for ng-provisioning</h3>
               <ul>
-                  <li>Initialize shops with precreated payment methods</li>
+                  <li>Initialize shops with pre-created payment methods</li>
                   <li>Create a real provisioning client</li>
-                  <li>Change data-import and test suits to use ng-provisioning</li>
+                  <li>Change data-import and test suites to use ng-provisioning</li>
                   <li>Adjustments due to authorization changes (make use of scopes)</li>
                   <li>Delete business-unit service</li>
               </ul>
@@ -727,6 +711,7 @@
 
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.js"></script>
+<script src="js/custom/countUp.js"></script>
 
 <script>
     // Full list of configuration options available at:
@@ -750,9 +735,19 @@
         ]
     });
 
+    var countUpOptions = {
+      useEasing : true,
+      useGrouping : true,
+      separator : ',',
+      decimal : '.',
+      prefix : '',
+      suffix : ''
+    };
+    var countUp = new CountUp('deployments', 0, deployments, 0, 5.0, countUpOptions);
+
     Reveal.addEventListener('deployments', function () {
-      deployments.reset();
-      deployments.start();
+      countUp.reset();
+      countUp.start();
     }, false);
 </script>
 
