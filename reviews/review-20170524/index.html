@@ -137,8 +137,31 @@
 
         <section>
           <h2>api-proxy cache</h2>
-        </section>
 
+          <section>
+            <h3>Tenant lookup problem</h3>
+              <ul>
+                <li class="fragment">Hostname based tenanacy</li>
+                <li class="fragment">Tenant lookup required for every HTTP request</li>
+                <li class="fragment">Tenant lookup is synchronous</li>
+              </ul>
+          </section>
+
+          <section>
+            <h3>Solution</h3>
+              <ul>
+                <li class="fragment">Cache results of tenant lookups in memory</li>
+                <li class="fragment">Invalidate cache when tenant is deleted / updated</li>
+              </ul>
+          </section>
+
+          <section>            
+            <img src="img/spring1.png" style="border:none; box-shadow:none; background:none" />
+            <p>
+            <img src="img/caffeine.png" style="border:none; box-shadow:none; background:none ;width:200px;" />
+          </section>
+
+        </section>
 
         <!-- ================================================================= -->
 
