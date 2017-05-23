@@ -130,7 +130,7 @@
                       <td>05 min</td>
                   </tr>
                   <tr>
-                      <td>cascading shop deletion for product-management</td>
+                      <td>Cascading shop deletion for product-management</td>
                       <td>05 min</td>
                   </tr>
                   <tr>
@@ -170,7 +170,25 @@
         <!-- ================================================================= -->
 
         <section>
-          <h2>cascading shop deletion <br>for product-management</h2>
+          <h2>cascading deletion for product-mgmt</h2>
+
+            <ul>
+              <li>triggered by shop deleted event</li>
+              <li>deletes all tenant/shop related data
+                <ul>
+                  <li>products
+                    <ul>
+                      <li>attributes</li>
+                      <li>images</li>
+                      <li>attachments</li>
+                    </ul>
+                  </li>
+                  <li>attribute definitions</li>
+                  <li>categories</li>
+                </ul>
+              </li>
+            </ul>
+
         </section>
 
         <!-- ================================================================= -->
