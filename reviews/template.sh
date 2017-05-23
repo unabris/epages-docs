@@ -21,9 +21,11 @@ SPRINT_NUMBER="$2"
 SPRINT_TITLE="$3"
 
 if [[ "$(uname)" == "Darwin" ]]; then
-  SONARDASH_DATE=$(date -j -f %Y%m%d -v-14d "$DATE" +%Y-%m-%d)
-  DATE_DIR=$(date -j -f %Y%m%d "$DATE" +%Y%m%d)
-  DATE_TEMPLATE=$(date -j -f %Y%m%d "$DATE" +%d.%m.%Y)
+  # explicitly use fully qualified path pointing to "broken" date binary on vanilla Mac OS X.
+  # Alternatively use /usr/local/opt/coreutils/libexec/gnubin/date after installing it with homebrew.
+  SONARDASH_DATE=$(/bin/date -j -f %Y%m%d -v-14d "$DATE" +%Y-%m-%d)
+  DATE_DIR=$(/bin/date -j -f %Y%m%d "$DATE" +%Y%m%d)
+  DATE_TEMPLATE=$(/bin/date -j -f %Y%m%d "$DATE" +%d.%m.%Y)
 else
   SONARDASH_DATE=$(date --date="$DATE 14 days ago" +%Y-%m-%d)
   DATE_DIR=$(date --date="$DATE" +%Y%m%d)
@@ -41,7 +43,8 @@ fi
 
 cp -r "$SCRIPTDIR/_template" "$REVIEW_DIR"
 
-sed -i '' \
+# TODO move to /usr/local/opt/gnu-sed/libexec/gnubin/sed
+/usr/bin/sed -i '' \
     -e "s|{{DATE}}|${DATE_TEMPLATE}|g" \
     -e "s|{{SONARDASH_DATE}}|${SONARDASH_DATE}|g" \
     -e "s|{{SPRINT_NUMBER}}|${SPRINT_NUMBER}|g" \
