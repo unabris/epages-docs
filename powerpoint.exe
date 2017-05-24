@@ -35,10 +35,16 @@ fi
 
 echo "Starting up Wine environment..."
 echo "Using dir $PRESENTATION_DIR"
+echo
+echo "http://${DOCKER_IP:-localhost}:$HOST_PORT/"
+echo "http://${DOCKER_IP:-localhost}:$HOST_PORT/?print-pdf"
+echo
 
 touch $PRESENTATION_DIR/index.html
 
-docker run -it --rm \
+[ $SHLVL -lt 3 ] && DOCKER_OPTS="$DOCKER_OPTS -t"
+
+exec docker run -i --rm $DOCKER_OPTS \
   --name reveal$CONTAINER_NAME_SUFFIX \
   -v $PRESENTATION_DIR/index.html:/slides/index.html \
   -v $PRESENTATION_DIR/img/:/slides/img/ \
