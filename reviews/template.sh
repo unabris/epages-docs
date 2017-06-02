@@ -44,7 +44,13 @@ fi
 cp -r "$SCRIPTDIR/_template" "$REVIEW_DIR"
 
 # TODO move to /usr/local/opt/gnu-sed/libexec/gnubin/sed
-/usr/bin/sed -i '' \
+if [[ "$(uname)" == "Darwin" ]]; then
+  SED="/usr/bin/sed -i ''"
+else
+  SED="sed -i"
+fi
+
+$SED \
     -e "s|{{DATE}}|${DATE_TEMPLATE}|g" \
     -e "s|{{SONARDASH_DATE}}|${SONARDASH_DATE}|g" \
     -e "s|{{SPRINT_NUMBER}}|${SPRINT_NUMBER}|g" \
