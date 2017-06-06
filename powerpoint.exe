@@ -1,14 +1,40 @@
 #!/bin/bash
 
 SCRIPTDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+CONTAINER_NAME="reveal"
 
-while getopts ":d:p:" opt; do
+# ------------------------------------------------------------------------------
+
+function setChrome() {
+  CHROME=$(which google-chome-beta google-chrome | head -n1)
+   # `which` is not working?! TODO: remove after chrome 59 is out of beta
+  ls -al /usr/bin/google-chrome-beta &>/dev/null && CHROME="/usr/bin/google-chrome-beta"
+  [ -z "$CHROME" ] && echo "Cannot find google-chrome" && exit 1
+}
+
+function runDocker() {
+  docker run -i --rm \
+  $DOCKER_OPTS \
+  --name $CONTAINER_NAME \
+  -v $PRESENTATION_DIR/index.html:/slides/index.html \
+  -v $PRESENTATION_DIR/img/:/slides/img/ \
+  -v $PRESENTATION_DIR/js/custom/:/slides/js/custom/ \
+  -p $HOST_PORT:8000 \
+  "epages/reveal.js:latest"
+}
+
+# ------------------------------------------------------------------------------
+
+while getopts ":d:p:o:" opt; do
   case $opt in
     d)
       DIR="$OPTARG"
       ;;
     p)
       HOST_PORT="$OPTARG"
+      ;;
+    o)
+      OUTPUT_FILE="$OPTARG"
       ;;
     \?)
       echo "Invalid option: -$OPTARG"
@@ -25,23 +51,35 @@ while [ $# -gt 0 ]; do
   shift
 done
 
+# ------------------------------------------------------------------------------
+
 DIR="${DIR:-$PWD}"
 PRESENTATION_DIR=$(cd "$DIR"; pwd)
 HOST_PORT="${HOST_PORT:-8000}"
 
 if [ "$HOST_PORT" != "8000" ]; then
-  CONTAINER_NAME_SUFFIX="_$HOST_PORT"
+  CONTAINER_NAME="${CONTAINER_NAME}${CONTAINER_NAME_SUFFIX}"
 fi
 
 echo "Starting up Wine environment..."
 echo "Using dir $PRESENTATION_DIR"
+echo
+echo "http://${DOCKER_IP:-localhost}:$HOST_PORT/"
+echo "http://${DOCKER_IP:-localhost}:$HOST_PORT/?print-pdf"
+echo
 
 touch $PRESENTATION_DIR/index.html
 
-docker run -it --rm \
-  --name reveal$CONTAINER_NAME_SUFFIX \
-  -v $PRESENTATION_DIR/index.html:/slides/index.html \
-  -v $PRESENTATION_DIR/img/:/slides/img/ \
-  -v $PRESENTATION_DIR/js/custom/:/slides/js/custom/ \
-  -p $HOST_PORT:8000 \
-  "epages/reveal.js:latest"
+if [ -n "$OUTPUT_FILE" ] ;then
+  shift
+  setChrome
+  runDocker &
+  PID=$!
+  sleep 5
+  $CHROME --headless --disable-gpu --print-to-pdf="$OUTPUT_FILE" "http://${DOCKER_IP:-localhost}:8000/?print-pdf"
+  kill $PID
+  docker kill $CONTAINER_NAME &>/dev/null
+else
+  DOCKER_OPTS="$DOCKER_OPTS -t"
+  runDocker
+fi
