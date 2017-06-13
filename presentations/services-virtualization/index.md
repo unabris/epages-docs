@@ -1,7 +1,7 @@
 ---
 pagetitle:  Service virtualization in acceptance stage
 author: Oleksandr Vynogradov <ovynogradov@epages.com>
-date-meta:  13.03.2017
+date-meta:  13.06.2017
 ---
 
 # Service virtualization in acceptance stage
@@ -47,7 +47,7 @@ date-meta:  13.03.2017
 ------------------
 
 # Service structure
-![](img\image1.png)
+![](img/image1.png)
 
 # Short term plan
 - Replace Mailgun and Intercom with mocks of corresponding type in Acceptance stage
