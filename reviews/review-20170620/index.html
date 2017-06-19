@@ -131,6 +131,110 @@
 
         <section>
             <h2>Database migrations</h2>
+
+            <style>
+              .flex-container {
+                  display: flex;
+                  align-items: baseline; /* Vertical center alignment */
+                  justify-content: center; /* Horizontal center alignment */
+              }
+              .flex-item-left {
+                flex: 0 0 30%;
+                text-align: right;
+              }
+              .flex-item-right {
+                flex: 0 0 70%;
+                text-align: left;
+                padding-left: 20px !important;
+              }
+            </style>
+
+            <section>
+              <div class="flex-container">
+                <div class="flex-item-left">
+                  1<sup><small>st</small></sup> migration:
+                </div>
+                <div class="flex-item-right">
+                  "product price recalculation"
+                </div>
+              </div>
+              <div class="flex-container">
+                <div class="flex-item-left">
+                  2<sup><small>nd</small></sup> migration:
+                </div>
+                <div class="flex-item-right">
+                  "add category label based on name"
+                </div>
+              </div>
+              <div class="flex-container">
+                <div class="flex-item-left">
+                  n<sup><small>th</small></sup> migration:
+                </div>
+                <div class="flex-item-right">
+                  "..."
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <p>
+                Extract complex migration workflow
+              </p>
+              <ul>
+                <li class="fragment">Launch on service startup</li>
+                <li class="fragment">Fetch all tenants and for each:</li>
+                <li class="fragment">Setup context for each tenant
+                  <ul style="font-size: 80%;">
+                    <li>Multitenancy filter &amp; logging</li>
+                    <li>One transaction per tenant</li>
+                    <li>Skip and log problematic tenants</li>
+                  </ul>
+                </li>
+                <li class="fragment">Fetch all data to be migrated and for each:</li>
+                <li class="fragment">Apply migration logic to data</li>
+              </ul>
+            </section>
+
+            <section>
+              <pre><code data-trim>
+class ProductPriceMigrator extends EntityMigrator&lt;Product&gt; {
+    Iterable&lt;Product&gt; findEntitiesToMigrate() {
+        return repository.findByLastModifiedAtBefore(DATE);
+    }
+
+    EntityMigrationResult migrateEntity(TransactionStatus tx,
+                                        Product product) {
+        priceCalculatingEventHandler.doCalculate(product);
+        repository.save(product);
+        messagePublisher.publishProductUpdatedEvent(product);
+        return new EntityMigrationResult(product, success());
+    }
+}
+              </code></pre>
+            </section>
+
+            <section>
+              <pre><code data-trim data-noescape>
+class CategoryLabelMigrator extends EntityMigrator&lt;Category&gt; {
+    Iterable&lt;Category&gt; findEntitiesToMigrate() {
+        return repository.findByLabelIsNullAndLastModifiedAtBefore(DATE);
+    }
+
+    EntityMigrationResult migrateEntity(TransactionStatus tx,
+                                        Category category) {
+        String previousLabel = category.getLabel();
+        service.normalizeLabel(category);
+        repository.save(category);
+        messagePublisher.publishUpdatedEvent(category);
+        String change = String.format(
+          "Updating label for category '%s' from '%s' to '%s'",
+          category.getName(), previousLabel, category.getLabel());
+        return new EntityMigrationResult(category, success(change));
+    }
+}
+              </code></pre>
+            </section>
+
         </section>
 
         <!-- ================================================================= -->
