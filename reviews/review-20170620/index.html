@@ -120,11 +120,32 @@
         <!-- ================================================================= -->
 
         <section>
+
+            <section>
             <h2>Provisioning improvements</h2>
             <ul>
               <li>Completed event after successful provisioning.</li>
               <li>Shops are initially closed by default.
             </ul>
+          </section>
+
+            <section>
+              <h3>Provisioning Completed Event</h3>
+
+              <pre><code data-trim>
+{
+  "messageType" : "provisioning.provisioning.completed.event",
+  "timestamp" : "2017-06-15T07:43:50.632",
+  "tenantId" : null,
+  "payload" : {
+    "_payloadType" : "provisioning-completed-event",
+    "hostname" : "keep-calm-and-carry-on.epages.works",
+    "shopId" : "375f7bd0-6557-49ab-8b09-892a38f06e0b"
+  }
+}
+              </code></pre>
+            </section>
+
         </section>
 
         <!-- ================================================================= -->
