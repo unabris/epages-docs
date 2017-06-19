@@ -13,17 +13,17 @@ fi
 if [[ "$(uname)" == "Darwin" ]]; then
   SINCE=$(echo $(/bin/date -u -j -f "%Y%m%d %H%M" "$1 $2" +%s)000)
 else
-  SINCE=$(/bin/date --utc -d "$1 $2" +%s)
+  SINCE=$(date --utc -d "$1 $2" +%s)
 fi
 
 # Fetch build history from CDP Jenkins.
-CDP=$(http --verify no --timeout 180 --body https://cdp.epages.works/job/cdp/api/json tree==allBuilds[timestamp,result,description])
+CDP=$(http --verify no --timeout 180 --body https://cdp.epages.works/job/cdp/api/json tree==builds[timestamp,result,description])
 
 # Filter newest successful builds and transform their JSON structure by splitting off the repo name from description.
 # Sort the filtered list by number of deployments, highest first, followed by repo name.
 DEPLOYMENTS=$(echo $CDP | \
   jq --arg since $SINCE '
-    .allBuilds
+    .builds
     | map( select(.timestamp >= ($since | tonumber)) )
     | map( select(.result | tostring | contains("SUCCESS")) )
     | map( { repo: .description | split(" ") | (.[0]) } )
