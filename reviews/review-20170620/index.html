@@ -258,7 +258,7 @@ class ProductPriceMigrator extends EntityMigrator&lt;Product&gt; {
         priceCalculatingEventHandler.doCalculate(product);
         repository.save(product);
         messagePublisher.publishProductUpdatedEvent(product);
-        return new EntityMigrationResult(product, success());
+        return success(product);
     }
 }
               </code></pre>
@@ -280,7 +280,7 @@ class CategoryLabelMigrator extends EntityMigrator&lt;Category&gt; {
         String change = String.format(
           "Updating label for category '%s' from '%s' to '%s'",
           category.getName(), previousLabel, category.getLabel());
-        return new EntityMigrationResult(category, success(change));
+        return success(category, change);
     }
 }
               </code></pre>
