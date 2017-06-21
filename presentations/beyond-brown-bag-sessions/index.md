@@ -91,7 +91,7 @@ in the spirit of the ThoughtWorks [Technology Radar](https://www.thoughtworks.co
 
 - Date: 2017-06-23 12:00 - 14:00
 - Location: tbd
-- Topic: Replace Java with Kotlin for _ng-tax_
+- Topic: Replace Java with Kotlin for _ng-tax_ or _ng-tenant_
 
 ## Expected learnings:
 
