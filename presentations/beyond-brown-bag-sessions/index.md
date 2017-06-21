@@ -77,7 +77,7 @@ in the spirit of the ThoughtWorks [Technology Radar](https://www.thoughtworks.co
 
 | Date       | Quadrant    | Topic                |
 | ---------- | ----------- | -------------------- |
-| 2017-06-22 | Language    | Kotlin               |
+| 2017-06-23 | Language    | Kotlin               |
 | 2017-07-xx | Language    | Scala                |
 | 2017-08-xx | Language    | Frege/Clojure/Groovy |
 | 2017-09-xx | Techniques  | Tech Radar 09/2017   |
@@ -89,7 +89,7 @@ in the spirit of the ThoughtWorks [Technology Radar](https://www.thoughtworks.co
 
 ## First Brown Bag Session
 
-- Date: 2017-06-22 12:00 - 14:00
+- Date: 2017-06-23 12:00 - 14:00
 - Location: tbd
 - Topic: Replace Java with Kotlin for _ng-tax_
 
