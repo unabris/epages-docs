@@ -15,6 +15,7 @@ date-meta:  21.06.2017
 |                                         |
 | --------------------------------------- |
 | Motivation                              |
+| CoP Comparison                          |
 | Format                                  |
 | Outcome                                 |
 | Proposed Roadmap                        |
@@ -28,6 +29,23 @@ date-meta:  21.06.2017
 We want to stay smart and informed about the modern technology landscape
 and accumulate a toolbox of useful _Techniques_, _Tools_, _Platforms_, _Languages & Frameworks_
 in the spirit of the ThoughtWorks [Technology Radar](https://www.thoughtworks.com/de/radar).
+
+------------------
+
+# CoP Comparison
+
+## Community of Practice
+
+- bi-weekly schedule
+- sharing knowledge of actual BEYOND findings
+- directly applicable to our daily business
+
+## Brown Bag Session
+
+- monthly schedule
+- topics not necessarily related to current BEYOND tech
+- findings could lead to negative assessment (_hold_)
+
 
 ------------------
 
@@ -69,7 +87,7 @@ in the spirit of the ThoughtWorks [Technology Radar](https://www.thoughtworks.co
 
 # Invitation
 
-## Next Brown Bag Session
+## First Brown Bag Session
 
 - Date: 2017-06-22 12:00 - 14:00
 - Location: tbd
