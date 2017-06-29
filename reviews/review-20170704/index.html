@@ -114,22 +114,143 @@
         <!-- ================================================================= -->
 
         <section>
-            <h2>Product Relations</h2>
+
+            <section>
+              <h2>Product Relations</h2>
+            </section>
 
             <section>
                 <h3>Definition</h3>
-
+                <p>A product relation is a reference to another resource that can be attached to a product entity.</p>
+                <h4 class="fragment">Characteristics</h4>
+                <ul>
+                  <li class="fragment">
+                    Can be used to <strong>extend product basic attributes</strong> with additional information.
+                  </li>
+                  <li class="fragment">
+                    Consists of relation name (<strong><code>name</code></strong>) and a URI (<strong><code>href</code></strong>).
+                  </li class="fragment">
+                  <li class="fragment">
+                    A product can have <strong>any number</strong> relations attached to it, but the <strong>relation name has to be unique</strong>.
+                  </li>
+                  <li class="fragment">
+                    No option to update an existing relation (yet).
+                  </li>
+                </ul>
             </section>
 
             <section>
                 <h3>Register a product relation</h3>
 
+<code>*.product-relation.register.command</code>
+<pre><code data-trim>
+{
+  "messageType": "google-shopping.product-relation.register.command",
+  "timestamp": "2017-06-23T16:41:18.244",
+  "tenantId": 37,
+  "payload": {
+    "_payloadType": "product-relation",
+    "name": "google-shopping",
+    "href": "http://google-shopping/google-products/c5eb5ee1-2c1f-4aad-8b85-ed9a4ed9d250",
+    "_refs": {
+      "owner": "c5eb5ee1-2c1f-4aad-8b85-ed9a4ed9d250"
+    }
+  }
+}
+</code></pre>
+            </section>
+
+            <section>
+                <h3>Emits relation registered event</h3>
+
+<code>product.product-relation.register.event</code>
+<pre><code data-trim>
+{
+  "messageType" : "product.product-relation.register.event",
+  "timestamp" : "2017-06-23T16:41:18.746",
+  "tenantId" : 37,
+  "payload" : {
+    "_payloadType" : "product-relation",
+    "name" : "google-shopping",
+    "href" : "http://google-shopping/product/c5eb5ee1-2c1f-4aad-8b85-ed9a4ed9d250",
+    "_id" : "b8cbe494-7c37-4f5b-8d36-ad6c73087177",
+    "_context" : {
+      ...
+    },
+    "_refs" : {
+      "owner" : "c5eb5ee1-2c1f-4aad-8b85-ed9a4ed9d250"
+    }
+  }
+}
+</code></pre>
             </section>
 
             <section>
                 <h3>Deregister a product relation</h3>
 
+<code>*.product-relation.deregister.command</code>
+<pre><code data-trim>
+{
+  "messageType": "google-shopping.product-relation.deregister.command",
+  "timestamp": "2017-06-23T16:41:18.244",
+  "tenantId": 37,
+  "payload": {
+    "_payloadType": "product-relation",
+    "name": "google-shopping",
+    "_refs": {
+      "owner": "c5eb5ee1-2c1f-4aad-8b85-ed9a4ed9d250"
+    }
+  }
+}
+</code></pre>
             </section>
+            <section>
+                <h3>Emits relation deregistered event</h3>
+
+<code>product.product-relation.deregister.event</code>
+<pre><code data-trim>
+{
+  "messageType" : "product.product-relation.deregister.event",
+  "timestamp" : "2017-06-23T16:41:19.121",
+  "tenantId" : 37,
+  "payload" : {
+    "_payloadType" : "product-relation",
+    "name" : "google-shopping",
+    "href" : "http://google-shopping/google-products/c5eb5ee1-2c1f-4aad-8b85-ed9a4ed9d250",
+    "_id" : "b8cbe494-7c37-4f5b-8d36-ad6c73087177",
+    "_context" : {
+      ...
+    },
+    "_refs" : {
+      "owner" : "c5eb5ee1-2c1f-4aad-8b85-ed9a4ed9d250"
+    }
+  }
+}
+</code></pre>
+            </section>
+
+            <section>
+                <h3>Product relations on the REST API</h3>
+
+<pre><code data-trim>GET api/product-management/product/{id}</code></pre>
+<pre><code data-trim>
+  {
+    "_id" : "c5eb5ee1-2c1f-4aad-8b85-ed9a4ed9d250",
+    "sku" : "123456789-001",
+    ...
+    "_links" : {
+      "self" : {
+        "href" : "http://localhost/products/c5eb5ee1-2c1f-4aad-8b85-ed9a4ed9d250"
+      },
+      "google-shopping" : {
+        "href" : "http://google-shopping/google-products/c5eb5ee1-2c1f-4aad-8b85-ed9a4ed9d250"
+      },
+      ...
+    }
+  }
+</code></pre>
+            </section>
+
         </section>
 
         <!-- ================================================================= -->
