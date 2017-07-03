@@ -256,7 +256,73 @@
         <!-- ================================================================= -->
 
         <section>
-            <h2>TBA</h2>
+            <h2>Introduction of category label</h2>
+
+            <section>
+              <h3>Motivation</h3>
+
+              <div>
+                <em>
+                  We want clients like <code>merchant-ui</code> to be able to <strong>retrieve</strong>
+                  a particular <strong>category</strong> using a well-known <strong>logical identifier</strong>.
+                </em>
+              </div>
+            </section>
+
+            <section>
+<pre><code data-trim>GET /categories</code></pre>
+<pre><code data-trim data-noescape style="font-size: 80%;">
+{
+  "_embedded" : {
+    "categories" : [ {
+      "name" : <mark>"All Products"</mark>,
+      "_links" : {
+        "products" : {
+          "href" : "/categories/b5b80f42-a0d1-4672-84e5-95f2ed7bbcf0/products"
+        }
+      }
+    }, {
+      "name" : "Furniture",
+      "_links" : {
+        "products" : {
+          "href" : "/categories/f69a693c-8542-42cc-b467-c61ea497ef40/products"
+        }
+      }
+    } ]
+  }
+}
+</code></pre>
+            </section>
+
+            <section>
+<pre><code data-trim>GET /categories/search/find-by-label?label=all-products</code></pre>
+<pre><code data-trim style="font-size: 80%;">
+{
+  "name" : "Alle Produkte",
+  "label" : "all-products",
+  "_links" : {
+    "products" : {
+      "href" : "/categories/b5b80f42-a0d1-4672-84e5-95f2ed7bbcf0/products"
+    }
+  }
+}
+</code></pre>
+
+<a href="https://jensfischerhh.beyondshop.cloud/api/product-view/categories/search/find-by-label?label=all-products" target="_findbylabel">https://jensfischerhh.beyondshop.cloud/api/product-view/categories/search/find-by-label?label=all-products</a>
+            </section>
+
+            <section>
+              <h3>Characteristics</h3>
+
+              A category label
+
+              <ul>
+                <li>is a mandatory logical identifier for a category</li>
+                <li>is unique per shop</li>
+                <li>is independent from the language of a shop</li>
+                <li>will be derived from the category name if not specified on category creation</li>
+              </ul>
+            </section>
         </section>
 
         <!-- ================================================================= -->
