@@ -264,8 +264,9 @@
 
               <div>
                 <em>
-                  We want clients like <code>merchant-ui</code> to be able to <strong>retrieve</strong>
-                  a particular <strong>category</strong> using a well-known <strong>logical identifier</strong>.
+                  We want clients to be able <br>
+                  to <strong>retrieve</strong> a particular <strong>category</strong> <br>
+                  using a well-known <strong>logical identifier</strong>.
                 </em>
               </div>
             </section>
@@ -313,15 +314,20 @@
             </section>
 
             <section>
-              <h3>Characteristics</h3>
-
-              A category label
+              A <strong>category label</strong>
 
               <ul>
                 <li>is a mandatory logical identifier for a category</li>
                 <li>is unique per shop</li>
                 <li>is independent from the language of a shop</li>
                 <li>will be derived from the category name if not specified on category creation</li>
+              </ul>
+
+              <ul>
+                <li class="fragment"><code>&quot;Shoes&quot;</code> &rArr; <code>&quot;shoes&quot;</code></li>
+                <li class="fragment"><code>&quot;Shoes&quot;</code> &rArr; <code>&quot;shoes-1&quot;</code></li>
+                <li class="fragment"><code>&quot;Schuhe für Damen&quot;</code> &rArr; <code>&quot;schuhe-fur-damen&quot;</code></li>
+                <li class="fragment"><code>&quot;南无阿弥陀佛&quot;</code> &rArr; <code>&quot;nan-wu-a-mi-tuo-fo&quot;</code></li>
               </ul>
             </section>
         </section>
