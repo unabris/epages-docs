@@ -16,6 +16,15 @@ function runDocker() {
   "epages/reveal.js:latest"
 }
 
+function findChrome() {
+  EXPECTED_MACOSPATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+  if which "google-chrome" &>/dev/null ;then
+    echo "google-chrome"
+  elif [ -x "$EXPECTED_MACOSPATH" ] ;then
+    echo "$EXPECTED_MACOSPATH"
+  fi
+}
+
 # ------------------------------------------------------------------------------
 
 while getopts ":d:p:o:" opt; do
@@ -65,10 +74,12 @@ touch $PRESENTATION_DIR/index.html
 
 if [ -n "$OUTPUT_FILE" ] ;then
   shift
+  CHROME=$(findChrome)
+  [ -z "$CHROME" ] && echo "Cannot find google-chrome" && exit 1
   runDocker &
   PID=$!
   sleep 5
-  google-chrome --headless --disable-gpu --print-to-pdf="$OUTPUT_FILE" "http://${DOCKER_IP:-localhost}:8000/?print-pdf"
+  "$CHROME" --headless --disable-gpu --print-to-pdf="$OUTPUT_FILE" "http://${DOCKER_IP:-localhost}:8000/?print-pdf"
   kill $PID
   docker kill $CONTAINER_NAME &>/dev/null
 else
