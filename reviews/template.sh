@@ -4,23 +4,40 @@ SCRIPTDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 [ -f "${BASH_SOURCE[0]}.settings" ] && . "${BASH_SOURCE[0]}"
 
 POWERPOINT_PATH="$SCRIPTDIR/../powerpoint.exe"
+REVIEW_WEEKDAY="tuesday" # for date guessing
 
-if [ "$#" -ne 3 ] ;then
-    cat <<EOF
+
+function usage() {
+  cat <<EOF
 Usage
-    ./template.sh <DATE> <SPRINT_NUMBER> <SPRINT_NAME>
+  ./template.sh [<DATE>] <SPRINT_NUMBER> <SPRINT_NAME>
 Examples
-    ./template.sh 20170101 01 "This is it!"
+  ./template.sh 20170101 01 "This is it!"
 EOF
-    exit 1
+}
+
+function isMac() {
+  [[ "$(uname)" == "Darwin" ]]
+}
+
+
+if [ $# -lt 2 -o $# -gt 3 ] ;then
+  usage
+  exit 1
 fi
 
+if [ $# -ge 3 ]; then
+  DATE="$1"
+  shift
+else
+  isMac && 1>&2 echo -e "MacOS date guessing is not supported atm" && echo && usage && exit 1
+  DATE=$(date --date="$REVIEW_WEEKDAY" +%Y%m%d)
+fi
 
-DATE="$1"
-SPRINT_NUMBER="$2"
-SPRINT_TITLE="$3"
+SPRINT_NUMBER="$1"
+SPRINT_TITLE="$2"
 
-if [[ "$(uname)" == "Darwin" ]]; then
+if isMac ;then
   # explicitly use fully qualified path pointing to "broken" date binary on vanilla Mac OS X.
   # Alternatively use /usr/local/opt/coreutils/libexec/gnubin/date after installing it with homebrew.
   SONARDASH_DATE=$(/bin/date -j -f %Y%m%d -v-14d "$DATE" +%Y-%m-%d)
