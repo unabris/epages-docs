@@ -632,23 +632,50 @@
         <!-- ================================================================= -->
 
         <section data-state="deployments">
+          <!-- ./cdp.sh 20170704 0930 | xmllint --format - -->
             <h2>Production Deployments</h2>
-
-            <div id="deployments" style="font-size: 500%; color: green; text-shadow: 0 0 3px #0c3, 8px 8px 15px #333;">0</div>
-
-            <script src="js/custom/countUp.js"></script>
-            <script>
-            var options = {
-              useEasing : true,
-              useGrouping : true,
-              separator : ',',
-              decimal : '.',
-              prefix : '',
-              suffix : ''
-            };
-
-            var deployments = new CountUp("deployments", 0, 9999, 0, 5.0, options);
-            </script>
+            <table class="cdp">
+              <thead>
+                <tr>
+                  <th>repo</th>
+                  <th>deployments</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>epages/ng-google-shopping</td>
+                  <td>9</td>
+                </tr>
+                <tr>
+                  <td>epages/ng-auth</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>epages/ng-checkout</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>epages/ng-site</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>epages/ng-order</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>epages/ng-shop</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>epages/ng-storage-proxy</td>
+                  <td>2</td>
+                </tr>
+                <tr class="all">
+                  <td>all</td>
+                  <td> 36 </td>
+                </tr>
+              </tbody>
+            </table>
         </section>
 
         <!-- ================================================================= -->
