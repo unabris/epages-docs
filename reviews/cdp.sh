@@ -17,13 +17,13 @@ else
 fi
 
 # Fetch build history from CDP Jenkins.
-CDP=$(http --verify no --timeout 180 --body https://cdp.epages.works/job/cdp/api/json tree==builds[timestamp,result,description])
+CDP=$(http --verify no --timeout 180 --body https://cdp.epages.works/job/cdp/api/json tree==allBuilds[timestamp,result,description])
 
 # Filter newest successful builds and transform their JSON structure by splitting off the repo name from description.
 # Sort the filtered list by number of deployments, highest first, followed by repo name.
 DEPLOYMENTS=$(echo $CDP | \
   jq --arg since $SINCE '
-    .builds
+    .allBuilds
     | map( select(.timestamp >= ($since | tonumber)) )
     | map( select(.result | tostring | contains("SUCCESS")) )
     | map( { repo: .description | split(" ") | (.[0]) } )
