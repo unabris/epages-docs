@@ -26,6 +26,7 @@ DEPLOYMENTS=$(echo $CDP | \
     .allBuilds
     | map( select(.timestamp >= ($since | tonumber)) )
     | map( select(.result | tostring | contains("SUCCESS")) )
+    | map( select(.description != null))
     | map( { repo: .description | split(" ") | (.[0]) } )
     | group_by( .repo )
     | map( { "repo": .[0].repo, "deployments": length } )
