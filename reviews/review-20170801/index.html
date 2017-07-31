@@ -210,36 +210,64 @@ not ok 4 - Summarized correctly # SKIP feature disabled</pre></code>
           <section>
             <h3><a href="http://build.epages.works:8080/job/ng_cluster_gateway_image/" target="_blank">Jenkins Job: ng-cluster-gateway</a></h3>
           </section>
-        </section>
 
+        </section>
         <!-- ================================================================= -->
 
         <section>
+
             <h2>dynamic SSL certificates</h2>
 
+            <section>
+                <h3>Motivation</h3>
+                <ul>
+                    <li>enable custom domains</li>
+                    <li>enable SSL while using custom domains</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Goals</h3>
+                <ul>
+                    <li>no manual configuration effort</li>
+                    <li>store custom SSL certificates in a central storage
+                    <li>prevent the necessity to restart <strong><i>ng-cluster-gateway</i></strong></li>
+                </ul>
+            </section>
+
+            <section>
+                <h4>serving static wildcard SSL certificate</h4>
+                <ul>
+                    <li>only support SSL for subdomains of <strong><i>.beyondshop.cloud</i></strong></li>
+                </ul>
+            </section>
+
             <section data-transition="slide-in none">
-                <h4>Static wildcard SSL certificate</h4>
                 <img src="img/clustergateway-default-ssl-certificates-001.png" style="margin-top: 33px; border: 0; box-shadow: none;" />
             </section>
 
             <section data-transition="slide-in none">
-                <h4>Static wildcard SSL certificate</h4>
                 <img src="img/clustergateway-default-ssl-certificates-002.png" style="border: 0; box-shadow: none;" />
             </section>
 
             <section data-transition="slide-in none">
-                <h4>Static wildcard SSL certificate</h4>
                 <img src="img/clustergateway-default-ssl-certificates-003.png" style="border: 0; box-shadow: none;" />
             </section>
 
             <section data-transition="slide-in none">
-                <h4>Static wildcard SSL certificate</h4>
                 <img src="img/clustergateway-default-ssl-certificates-004.png" style="border: 0; box-shadow: none;" />
             </section>
 
             <section data-transition="slide-in none">
-                <h4>Static wildcard SSL certificate</h4>
                 <img src="img/clustergateway-default-ssl-certificates-005.png" style="border: 0; box-shadow: none;" />
+            </section>
+
+            <section>
+                <h4>serving SSL certificates dynmaically</h4>
+                <ul>
+                    <li>custom certificates are persisted in a central storage (<i>MySQL</i> database)</li>
+                    <li>enhanced our <strong><i>ng-cluster-gateway</i></strong> to server custom certificates dynamically using <a href="https://www.lua.org/">Lua</a></li>
+                </ul>
             </section>
 
             <section data-transition="slide-in none">
