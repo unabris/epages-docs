@@ -137,14 +137,75 @@
         <!-- ================================================================= -->
 
         <section>
-            <h2>automated tests for Docker Image builds</h2>
+            <h2>Automated tests for Docker Image builds</h2>
 
             <section>
-                # TODO
+              <h3>Motivation</h3>
+              <ul>
+                <li>increasing complexity of ng-cluster-gateway</li>
+                <li>confidence in making big changes</li>
+              </ul>
             </section>
 
-        </section>
+            <section>
+              <h3>Goals</h3>
+              <ul>
+                <li>integration tests using the real docker images</li>
+                <li>easy debuggability</li>
+                <li>generic structure to use as a template</li>
+              </ul>
+            </section>
 
+            <section>
+              <h3>Preparatory Work</h3>
+              <ul>
+                <li>create/adjust local docker-compose environment</li>
+                <li>evaluate test framework & write tests</li>
+                <li>enabling jenkins to run test setup</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Jenkins Job Structure</h3>
+              <dl>
+                <dt>1. docker-build.sh</dt>
+                <dd>builds <span style="font-size:70%"><i class="fa fa-tag"></i><code>TIMESTAMP</code></span></dd>
+                <dt>2. docker-test.sh</dt>
+                <dd>tests <span style="font-size:70%"><i class="fa fa-tag"></i><code>TIMESTAMP</code> <td style="font-size:70%">(or derived)</span></dd>
+                <dt>3. docker-push.sh</dt>
+                <dd>pushes <span style="font-size:70%"><i class="fa fa-tag"></i><code>TIMESTAMP</code> <i class="fa fa-tag"></i><code>latest</code></span></span></dd>
+                <dt>4. docker-cleanup.sh</dt>
+                <dd>removes build artifacts</dd>
+              </dl>
+            </section>
+
+            <section>
+              <h3>docker-test</h3>
+              <ul>
+                <li><code>docker</code> & <code>docker-compose</code> enabled</li>
+                <li>produces:
+                  <ul>
+                    <li>log file(s)</li>
+                    <li><a href="http://testanything.org/">TAP</a> file(s)</li>
+                  </ul>
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <h3><b>T</b>est <b>A</b>nything <b>P</b>rotocol</h3>
+              <h4>Example</h4>
+              <pre><code>1..4
+ok     1 - Input file opened
+not ok 2 - First line of the input valid
+# line did not match the given regular expression
+ok     3 - Read the rest of the file
+not ok 4 - Summarized correctly # SKIP feature disabled</pre></code>
+          </section>
+
+          <section>
+            <h3><a href="http://build.epages.works:8080/job/ng_cluster_gateway_image/" target="_blank">Jenkins Job: ng-cluster-gateway</a></h3>
+          </section>
         <!-- ================================================================= -->
 
         <section>
