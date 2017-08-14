@@ -60,7 +60,7 @@ PRESENTATION_DIR=$(cd "$DIR"; pwd)
 HOST_PORT="${HOST_PORT:-8000}"
 
 if [ "$HOST_PORT" != "8000" ]; then
-  CONTAINER_NAME="${CONTAINER_NAME}_${HOST_PORT}"
+  CONTAINER_NAME="${CONTAINER_NAME}${HOST_PORT}"
 fi
 
 echo "Starting up Wine environment..."
