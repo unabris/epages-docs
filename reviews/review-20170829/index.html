@@ -53,7 +53,7 @@
         }
 
         table.metrics {
-            font-size: 70%;
+            font-size: 45%;
         }
 
         table.metrics tr.glowing:focus {
@@ -66,6 +66,7 @@
 
         table.metrics th {
             text-align: center;
+            font-size: 12pt;
         }
 
         table.metrics .metrics-name {
@@ -133,12 +134,230 @@
 
         <section>
             <h2>Quality Metrics</h2>
-            <!--
-                git clone https://github.com/jensfischerhh/sonardash.git
-                cd sonardash
-                ./gradlew bootRun
-                open http://localhost:3274/delta?&from=2017-08-15&hide=title&hide=resource-link&nameFilter=%20origin%2Fmaster&suppress=skipped_tests&suppress=class_complexity&suppress=test_execution_time&key=com.epages.ng:ng-api-proxy:origin/master&key=com.epages.ng:ng-auth:origin/master&key=com.epages.ng:ng-businessunit:origin/master&key=com.epages.ng:ng-product-management:origin/master&key=com.epages.ng:shared-parent:origin/master&key=com.epages.ng:ng-shop:origin/master&key=com.epages.ng:ng-site:origin/master&key=com.epages.ng:ng-tenant:origin/master&key=com.epages.ng:ng-product-view:origin/master&key=com.epages.ng:ng-tax:origin/master&key=com.epages.ng:ng-checkout:origin/master&key=com.epages.ng:ng-unity-connector:origin/master&key=com.epages.ng:ng-mail-rendering:origin/master&key=com.epages.ng:ng-order:origin/master&key=com.epages.ng:ng-mail-gateway:origin/master&key=com.epages.ng:ng-pdf-rendering:origin/master&key=com.epages.ng:ng-storage-proxy:origin/master&key=com.epages.ng:ng-legal-content:origin/master
-            -->
+
+            <table class="metrics table table-condensed table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="metrics-name" colspan="1" rowspan="1"><span>Name</span></th>
+                        <th colspan="2" rowspan="1">Lines of Code</th>
+                        <th colspan="2" rowspan="1">Classes</th>
+                        <th colspan="2" rowspan="1">Violations</th>
+                        <th colspan="2" rowspan="1">Test Coverage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-api-proxy</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>633</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>27</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>6</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>93.2%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.0%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-auth</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>4,090</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+5)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>125</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>43</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>82.3%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.0%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-certificate-management</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>862</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+34)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>27</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+1)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>12</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>66.5%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+5.3%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-checkout</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>7,193</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+17)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>212</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>57</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+1)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>81.6%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.1%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-google-shopping</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>3,718</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+151)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>107</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+2)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>28</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+1)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>84.2%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.7%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-mail-gateway</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>613</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>26</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>4</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>82.0%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.0%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-mail-rendering</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>420</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>15</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>4</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>88.4%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.0%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-order</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>5,247</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+28)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>168</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+1)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>45</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>81.8%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(-0.2%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-paypal-express</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>2,108</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+195)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>92</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+8)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>24</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+1)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>62.1%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.3%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-pdf-rendering</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>1,156</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>43</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>13</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>84.3%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.0%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-product-management</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>7,007</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>183</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>64</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>84.6%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.2%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-product-view</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>4,124</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>147</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>35</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>81.8%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.0%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-shop</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>3,063</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>97</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>28</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>74.6%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.0%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-site</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>2,308</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+455)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>76</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+12)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>27</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+5)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>78.8%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+3.0%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-storage-proxy</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>198</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>4</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>3</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>87.9%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.0%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-tax</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>1,313</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>41</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>16</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>85.0%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.0%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>ng-unity-connector</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>819</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>24</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>8</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>85.5%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.0%)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>shared-parent</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>6,994</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+7)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>217</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>58</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+1)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>72.2%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.0%)</span></td>
+                    </tr>
+                    <tr class="summary">
+                        <td class="metrics-name" colspan="1" rowspan="1"><span>Summary</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>51,866</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+892)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>1,631</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+24)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>475</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-decrease">(+9)</span></td>
+                        <td class="metric-value" colspan="1" rowspan="1"><span>80.9%</span></td>
+                        <td class="metric-delta" colspan="1" rowspan="1"><span class="metric-improve">(+0.5%)</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
         </section>
 
         <!-- ================================================================= -->
