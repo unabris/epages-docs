@@ -639,20 +639,24 @@
             </section>
 
             <section>
-              <pre><code>POST /sites/uuid/hostnames</pre></code>
+              <pre><code>POST /sites/{uuid}/hostnames
+{
+  "hostname" : "drones.com"
+}
+              </pre></code>
               <pre><code>201 Created
 {
   "hostname" : "drones.com",
   "sslReady" : false,
-  "_id" : "uuid"
+  "_id" : "{uuid}"
 }
               </pre></code>
             </section>
 
             <section>
-              <pre><code>POST /sites/uuid/hostnames</pre></code>
-              <pre><code>GET /sites/uuid/hostnames/uuid</pre></code>
-              <pre><code>DELETE /sites/uuid/hostnames/uuid</pre></code>
+              <pre><code>POST /sites/{uuid}/hostnames</pre></code>
+              <pre><code>GET /sites/{uuid}/hostnames/{uuid}</pre></code>
+              <pre><code>DELETE /sites/{uuid}/hostnames/{uuid}</pre></code>
             </section>
 
             <section>
