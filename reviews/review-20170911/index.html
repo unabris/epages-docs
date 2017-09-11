@@ -114,6 +114,63 @@
         <!-- ================================================================= -->
 
         <section>
+          <h2>Rolling out custom domains</h2>
+          <style>
+            .reveal .sprint {
+              float: left;
+              margin: 10px;
+              padding: 5px 10px 5px 10px;
+              border-width: 3px;
+              border-color: rgba(0, 0, 0, .2);
+              border-radius: 20px;
+              border-style: solid;
+              font-size: 120%;
+              font-style: italic;
+            }
+
+            .reveal .component {
+              float: left;
+              margin: 10px;
+              padding: 5px 10px 5px 10px;
+              border-width: 3px;
+              border-color: rgba(0, 0, 0, .2);
+              border-radius: 3px;
+              box-shadow: 5px 5px 2px rgba(0, 0, 0, .5);
+              font-size: 120%;
+              font-weight: bold;
+            }
+            .reveal .internal {
+              border-style: solid;
+            }
+            .reveal .external {
+              border-style: dashed;
+            }
+          </style>
+          <p>
+            Feature involves flawless interaction of these components
+          </p>
+
+          <div>
+            <div class="fragment sprint" data-fragment-index="1">Sprint 9</div>
+            <div class="fragment sprint" data-fragment-index="2">Sprint 10</div>
+            <div class="fragment sprint" data-fragment-index="3">Sprint 11</div>
+            <div class="fragment sprint" data-fragment-index="4">Sprint 12</div>
+          </div>
+
+          <div>
+            <div class="fragment component internal" data-fragment-index="4" style="background: hsl(0, 100%, 85%);">signup</div>
+            <div class="fragment component internal" data-fragment-index="4" style="background: hsl(43, 100%, 85%);">provisioning</div>
+            <div class="fragment component internal" data-fragment-index="3" style="background: hsl(86, 100%, 85%);">site</div>
+            <div class="fragment component external" data-fragment-index="1" style="background: hsl(129, 100%, 85%);">Let's Encrypt</div>
+            <div class="fragment component internal" data-fragment-index="2" style="background: hsl(172, 100%, 85%);">certificate-management</div>
+            <div class="fragment component internal" data-fragment-index="4" style="background: hsl(215, 100%, 85%);">unity-connector</div>
+            <div class="fragment component internal" data-fragment-index="4" style="background: hsl(258, 100%, 85%);">unity-ui</div>
+            <div class="fragment component internal" data-fragment-index="1" style="background: hsl(301, 100%, 85%);">cluster-gateway</div>
+          </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <section>
             <h2>Sign up improvements</h2>
 
             <section>
