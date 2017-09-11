@@ -137,6 +137,55 @@
         <!-- ================================================================= -->
 
         <section>
+            <h2>Service names removal</h2>
+
+            <section>
+              <h3>Before</h3>
+              <ul style="list-style-type: none">
+                <li>
+                  <code>/api/provisioning/provisioning</code>
+                </li>
+                <li>
+                  <code>/api/site/sites</code>
+                </li>
+                <li>
+                  <code>/api/product-management/products</code>
+                </li>
+                <li>
+                  <code>/api/product-view/products</code>
+                </li>
+                <li>
+                  <code>/api/shop/shops/{shopId}</code>
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>After</h3>
+              <ul style="list-style-type: none">
+                <li>
+                  <code>/api/<s>provisioning/</s>provisioning<strong>s</strong></code>
+                </li>
+                <li>
+                  <code>/api/<s>site/</s>sites</code>
+                </li>
+                <li>
+                  <code>/api/<s>product-management/</s>products</code>
+                </li>
+                <li>
+                  <code>/api/product-view/products</code>
+                </li>
+                <li>
+                  <code>/api/shop/shops/{shopId}</code>
+                </li>
+              </ul>
+            </section>
+
+        </section>
+
+        <!-- ================================================================= -->
+
+        <section>
             <h2>Next Steps</h2>
         </section>
 
