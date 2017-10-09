@@ -120,7 +120,60 @@
         <!-- ================================================================= -->
 
         <section>
-            <h2>API Docs improvements</h2>
+            <section>
+                <h2>API Docs improvements</h2>
+                <ul style="list-style-type: none">
+                    <li class="fragment"><i class="fa fa-link" style="margin: 8px;" aria-hidden="true"></i>URI improvements to all amber services</li>
+                    <li class="fragment"><i class="fa fa-lock" style="margin: 15px;" aria-hidden="true"></i>New scope schema for <strong>product-view</strong> and <strong>-mgmt</strong></li>
+                    <li class="fragment"><i class="fa fa-shopping-cart" style="margin: 10px;" aria-hidden="true"></i>New shop resource concept</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>URI improvements</h3>
+
+                <p>to all amber services</p>
+
+                <strong>Before</strong>
+                <pre><code>http://localhost/...</code></pre>
+
+                <strong>After</strong>
+                <pre><code>https://yourshop.api.urn/...</code></pre>
+            </section>
+
+            <section>
+                <h3>Migrate to new scope schema</h3>
+
+                <p><strong>ng-product-view</strong> and <strong>ng-product-management</strong></p>
+
+                <strong>Before</strong>
+                <pre><code>products.read
+products.create
+products.update
+products.delete
+...</code></pre>
+
+                <strong>After</strong>
+                <pre><code>prod:r
+prod:c
+prod:u
+prod:d
+... </code></pre>
+            </section>
+
+            <section>
+                <h3>New shop endpoint concept</h3>
+
+                <p>Old routes are still available yet</p>
+
+                <strong>Before</strong>
+                <pre><code>/api/shop/shops/{id}</code></pre>
+                <pre><code>/api/shop/images</code></pre>
+
+                <strong>After</strong>
+                <pre><code>/api/shop</code></pre>
+                <pre><code>/api/shop/images</code></pre>
+            </section>
         </section>
 
         <!-- ================================================================= -->
