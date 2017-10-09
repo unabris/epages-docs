@@ -125,6 +125,51 @@
 
         <section>
             <h2>SSL Certificates renewal</h2>
+
+            <section>
+              <h3>Initial certificate creation</h3>
+
+              <img src="img/custom_domains_site_changes_renewal_slide_1.svg" class="noborder">
+            </section>
+
+            <section>
+              <h3>Motivation</h3>
+              <ul>
+                <li>SSL certificates lifetime is limited (90 days)</li>
+                <li>We want certificate renewal process to be automated</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Challenges</h3>
+              <ul>
+                <li>Follow Let's Encrypt guidelines:
+                  <ul>
+                    <li>Honor rate limits</li>
+                    <li>Spread interaction across the time</li>
+                  </ul>
+                </li>
+                <li>Work in a clustered environment</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Certificate renewal highlights</h3>
+                <ul>
+                  <li>Concern of ng-certificate-management only</li>
+                  <li>Certificate renewal is a periodic activity</li>
+                    <ul>
+                      <li>Renewal starts 30 days before expiration</li>
+                      <li>In case of problems renewal is retried next day</li>
+                    </ul>
+                  <li>Implemented using Quartz supporting clustered mode</li>
+                </ul>
+              </section>
+
+              <section>
+                <h3>Certificate renewal overview</h3>
+                <img src="img/custom_domains_site_changes_renewal_slide_2.svg" class="noborder">
+              </section>
         </section>
 
         <!-- ================================================================= -->
