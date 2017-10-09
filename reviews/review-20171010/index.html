@@ -181,7 +181,15 @@ prod:d
         <section>
             <h2>Cascading Deletes</h2>
 
-            <p><strong>ng-certificate-management</strong> now picks up <code>*.site.deleted.event</code> and removes the belonging certificates of that site.</p>
+            <div class="fragment">
+                <strong>ng-product-view</strong> on <strong><code>*.shop.deleted.event</code></strong>:
+                <p>removes all assosiated data</p>
+            </div>
+
+            <div class="fragment">
+                <strong>ng-certificate-management</strong> on <strong><code>*.site.deleted.event</code></strong>:
+                <p>removes all belonging SSL certificates</p>
+            </div>
         </section>
 
         <!-- ================================================================= -->
