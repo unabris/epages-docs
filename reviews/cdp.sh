@@ -13,7 +13,7 @@ fi
 if [[ "$(uname)" == "Darwin" ]]; then
   SINCE=$(echo $(/bin/date -u -j -f "%Y%m%d %H%M" "$1 $2" +%s)000)
 else
-  SINCE=$(date --utc -d "$1 $2" +%s)
+  SINCE=$(date --utc -d "$1 $2" +%s)000
 fi
 
 # Fetch build history from CDP Jenkins.
