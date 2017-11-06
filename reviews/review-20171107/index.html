@@ -227,6 +227,145 @@
       <!-- ================================================================= -->
 
       <section>
+        <h2>Purchasability</h2>
+        <table>
+          <tr>
+            <th>stockManaged</th>
+            <th>stockLevel</th>
+            <th>availabilityState</th>
+          </tr>
+          <tr>
+            <td>true</td>
+            <td>0</td>
+            <td>OUT_OF_STOCK</td>
+          </tr>
+          <tr>
+            <td>true</td>
+            <td>> stockThreshold </td>
+            <td>IN_STOCK</td>
+          </tr>
+          <tr>
+            <td>true</td>
+            <td><= stockThreshold</td>
+            <td>LOW_STOCK</td>
+          </tr>
+          <tr>
+            <td>false</td>
+            <td>?</td>
+            <td>IN_STOCK</td>
+          </tr>
+        </table>
+      </section>
+
+      <section>
+        <h3>Purchasability</h3>
+        <table>
+          <tr>
+            <th style="color: blue">purchasable</th>
+            <th>stockManaged</th>
+            <th>stockLevel</th>
+            <th>availabilityState</th>
+          </tr>
+          <tr>
+            <td style="color: blue">true</td>
+            <td>true</td>
+            <td>0</td>
+            <td>OUT_OF_STOCK</td>
+          </tr>
+          <tr>
+            <td style="color: blue">true</td>
+            <td>true</td>
+            <td>> stockThreshold </td>
+            <td>IN_STOCK</td>
+          </tr>
+          <tr>
+            <td style="color: blue">true</td>
+            <td>true</td>
+            <td><= stockThreshold</td>
+            <td>LOW_STOCK</td>
+          </tr>
+          <tr>
+            <td style="color: blue">true</td>
+            <td>false</td>
+            <td>?</td>
+            <td>IN_STOCK</td>
+          </tr>
+          <tr style="color: blue">
+            <td>false</td>
+            <td>true</td>
+            <td>?</td>
+            <td>NOT_AVAILABLE</td>
+          </tr>
+          <tr style="color: blue">
+            <td>false</td>
+            <td>false</td>
+            <td>?</td>
+            <td>NOT_AVAILABLE</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h3>Enabling purchasability</h3>
+        <pre><code style="font-size: 75%;">POST /products/{id}/availability/enable-purchasability</code></pre>
+        <pre><code data-trim>
+{
+  "availabilityState" : "IN_STOCK",
+  "availableStock" : null,
+  "stockThreshold" : null,
+  "purchasable" : true,
+  "_links" : {
+    "product" : {
+      "href" : "https://.../products/76...f45"
+    },
+    "self" : {
+      "href" : "https://.../products/76...f45/availability"
+    },
+    "disable-purchasability" : {
+      "href" : "https://.../products/76...f45/availability/disable-purchasability"
+    },
+    "enable-stock-management" : {
+      "href" : "https://.../products/76...f45/availability/enable-stock-management"
+    }
+  }
+}
+</code></pre>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h3>Disabling purchasability</h3>
+        <pre><code style="font-size: 75%;">POST /products/{id}/availability/disable-purchasability</code></pre>
+        <pre><code data-trim>
+{
+  "availabilityState" : "NOT_AVAILABLE",
+  "availableStock" : null,
+  "stockThreshold" : null,
+  "purchasable" : false,
+  "_links" : {
+    "product" : {
+      "href" : "https://.../products/76...f45"
+    },
+    "self" : {
+      "href" : "https://.../products/76...f45/availability"
+    },
+    "enable-purchasability" : {
+      "href" : "https://.../products/76...f45/availability/enable-purchasability"
+    },
+    "enable-stock-management" : {
+      "href" : "https://.../products/76...f45/availability/enable-stock-management"
+    }
+  }
+}
+</code></pre>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
         <h2>Next Steps</h2>
 
         <ul>
