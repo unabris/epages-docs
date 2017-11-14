@@ -101,9 +101,9 @@ date-meta:  13.06.2017
  - Update __ng-googleshopping__ to assume it's feature always enabled & cleanup
  - Update __ng-checkout__ to assume it's feature always enabled & cleanup
  - Update __MBO__ to assume 2 mentioned feature are enabled
- - Drop features related stuff from __ng-shop__
- - Drop features related stuff from __ng-site__
- - Write Site Feature from scratch
+ - Drop old Features related stuff from __ng-shop__
+ - Drop old Features related stuff from __ng-site__
+ - Write Site Features from scratch
  - Enable feature validation in __ng-googleshopping__, __ng-checkout__, __MBO__
 
 ------------------
