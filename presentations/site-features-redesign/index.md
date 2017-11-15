@@ -98,8 +98,8 @@ date-meta:  13.06.2017
 ------------------
 
 # Delivery & Implementation plan:
- - Update __ng-googleshopping__ to assume it's feature always enabled & cleanup
- - Update __ng-checkout__ to assume it's feature always enabled & cleanup
+ - Update __ng-googleshopping__ to assume its feature always enabled & cleanup
+ - Update __ng-checkout__ to assume its feature always enabled & cleanup
  - Update __MBO__ to assume 2 mentioned feature are enabled
  - Drop old Features related stuff from __ng-shop__
  - Drop old Features related stuff from __ng-site__
