@@ -1,7 +1,7 @@
 ---
 pagetitle:  Site Features redesign
 author: Oleksandr Vynogradov <ovynogradov@epages.com>
-date-meta:  13.06.2017
+date-meta:  17.11.2017
 ---
 
 # Site Features Redesign
