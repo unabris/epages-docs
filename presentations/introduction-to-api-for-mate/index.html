@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Mats Andresen m.andresen@epages.com">
+  <meta name="dcterms.date" content="27.11.2017">
+  <title>Introduction meeting for MATe 3.0</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="/css/theme/solarized.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '/css/print/pdf.css' : '/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <!-- jQuery -->
+  <script src="lib/css/jquery/jquery.min.js"></script>
+  
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="lib/css/font-awesome/css/font-awesome.min.css">
+  
+  <!-- Team Black default customizations -->
+  <link rel="stylesheet" href="custom.css">
+  
+  <!-- fit an image -->
+  <script>
+      $(function() {
+      $(window).resize(function() {
+          var $i = $('.fit img');
+          var $c = $i.parent().parent().parent();
+          var i_ar = $i.width() / $i.height(), c_ar = $c.width() / $c.height();
+          $i.width(i_ar > c_ar ? $c.width() : $c.height() * (i_ar));
+      });
+      $(window).resize();
+  });
+  </script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="introduction-meeting-for-mate-3.0" class="slide level1">
+<h1>Introduction meeting for MATe 3.0</h1>
+<section id="purpose-of-mate-3.0" class="level2">
+<h2>Purpose of MATe 3.0</h2>
+<ul>
+<li>Create and manage shops</li>
+<li>Manage features assigned to shops</li>
+<li>Manage site attributes of shops</li>
+</ul>
+</section>
+<section id="capabilities-of-mate-3.0" class="level2">
+<h2>Capabilities of MATe 3.0</h2>
+<ul>
+<li>Search for shops</li>
+<li>List shops</li>
+<li>Filter shops</li>
+<li>Apply changes to one or multiple shops</li>
+</ul>
+</section>
+</section>
+<section id="shop-vs-site" class="slide level1">
+<h1>Shop vs Site</h1>
+<section id="concept" class="level2">
+<h2>Concept</h2>
+<p>In Beyond context we differenciate between a <em>Site</em> and a <em>Shop</em></p>
+</section>
+<section id="site" class="level2">
+<h2>Site</h2>
+<ul>
+<li>A <strong>Site</strong> is a shop from the perspective of a <em>reseller</em></li>
+<li>Holds properties that are configured by the <em>reseller</em></li>
+</ul>
+<p><strong>Example properties</strong>:</p>
+<ul>
+<li>available feature set (e.g. <code>paypal-express: true</code>, <code>google-shopping: false</code>, <code>max-products: 100</code>)</li>
+<li>site level attributes (e.g. <code>isDeveloperShop</code>, <code>isClosed</code>)</li>
+</ul>
+</section>
+<section id="shop" class="level2">
+<h2>Shop</h2>
+<ul>
+<li>A <strong>Shop</strong> is a shop from the perspective of a <em>merchant</em></li>
+<li>Holds properties that are configured by the <em>merchant</em></li>
+</ul>
+<p><strong>Example properties</strong>:</p>
+<ul>
+<li>shop level attributes (e.g. <code>title</code>, <code>slogan</code>, <code>isClosedByMerchant</code>)</li>
+</ul>
+</section>
+</section>
+<section id="tenancy-concept" class="slide level1">
+<h1>Tenancy Concept</h1>
+<section id="definition" class="level2">
+<h2>Definition</h2>
+<blockquote>
+<p>A <strong>Tenant</strong> is a group of users who share a common access with specific privileges to the beyond instance. The main characteristic of a tenant is the <strong>data isolation</strong> - a tenant does only see his own data.</p>
+</blockquote>
+</section>
+<section id="different-levels-of-tenancy-in-beyond" class="level2">
+<h2>Different levels of tenancy in beyond</h2>
+<ul>
+<li>A <strong>system</strong> tenant is able to access data of the entire system</li>
+<li>A <strong>merchant</strong> tenant is only able to access data belonging to his shop</li>
+<li>MATe 3.0 will require <strong>system</strong> level tenancy in order to operate on site level</li>
+</ul>
+</section>
+<section id="how-a-tenant-is-resolved" class="level2">
+<h2>How a tenant is resolved</h2>
+<ul>
+<li>Each access token carries a <code>tenantId</code> to determine it's scope</li>
+<li>The hostname is a unique identifier for a specific tenant</li>
+<li>The hostname is translated to the <code>tenantId</code> internally</li>
+</ul>
+</section>
+<section id="example" class="level2">
+<h2>Example</h2>
+<p>requesting</p>
+<pre><code>GET http://xavizon.beyondshop.cloud/api/categories</code></pre>
+<p>will translate <strong>xavizon.beyondshop.cloud</strong> to a specific <strong>tenantId</strong> and only show the data subset assosiated with this particular tenantId, in this case the categories of this shop</p>
+</section>
+</section>
+<section id="public-api-vs.-private-api" class="slide level1">
+<h1>Public Api vs. Private Api</h1>
+<section id="concept-1" class="level2">
+<h2>Concept</h2>
+<p>Some parts of our Api are for <em>internal</em> purpose one. For instance managing shops and their respective feature set.</p>
+</section>
+<section id="what-is-the-correct-version-of-api-docs" class="level2">
+<h2>What is the correct version of Api docs?</h2>
+<ul>
+<li>Api Documentation is <em>generated from our integration-tests</em></li>
+<li>On <em>each build</em> we run those integration tests</li>
+<li><em>Latest build docs will always be up to date</em> with the latest changes</li>
+</ul>
+</section>
+<section id="where-to-find" class="level2">
+<h2>Where to find?</h2>
+<ul>
+<li>On <a href="http://docs.beyondshop.cloud">docs.beyondshop.cloud</a> you will only find the <strong>public</strong> part of our Api documented.</li>
+<li>On our <a href="http://build.epages.works:8080/">build jenkins</a> you will find the latest version of documnetation for each microservice, those also contain <strong>private</strong> parts of our Api.</li>
+<li><a href="http://build.epages.works:8080/job/core_auth_build/REST_API_Documentation/">Docs of ng-auth</a></li>
+<li><a href="http://build.epages.works:8080/job/shopadmin_provisioning_build/REST_API_Documentation/">Docs of ng-provisioning</a></li>
+<li><a href="http://build.epages.works:8080/job/shopadmin_site_build/REST_API_Documentation/">Docs of ng-site</a></li>
+</ul>
+</section>
+</section>
+<section id="shop-creation" class="slide level1">
+<h1>Shop Creation</h1>
+<section id="status-quo" class="level2">
+<h2>Status Quo</h2>
+<ul>
+<li>Provisioning of new shops is sole reposibility of <a href="https://github.com/epages-de/ng-provisioning">ng-provisioning</a> microservice</li>
+<li>Right now the <a href="https://github.com/epages-de/ng-signup">ng-signup</a> is used to trigger the shop provisioning</li>
+<li>ng-signup should be replaced by MATe 3.0</li>
+</ul>
+</section>
+<section id="concept-2" class="level2">
+<h2>Concept</h2>
+<figure>
+<img src="img/shop-provisioning-concept.png" />
+</figure>
+</section>
+</section>
+<section id="provisioning-service" class="slide level1">
+<h1>Provisioning Service</h1>
+<section id="characteristics-of-ng-provisioning" class="level2">
+<h2>Characteristics of ng-provisioning</h2>
+<ul>
+<li>Accepts <em>JSON</em> payload with all initial shop data</li>
+<li>Orchestrates the creation by exeucting subsequent steps</li>
+<li>Is of <strong>asynchronous</strong> nature</li>
+<li>Is part of <strong>private API</strong></li>
+</ul>
+</section>
+<section id="how-to-use-ng-provisioning" class="level2">
+<h2>How to use ng-provisioning</h2>
+<ul>
+<li><a href="http://build.epages.works:8080/job/shopadmin_provisioning_build/REST_API_Documentation/">Api Docuemtnation</a> describes its API</li>
+<li><p>Submit JSON payload of the shop you would like to create to</p>
+<pre><code>POST /provisionings</code></pre></li>
+<li><p>Monitor the status of you provisioning with</p>
+<pre><code>GET /provisionings/{provisioningId}</code></pre></li>
+</ul>
+</section>
+<section id="different-status-of-shop-provisioning" class="level2">
+<h2>Different Status of shop provisioning</h2>
+<ul>
+<li><code>STARTED</code> - means provisioning proccess is still ongoing</li>
+<li><code>COMPLETED</code> - means provisioning has been successful and shop is <strong>ready to use</strong></li>
+<li><code>FAILED</code> - mean provisioning failed during execution and shop is <strong>not ready to use</strong></li>
+</ul>
+</section>
+<section id="restarting-a-failed-shop-provisioning" class="level2">
+<h2>Restarting a failed shop provisioning</h2>
+<p>With <a href="https://epages.atlassian.net/browse/EPNG-2079">EPNG-2079</a> there will be the opportunity to restart failed provisionings.</p>
+<pre><code>// Restart a previously failed provisioning
+POST /provisonings/{provisioningId}/restart</code></pre>
+</section>
+</section>
+<section id="features" class="slide level1">
+<h1>Features</h1>
+<ul>
+<li>Management of features is currently in process to be re-worked</li>
+<li>Introduction will follow with one of our upcoming sprint reviews</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="/lib/js/head.min.js"></script>
+  <script src="/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/plugin/zoom-js/zoom.js', async: true },
+          { src: '/plugin/notes/notes.js', async: true },
+/* CUSTOMIZATION */
+          { src: '/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+//          { src: '/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: '/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+/* END CUSTOMIZATION */
+        ]
+      });
+    </script>
+    </body>
+</html>
