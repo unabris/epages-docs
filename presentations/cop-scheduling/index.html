@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jens Fischer j.fischer@epages.com">
+  <meta name="dcterms.date" content="30.11.2017">
+  <title>Scheduler Options</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="/css/theme/solarized.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '/css/print/pdf.css' : '/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <!-- jQuery -->
+  <script src="lib/css/jquery/jquery.min.js"></script>
+  
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="lib/css/font-awesome/css/font-awesome.min.css">
+  
+  <!-- Team Black default customizations -->
+  <link rel="stylesheet" href="custom.css">
+  
+  <!-- fit an image -->
+  <script>
+      $(function() {
+      $(window).resize(function() {
+          var $i = $('.fit img');
+          var $c = $i.parent().parent().parent();
+          var i_ar = $i.width() / $i.height(), c_ar = $c.width() / $c.height();
+          $i.width(i_ar > c_ar ? $c.width() : $c.height() * (i_ar));
+      });
+      $(window).resize();
+  });
+  </script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="cop-scheduler-options" class="slide level1">
+<h1>CoP: Scheduler Options</h1>
+<p>An introduction to the Quartz framework</p>
+</section>
+<section id="our-functional-requirements" class="slide level1">
+<h1>Our Functional Requirements</h1>
+<ul>
+<li>ensure custom domains always have a valid SSL certificate
+<ul>
+<li>regularly check for approaching expiry</li>
+<li>renew expiring certificates in time</li>
+</ul></li>
+</ul>
+</section>
+<section id="our-non-functional-requirements" class="slide level1">
+<h1>Our Non-Functional Requirements</h1>
+<ul>
+<li>rate limit: spread renewal jobs over 24h</li>
+<li>don't trigger renewal jobs on each cluster node</li>
+<li>track renewal job state for reliability</li>
+</ul>
+</section>
+<section id="quartz-job-scheduler" class="slide level1">
+<h1>Quartz Job Scheduler</h1>
+<ul>
+<li>very popular <a href="http://www.quartz-scheduler.org/">Open Source Java library</a></li>
+<li>Custom <a href="https://github.com/andrehertwig/spring-boot-starter-quartz">Spring Boot Starter</a> available</li>
+</ul>
+</section>
+<section id="setup" class="slide level1">
+<h1>Setup</h1>
+<ul>
+<li>create a set of <a href="https://github.com/ePages-de/ng-certificate-management/blob/master/src/main/resources/db/migration/V00003__CREATE_QUARTZ_TABLES.sql">DB tables</a></li>
+<li>add dependency to <code>de.chandre.quartz:spring-boot-starter-quartz</code></li>
+<li>customize <a href="https://github.com/ePages-de/ng-certificate-management/blob/master/src/main/java/com/epages/certificatemanagement/renewal/SchedulingConfiguration.java#L47">SchedulingConfiguration</a>
+<ul>
+<li>enable clustered mode</li>
+<li>configure DB access</li>
+<li>configure thread pool (size depends on DB conn pool)</li>
+<li>create <code>JobDetail</code> for <a href="https://github.com/ePages-de/ng-certificate-management/blob/master/src/main/java/com/epages/certificatemanagement/renewal/CertificateRenewalSchedulingJob.java#L31">expiry check</a></li>
+<li>create <code>Trigger</code> based on <a href="https://github.com/ePages-de/ng-certificate-management/blob/master/src/main/resources/application.yml#L10">cron expression</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="implementing-job-interface" class="slide level1">
+<h1>Implementing <code>Job</code> interface</h1>
+<ul>
+<li>extend <a href="https://github.com/spring-projects/spring-framework/blob/master/spring-context-support/src/main/java/org/springframework/scheduling/quartz/QuartzJobBean.java#L56"><code>QuartzJobBean</code></a> to allow dependency injection
+<ul>
+<li>also for runtime properties via <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/JobDataMap.java#L63"><code>JobDataMap</code></a> state</li>
+</ul></li>
+<li>implement <code>void executeInternal(JobExecutionContext)</code>
+<ul>
+<li>access input data via <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/JobExecutionContext.java#L139"><code>JobDataMap getMergedJobDataMap()</code></a></li>
+<li>store output data via <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/JobExecutionContext.java#L222"><code>void setResult(Object)</code></a></li>
+<li>rethrow as <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/JobExecutionException.java#L38"><code>JobExecutionException</code></a> to control unscheduling or re-firing of failed job</li>
+</ul></li>
+</ul>
+</section>
+<section id="programmatic-scheduling" class="slide level1">
+<h1>Programmatic scheduling</h1>
+<ul>
+<li>prepare <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/JobDetail.java#L49"><code>JobDetail</code></a> via <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/JobBuilder.java#L59"><code>JobBuilder</code></a>
+<ul>
+<li><a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/Job.java#L47"><code>Job</code></a> class for job execution</li>
+<li>durability and recovery</li>
+<li>key/value pairs in <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/JobDataMap.java#L63"><code>JobDataMap</code></a></li>
+</ul></li>
+<li>prepare <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/Trigger.java#L57"><code>Trigger</code></a> via <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/TriggerBuilder.java#L64"><code>TriggerBuilder</code></a>
+<ul>
+<li>choose <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/ScheduleBuilder.java#L22"><code>ScheduleBuilder</code></a>
+<ul>
+<li><a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/SimpleScheduleBuilder.java#L58">simple</a>, <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/CronScheduleBuilder.java#L62">cron</a>, <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/CalendarIntervalScheduleBuilder.java#L59">calendar interval</a>, <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/DailyTimeIntervalScheduleBuilder.java#L68">daily time interval</a></li>
+</ul></li>
+<li>start/end date</li>
+<li>key/value pairs in <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/JobDataMap.java#L63"><code>JobDataMap</code></a></li>
+</ul></li>
+<li>schedule execution using <a href="https://github.com/quartz-scheduler/quartz/blob/master/quartz-core/src/main/java/org/quartz/Scheduler.java#L418"><code>Scheduler#scheduleJob(JobDetail, Trigger)</code></a></li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="/lib/js/head.min.js"></script>
+  <script src="/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/plugin/zoom-js/zoom.js', async: true },
+          { src: '/plugin/notes/notes.js', async: true },
+/* CUSTOMIZATION */
+          { src: '/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+//          { src: '/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: '/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+/* END CUSTOMIZATION */
+        ]
+      });
+    </script>
+    </body>
+</html>
