@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jens Fischer j.fischer@epages.com">
+  <meta name="dcterms.date" content="01.12.2017">
+  <title>Best of Bash 2017</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="/css/theme/solarized.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '/css/print/pdf.css' : '/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <!-- jQuery -->
+  <script src="lib/css/jquery/jquery.min.js"></script>
+  
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="lib/css/font-awesome/css/font-awesome.min.css">
+  
+  <!-- Team Black default customizations -->
+  <link rel="stylesheet" href="custom.css">
+  
+  <!-- fit an image -->
+  <script>
+      $(function() {
+      $(window).resize(function() {
+          var $i = $('.fit img');
+          var $c = $i.parent().parent().parent();
+          var i_ar = $i.width() / $i.height(), c_ar = $c.width() / $c.height();
+          $i.width(i_ar > c_ar ? $c.width() : $c.height() * (i_ar));
+      });
+      $(window).resize();
+  });
+  </script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="best-of-bash-2017" class="slide level1">
+<h1>Best of Bash 2017</h1>
+<p>Twitter Follow Friday: <a href="https://twitter.com/climagic">@climagic</a></p>
+<style>
+.twitter-tweet {
+  margin: auto;
+}
+</style>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<!--
+base conversion
+https://twitter.com/adamhotep/status/910539007066624002
+
+2 commands, 1 grep.
+https://twitter.com/climagic/status/867743418931400704
+
+infinite ampersands, background
+https://twitter.com/climagic/status/906258349423038464
+
+39 character infinite ASCII maze generator
+https://twitter.com/climagic/status/906216823057735680
+
+protect yourself *specifically* from :(){ :|:& };:
+https://twitter.com/climagic/status/892771955455164417
+
+Swirly plasma background
+https://twitter.com/climagic/status/820435115499196416
+
+Bad Horse
+https://twitter.com/RikerGoogling/status/809602596683952128
+-->
+
+</section>
+<section id="decode-a-hex-encoded-string" class="slide level1">
+<h1>Decode a hex encoded string</h1>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">
+echo %42%65%20%63%61%72%65%66%75%6c%20%77%68%61%74%2f%68%6f%77%20%79%6f%75%20%64%65%63%6f%64%65%0a | xxd -p -r # Decode a hex encoded string
+</p>
+— Command Line Magic (<span class="citation" data-cites="climagic">@climagic</span>) <a href="https://twitter.com/climagic/status/912323073063505922?ref_src=twsrc%5Etfw">September 25, 2017</a>
+</blockquote>
+
+</section>
+<section id="how-to-quit-vi" class="slide level1">
+<h1>How to quit vi?</h1>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">
+man vi | grep -i quit # Maybe this is the problem. The vi man page doesn't even mention how to quit.
+</p>
+— Command Line Magic (<span class="citation" data-cites="climagic">@climagic</span>) <a href="https://twitter.com/climagic/status/895714183228084224?ref_src=twsrc%5Etfw">August 10, 2017</a>
+</blockquote>
+
+</section>
+<section id="its-all-unicorns-and-rainbows" class="slide level1">
+<h1>It's all unicorns and rainbows</h1>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">
+yes &quot;<span class="math">$(seq 231 -1 16)&amp;quot; | while read i; do printf &amp;quot;\x1b[48;5;$</span>{i}m&quot;; sleep .02; done # A &quot;rainbow&quot; in your shell.
+</p>
+— Command Line Magic (<span class="citation" data-cites="climagic">@climagic</span>) <a href="https://twitter.com/climagic/status/880851319166312448?ref_src=twsrc%5Etfw">June 30, 2017</a>
+</blockquote>
+
+</section>
+<section id="whats-the-weather" class="slide level1">
+<h1>What's the weather?</h1>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">
+curl <a href="https://t.co/auiEmqpD5i">https://t.co/auiEmqpD5i</a> # Check the weather for the next few days in Prague. ;-)
+</p>
+— Command Line Magic (<span class="citation" data-cites="climagic">@climagic</span>) <a href="https://twitter.com/climagic/status/882148015309545472?ref_src=twsrc%5Etfw">July 4, 2017</a>
+</blockquote>
+
+<p><code>curl http://wttr.in/Hamburg</code></p>
+</section>
+<section id="google-maps-for-nerds" class="slide level1">
+<h1>Google Maps for Nerds</h1>
+<blockquote class="twitter-tweet" data-cards="hidden" data-lang="en"><p lang="en" dir="ltr">
+telnet mapscii.me # For maps in your terminal from OpenStreetMap. Yes really. <a href="https://t.co/FckeNVD5Nm">pic.twitter.com/FckeNVD5Nm</a>
+</p>
+— Command Line Magic (<span class="citation" data-cites="climagic">@climagic</span>) <a href="https://twitter.com/climagic/status/875745795936587777?ref_src=twsrc%5Etfw">June 16, 2017</a>
+</blockquote>
+
+</section>
+<section id="javascript-x86-emulator" class="slide level1">
+<h1>JavaScript x86 emulator</h1>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">
+Incredible x86 emulator written in Javascript that runs Linux: <a href="https://t.co/WqzaqZ3DXh">https://t.co/WqzaqZ3DXh</a> (Oldie but goodie)
+</p>
+— Command Line Magic (<span class="citation" data-cites="climagic">@climagic</span>) <a href="https://twitter.com/climagic/status/865661181117177857?ref_src=twsrc%5Etfw">May 19, 2017</a>
+</blockquote>
+
+<p><a href="https://bellard.org/jslinux/vm.html?url=https://bellard.org/jslinux/buildroot-x86.cfg">x86 Linux 4.12.0 (Buildroot) console</a></p>
+</section>
+<section id="star-wars-in-ascii" class="slide level1">
+<h1>Star Wars in ASCII</h1>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">
+telnet towel.blinkenlights.nl # StarWars in ASCII. Also, towel! <a href="https://twitter.com/hashtag/StarWars40th?src=hash&amp;ref_src=twsrc%5Etfw">#StarWars40th</a> <a href="https://twitter.com/hashtag/TowelDay?src=hash&amp;ref_src=twsrc%5Etfw">#TowelDay</a> (Note the IPv4 and IPv6 addresses use of 42 too)
+</p>
+— Command Line Magic (<span class="citation" data-cites="climagic">@climagic</span>) <a href="https://twitter.com/climagic/status/867742339355332610?ref_src=twsrc%5Etfw">May 25, 2017</a>
+</blockquote>
+
+
+</section>
+    </div>
+  </div>
+
+  <script src="/lib/js/head.min.js"></script>
+  <script src="/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/plugin/zoom-js/zoom.js', async: true },
+          { src: '/plugin/notes/notes.js', async: true },
+/* CUSTOMIZATION */
+          { src: '/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+//          { src: '/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: '/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+/* END CUSTOMIZATION */
+        ]
+      });
+    </script>
+    </body>
+</html>
