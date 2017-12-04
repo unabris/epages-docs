@@ -223,6 +223,47 @@
         </section>
 
         <!-- ================================================================= -->
+        <section>
+            <h2>Cascading Deletes</h2>
+
+            <section>
+              <h3>Prerequisites</h3>
+              <ul style="list-style: none;">
+                <li class="fragment"><i class="fa fa-check-circle" aria-hidden="true"></i> Coordinated effort touching most of our services</li>
+                <li class="fragment"><i class="fa fa-check-circle" aria-hidden="true"></i> All planned user stories have been delivered</li>
+                <li class="fragment"><i class="fa fa-question-circle" aria-hidden="true"></i> Can't assert integration tests from outside</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Preparation</h3>
+              <ul style="list-style: none;">
+                <li class="fragment"><i class="fa fa-check-circle" aria-hidden="true"></i> Selected a number of obsolete sites for deletion</li>
+                <li class="fragment"><i class="fa fa-check-circle" aria-hidden="true"></i> Provided credentials with privileges like MATe 3.0</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Execution</h3>
+              <ul style="list-style: none;">
+                <li class="fragment"><i class="fa fa-check-circle" aria-hidden="true"></i> Issue <code>DELETE</code> request against <code>production</code> env</li>
+                <li class="fragment"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Watch logs, DLQs and DB tables</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Aftermath</h3>
+              <ul style="list-style: none;">
+                <li class="fragment"><i class="fa fa-check-circle" aria-hidden="true"></i> Fix broken code</li>
+                <li class="fragment"><i class="fa fa-check-circle" aria-hidden="true"></i> Cleanup corrupt data and DLQs</li>
+                <li class="fragment"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Create follow-up stories for resilience</li>
+              </ul>
+            </section>
+
+        </section>
+
+
+        <!-- ================================================================= -->
 
         <section>
             <h2>Provisioning restartability</h2>
