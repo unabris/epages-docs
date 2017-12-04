@@ -127,6 +127,64 @@
         <!-- ================================================================= -->
 
         <section>
+            <h2>Provisioning restartability</h2>
+
+          <section>
+            <h3>Shop provisioning: Happy path</h3>
+            <img data-src="img/restartability-1.png" class="noborder">
+          </section>
+
+          <section>
+            <figure>
+            <img data-src="img/restartability-2.jpeg" style="border: none; background: none; box-shadow: none; width: 60%;"/>
+            <figcaption>Torredembarra (Spain)</figcaption>
+          </figure>
+            <!-- <img data-src="img/restartability-2.jpeg" style="height: 90% !important"> -->
+          </section>
+
+          <section>
+            <h3>Shop provisioning: Failing scenario</h3>
+            <img data-src="img/restartability-3.png" class="noborder">
+          </section>
+
+          <section>
+            <h3>Shop provisioning: Failing scenario</h3>
+            <img data-src="img/restartability-4.png" class="noborder">
+          </section>
+
+          <section>
+            <pre><code style="font-size: 75%;">POST /provisionings</code></pre>
+            <pre><code data-trim>
+HTTP/1.1 202 Accepted
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Location: https://yourshop.api.urn/provisionings/6
+</code></pre>
+          </section>
+
+          <section>
+            <pre><code style="font-size: 75%;">POST /provisionings/6/restart</code></pre>
+            <pre><code data-trim>
+HTTP/1.1 202 Accepted
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Location: https://yourshop.api.urn/provisionings/6
+</code></pre>
+          </section>
+
+        </section>
+
+        <!-- ================================================================= -->
+
+        <section>
             <h2>Next Steps</h2>
         </section>
 
