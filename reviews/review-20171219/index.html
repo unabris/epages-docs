@@ -220,6 +220,84 @@
 
         <section>
             <h2>Site Attributes</h2>
+            
+            <section>                     
+                <h3>Requirements driven by MATe</h3>
+
+                <ul style="list-style-type: none; margin: 0;">
+                    <li class="fragment">
+                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i>Distinguish sites of different resellers   
+                    </li>
+                    <li class="fragment">
+                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i>Distinguish developers sites 
+                    </li>                    
+                    <li class="fragment">
+                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i>Provide flexible implementation ready for changes   
+                    </li>                    
+              </ul>
+            </section> 
+
+            <section>                       
+                <h3>Solution</h3>                    
+                Introduce custom string attributes to <b>ng-site</b>
+            </section>
+
+            <section>                
+                <h3>Managed via REST API</h3>
+                <ul style="list-style-type: none; margin: 0;">                                                    
+                    <li>                        
+<pre><code style="font-size: 100%;">POST /sites/{uuid}/attributes/</code></pre>
+<pre><code data-trim>
+{
+    "name"  : "reseller",
+    "value" : "La Poste",                                    
+}
+</code></pre>
+            
+<pre><code data-trim>
+HTTP/1.1 201 Created
+...
+Location: https://yourshop.api.urn/sites/{uuid}/attributes/
+</code></pre>
+
+                    </li>                    
+                </ul>                    
+            </section> 
+
+            <section>                                    
+                <ul style="list-style-type: none; margin: 0;">                                                    
+                    <li>                                
+<pre><code style="font-size: 100%;">DELETE /sites/{uuid}/reseller</code></pre>
+<pre><code data-trim>
+HTTP/1.1 204 No Content
+...
+</code></pre>        
+    
+                    </li>                    
+                </ul>                    
+            </section>
+
+            <section>                        
+                <h3>Communicate via messages to other services</h3>
+                <pre><code data-trim>
+{
+    "messageType" : "site.site-attribute.created.event",
+    "timestamp" : "2017-12-15T14:53:19.319",
+    "tenantId" : 23,
+    "payload" : {
+        "_payloadType" : "site-attribute",
+        "_refs" : {
+           "owner" : "bdb746f0-25f0-4584-a6b4-5a8bfa264993"
+        },
+        "name" : "reseller",
+        "value" : "La Poste"
+    }
+}
+</code></pre>
+                      
+                    
+                </section> 
+ 
         </section>
 
         <!-- ================================================================= -->
