@@ -58,16 +58,14 @@
 <h2>
 through the eyes of AM
 </h2>
-</section>
-<section class="slide level1">
 
-<section id="infrastructure" class="level2">
-<h2>Infrastructure</h2>
+</section>
+<section id="infrastructure" class="slide level1">
+<h1>Infrastructure</h1>
 <ul>
 <li><a href="https://cloud.google.com/">Google Cloud Platform</a>
 <ul>
-<li><a href="https://cloud.google.com/compute/">Compute Engine</a></li>
-<li><a href="https://cloud.google.com/kubernetes-engine/">Kubernetes Engine</a></li>
+<li><a href="https://cloud.google.com/compute/">Compute Engine</a>, <a href="https://cloud.google.com/kubernetes-engine/">Kubernetes Engine</a></li>
 </ul></li>
 <li>dnsimple.com (<code style="font-size: 80%;"><a href="https://dnsimple.com/a/51209/domains/epages.works/records">*.epages.works</a></code> &amp; <code style="font-size: 80%;">*.beyondshop.cloud</code>)</li>
 <li>MySQL (<a href="https://cloud.google.com/sql/">GCP Cloud SQL</a> vs. <a href="https://github.com/ePages-de/ng-docker-images/tree/master/ng-mysql-microservices">custom Docker image</a>)</li>
@@ -77,12 +75,12 @@ through the eyes of AM
 <li>ElasticSearch (<a href="https://github.com/ePages-de/ng-infra/blob/master/deploy/automated-gce/_template/manifests/product/deployments/product-elasticsearch-statefulset.yaml">self-managed</a> vs. <a href="https://github.com/ePages-de/ng-docker-images/tree/master/ng-elasticsearch">custom Docker image</a> )</li>
 </ul>
 </section>
-<section id="central-components" class="level2">
-<h2>Central components</h2>
+<section id="central-components" class="slide level1">
+<h1>Central components</h1>
 <ul>
 <li><a href="https://github.com/ePages-de/ng-cluster-gateway">ng-cluster-gateway</a>
 <ul>
-<li>SSL termination &amp; <a href="img/clustergateway-custom-ssl-certificates-010.png">dynamic lookup</a></li>
+<li>SSL termination &amp; <a href="img/clustergateway-custom-ssl-certificates-010.png">dynamic certificate lookup</a></li>
 <li><a href="https://github.com/ePages-de/ng-certificate-management">ng-certificate-management</a> using Let's Encrypt</li>
 <li><a href="https://management.beyondshop.cloud/shop/system">management.beyondshop.cloud</a> backdoor</li>
 </ul></li>
@@ -98,54 +96,62 @@ through the eyes of AM
 </ul></li>
 <li>example of some regular business PODs
 <ul>
-<li><code style="font-size: 80%;"><a href="https://github.com/ePages-de/ng-shop/blob/master/src/deploy/k8s/shopadmin/deployments/shop-deployment.yaml">shop-deployment.yaml</a></code></li>
-<li><code style="font-size: 80%;"><a href="https://github.com/ePages-de/ng-checkout/blob/master/src/deploy/k8s/order/deployments/checkout-deployment.yaml">checkout-deployment.yaml</a></code></li>
+<li><code style="font-size: 80%;"><a href="https://github.com/ePages-de/ng-shop/blob/master/src/deploy/k8s/shopadmin/deployments/shop-deployment.yaml">shop-deployment.yaml</a></code>, <code style="font-size: 80%;"><a href="https://github.com/ePages-de/ng-checkout/blob/master/src/deploy/k8s/order/deployments/checkout-deployment.yaml">checkout-deployment.yaml</a></code></li>
 </ul></li>
 </ul>
 </section>
-<section id="differences-between-stages" class="level2">
-<h2>Differences between stages</h2>
+<section id="differences-between-stages" class="slide level1">
+<h1>Differences between stages</h1>
 <ul>
+<li><strong>prod</strong>, <strong>preprod</strong>, <strong>acceptance</strong>, <strong>debug</strong></li>
 <li>Kubernetes manifests and overrides
 <ul>
 <li>Hashicorp Vault</li>
 </ul></li>
 <li>High level CDP process
 <ul>
-<li>jenkins-build, artifactory, hub.docker.com, jenkins-cdp</li>
+<li><a href="http://build.epages.works:8080/view/Build%20pull%20requests/">jenkins-build</a>, <a href="https://epagesbeyond.jfrog.io/epagesbeyond/webapp/#/home">Artifactory</a>, <a href="https://hub.docker.com/u/epages/dashboard/">Docker Hub</a>, <a href="https://cdp.epages.works/job/cdp/">jenkins-cdp</a></li>
 <li>debug environments</li>
 </ul></li>
 </ul>
 </section>
-<section id="monitoring-and-logging" class="level2">
-<h2>Monitoring and Logging</h2>
+<section id="monitoring-and-logging" class="slide level1">
+<h1>Monitoring and Logging</h1>
 <ul>
-<li>Spring Boot Actuators/Health Check</li>
-<li>GCP <a href="https://cloud.google.com/stackdriver/">Stackdriver</a> logging</li>
-<li>Zipkin</li>
-<li>Prometheus &amp; Grafana</li>
-<li>kubedash and readiness</li>
-<li>ElasticSearch kopf plugin</li>
-<li>sentry.io</li>
+<li>Spring Boot <a href="https://management.beyondshop.cloud/shop/system">Actuators</a>
+<ul>
+<li><a href="https://management.beyondshop.cloud/shop/system/info">/info</a>, <a href="https://management.beyondshop.cloud/shop/system/health">/health</a></li>
+<li><a href="https://management.beyondshop.cloud/shop/system/env">/env</a>, <a href="https://management.beyondshop.cloud/shop/system/configprops">/configprops</a></li>
+<li><a href="https://management.beyondshop.cloud/shop/system/metrics">/metrics</a>, <a href="https://management.beyondshop.cloud/shop/system/trace">/trace</a></li>
+</ul></li>
+<li>GCP <a href="https://cloud.google.com/stackdriver/">Stackdriver</a> logging
+<ul>
+<li><a href="https://console.cloud.google.com/logs/viewer?project=beyond-live&amp;minLogLevel=200&amp;expandAll=false&amp;resource=container%2Fcluster_name%2Fbeyondshop-cloud%2Fnamespace_id%2Fdefault&amp;advancedFilter=resource.type%3D%22container%22%0Aresource.labels.cluster_name%3D%22beyondshop-cloud%22%0Aresource.labels.namespace_id%3D%22default%22&amp;interval=PT1H">beyond-live</a>, <a href="https://console.cloud.google.com/logs/viewer?project=epages-ng&amp;minLogLevel=0&amp;expandAll=false&amp;interval=PT1H&amp;resource=container%2Fcluster_name%2Fpreprod%2Fnamespace_id%2Fdefault&amp;advancedFilter=resource.type%3D%22container%22%0Aresource.labels.cluster_name%3D%22preprod%22%0Aresource.labels.namespace_id%3D%22default%22">ePages-NG</a></li>
+</ul></li>
+<li><a href="https://zipkin.beyondshop.cloud/">Zipkin</a></li>
+<li><a href="https://prometheus.beyondshop.cloud/">Prometheus</a> &amp; <a href="https://grafana.beyondshop.cloud/?orgId=1">Grafana</a></li>
+<li>kubedash (<a href="https://kubedash-prod.epages.works/#">prod</a>, <a href="https://kubedash-preprod.epages.works/#">preprod</a>)</li>
+<li>readiness (<a href="https://readiness-prod.epages.works/readiness.html?refresh=60">prod</a>)</li>
+<li>ElasticSearch <a href="https://management.beyondshop.cloud/product-elasticsearch/_plugin/kopf/#!/cluster">kopf plugin</a></li>
+<li><a href="https://sentry.io/epages/byd-prod/">sentry.io</a></li>
 </ul>
 </section>
-<section id="clients" class="level2">
-<h2>Clients</h2>
+<section id="clients" class="slide level1">
+<h1>Clients</h1>
 <ul>
-<li>storefront</li>
-<li>merchant-ui</li>
-<li>Apps</li>
-<li>signup form</li>
-<li>MATe 3.0</li>
+<li>Storefront (<a href="https://github.com/ePages-de/epages-ui/tree/ng">ng branch</a>)</li>
+<li><a href="https://github.com/ePages-de/ng-merchant-ui">Cockpit</a></li>
+<li>Apps, e.g. eSiteKic</li>
+<li><a href="https://signup.beyondshop.cloud">signup form</a></li>
+<li><a href="https://github.com/ePages-de/mate">MATe 3.0</a></li>
 </ul>
 </section>
-<section id="backup-and-recovery-how-to-guarantee-data-integrity" class="level2">
-<h2>Backup and Recovery (how to guarantee data integrity)</h2>
+<section id="backup-and-recovery-how-to-guarantee-data-integrity" class="slide level1">
+<h1>Backup and Recovery (how to guarantee data integrity)</h1>
 <ul>
 <li>Restore data completely</li>
 <li>Restore partial data</li>
 </ul>
-</section>
 </section>
     </div>
   </div>
