@@ -474,7 +474,7 @@
         },
         "_links": {
           "self": {
-            "href": "https://yourshop.api.urn/feature-definitions/42504650-9f33-4c56-b0cf-0490c83cb27b"
+            "href": ".../feature-definitions/{uuid}"
           }
         }
       },
@@ -484,7 +484,7 @@
         "details": null,
         "_links": {
           "self": {
-            "href": "https://yourshop.api.urn/feature-definitions/9bf19cd1-330b-4f43-a619-91546ce6e969"
+            "href": ".../feature-definitions/{uuid}"
           }
         }
       }
@@ -492,7 +492,7 @@
   },
   "_links": {
     "self": {
-      "href": "https://yourshop.api.urn/feature-definitions"
+      "href": ".../feature-definitions"
     }
   },
   "page": {
@@ -513,7 +513,7 @@
   "details": null,
   "_links": {
     "self": {
-      "href": "https://yourshop.api.urn/feature-definitions/cd88bd0f-7e05-401b-9033-90777995f90e"
+      "href": ".../feature-definitions/{uuid}"
     }
   }
 }</code></pre>
@@ -561,7 +561,7 @@
 <pre><code data-trim>
 HTTP/1.1 201 Created
 ...
-Location: https://system.beyondshop.cloud/sites/{uuid}/attributes/
+Location: .../sites/{uuid}/attributes/
 </code></pre>
 
                     </li>
@@ -571,7 +571,7 @@ Location: https://system.beyondshop.cloud/sites/{uuid}/attributes/
             <section>
                 <ul style="list-style-type: none; margin: 0;">
                     <li>
-<pre><code style="font-size: 100%;">DELETE /sites/{uuid}/reseller</code></pre>
+<pre><code style="font-size: 100%;">DELETE /sites/{uuid}/attributes/reseller</code></pre>
 <pre><code data-trim>
 HTTP/1.1 204 No Content
 ...
@@ -605,38 +605,34 @@ HTTP/1.1 204 No Content
 
         <section>
           <h2>Other tasks</h2>
+          <ul style="list-style-type: none; margin: 0;">            
+            <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Simplify Message Subscriber Configuration</li>
+            <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Evaluate sentry.io</li>
+        </ul>
+
         </section>
 
 
         <!-- ================================================================= -->
 
         <section>
-            <h3>Simplify Subscriber Configuration</h3>
+            <h3>Simplify Message Subscriber Configuration</h3>
 
             <section>
                 <h3>Motivation</h3>
-                <ul style="list-style-type: none; margin: 0;">
+                <ul style="list-style-type: none; margin: 0;"  class="fragment">
                     <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Remove a source of a service misconfiguration</li>
                     <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Reduce a service complexity</li>
                     <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Increase the development speed</li>
                 </ul>
-            </section>
-
-            <section>
-                <h3>Implementation</h3>
-                <ul style="list-style-type: none; margin: 0;">
-                    <li><i class="fa fa-github-alt" style="margin: 6px;" aria-hidden="true"></i>Uses <a href="https://github.com/ronmamo/reflections/" target="_blank">org.reflections</a></li>
-                    <li><i class="fa fa-code" style="margin: 6px;" aria-hidden="true" aria-hidden="true"></i>Part of <b>ng-shared</b></li>
-                    <li><i class="fa fa-gears" style="margin: 6px;" aria-hidden="true"></i>Backward compatible</li>
-                    <li><i class="fa fa-plug" style="margin: 6px;" aria-hidden="true" aria-hidden="true"></i>Provide Jackson configuration extension</li>
-                    <li><i class="fa fa-plug" style="margin: 6px;" aria-hidden="true" aria-hidden="true"></i>Provide RabbitMQ subscriber configuration</li>
-                    <li><i class="fa fa-check-square-o" style="margin: 6px;" aria-hidden="true" aria-hidden="true"></i>Reduce configuraion LOC from <i>~70</i> to <i>~20</i> lines for <b>ng-site</b></li>
+                <p></p>
+                <h3  class="fragment">Solution</h3>
+                <ul style="list-style-type: none; margin: 0;"  class="fragment">
+                    <li><i class="fa fa-check-square-o" style="margin: 6px;" aria-hidden="true" aria-hidden="true"></i>Reduced configuraion LOC from <i>~70</i> to <i>~20</i> for <b>ng-site</b></li>                    
                 </ul>
             </section>
 
         </section>
-
-
 
         <!-- ================================================================= -->
 
