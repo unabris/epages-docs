@@ -424,102 +424,100 @@
         <!-- ================================================================= -->
 
         <section>
-            <h2>Feature Definitions</h2>
-        </section>
-
-        <section>
-
             <section>
-                <img class="noborder" data-src="img/feature-definitions/features-1.png">
+                <h2>Feature Definitions</h2>
             </section>
 
             <section>
-                <img class="noborder" data-src="img/feature-definitions/features-2.png">
-            </section>
-
-            <section>
-                <img class="noborder" data-src="img/feature-definitions/features-3.png">
-            </section>
-
-            <section>
-                <h3>Feature definition registration</h3>
-
-<pre><code data-trim data-noescape>{
-  "messageType" : "originating-service.feature-definition.register.command",
-    "timestamp" : "2017-12-13T14:49:31.323",
-    "tenantId" : 1,
-    "payload" : {
-        "_payloadType" : "feature-definition-register-command",
-        "feature" : {
-            "name" : "maxProducts",
-            "type" : "counter", /* can also be 'toggle' */
-            "details" : {
-                "globalMaxValue" : 10000
+                    <img class="noborder" data-src="img/feature-definitions/features-1.png">
+                </section>
+    
+                <section>
+                    <img class="noborder" data-src="img/feature-definitions/features-2.png">
+                </section>
+    
+                <section>
+                    <img class="noborder" data-src="img/feature-definitions/features-3.png">
+                </section>
+    
+                <section>
+                    <h3>Feature definition registration</h3>
+    
+    <pre><code data-trim data-noescape>{
+      "messageType" : "originating-service.feature-definition.register.command",
+        "timestamp" : "2017-12-13T14:49:31.323",
+        "tenantId" : 1,
+        "payload" : {
+            "_payloadType" : "feature-definition-register-command",
+            "feature" : {
+                "name" : "maxProducts",
+                "type" : "counter", /* can also be 'toggle' */
+                "details" : {
+                    "globalMaxValue" : 10000
+                }
             }
         }
-    }
-}</code></pre>
-            </section>
-
-            <section>
-                <h3>Feature definition listing</h3>
-                <pre><code data-trim data-noescape>GET https://system/feature-definitions</code></pre>
-<pre><code data-trim data-noescape>{
-  "_embedded": {
-    "features": [
-      {
-        "name": "maxProducts",
-        "type": "counter",
-        "details": {
-          "globalMaxValue": 10000
-        },
-        "_links": {
-          "self": {
-            "href": "https://system/feature-definitions/42504650-9f33-4c56-b0cf-0490c83cb27b"
+    }</code></pre>
+                </section>
+    
+                <section>
+                    <h3>Feature definition listing</h3>
+                    <pre><code data-trim data-noescape>GET https://system/feature-definitions</code></pre>
+    <pre><code data-trim data-noescape>{
+      "_embedded": {
+        "features": [
+          {
+            "name": "maxProducts",
+            "type": "counter",
+            "details": {
+              "globalMaxValue": 10000
+            },
+            "_links": {
+              "self": {
+                "href": "https://system/feature-definitions/42504650-9f33-4c56-b0cf-0490c83cb27b"
+              }
+            }
+          },
+          {
+            "name": "marketing.google-shopping.product-export",
+            "type": "toggle",
+            "details": null,
+            "_links": {
+              "self": {
+                "href": "https://system/feature-definitions/9bf19cd1-330b-4f43-a619-91546ce6e969"
+              }
+            }
           }
+        ]
+      },
+      "_links": {
+        "self": {
+          "href": "https://system/feature-definitions"
         }
       },
-      {
-        "name": "marketing.google-shopping.product-export",
-        "type": "toggle",
-        "details": null,
-        "_links": {
-          "self": {
-            "href": "https://system/feature-definitions/9bf19cd1-330b-4f43-a619-91546ce6e969"
-          }
+      "page": {
+        "size": 20,
+        "totalElements": 2,
+        "totalPages": 1,
+        "number": 0
+      }
+    }</code></pre>
+                </section>
+    
+                <section>
+                        <h3>Feature definition retrieval</h3>
+                        <pre><code data-trim data-noescape>GET https://system/feature-definitions/{id}</code></pre>
+    <pre><code data-trim data-noescape>{
+      "name": "marketing.google-shopping.product-export",
+      "type": "toggle",
+      "details": null,
+      "_links": {
+        "self": {
+          "href": "https://system/feature-definitions/cd88bd0f-7e05-401b-9033-90777995f90e"
         }
       }
-    ]
-  },
-  "_links": {
-    "self": {
-      "href": "https://system/feature-definitions"
-    }
-  },
-  "page": {
-    "size": 20,
-    "totalElements": 2,
-    "totalPages": 1,
-    "number": 0
-  }
-}</code></pre>
-            </section>
-
-            <section>
-                    <h3>Feature definition retrieval</h3>
-                    <pre><code data-trim data-noescape>GET https://system/feature-definitions/{id}</code></pre>
-<pre><code data-trim data-noescape>{
-  "name": "marketing.google-shopping.product-export",
-  "type": "toggle",
-  "details": null,
-  "_links": {
-    "self": {
-      "href": "https://system/feature-definitions/cd88bd0f-7e05-401b-9033-90777995f90e"
-    }
-  }
-}</code></pre>
-                </section>
-
+    }</code></pre>
+                    </section>
         </section>
 
         <!-- ================================================================= -->
