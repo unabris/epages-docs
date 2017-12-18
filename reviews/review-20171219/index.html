@@ -124,7 +124,7 @@
               <tbody>
                 <tr>
                     <td>Piwik Analytics Evaluation</td>
-                </tr>                
+                </tr>
                 <tr>
                     <td>Feature Definitions</td>
                 </tr>
@@ -141,9 +141,9 @@
               </tbody>
             </table>
           </section>
-    
+
           <!-- ================================================================= -->
-    
+
           <section class="plain" data-background-image="img/team-black-logo.png" data-background-size="1000px">
             <h2>Team Black</h2>
             <table>
@@ -160,9 +160,9 @@
                 </tbody>
             </table>
           </section>
-    
+
           <!-- ================================================================= -->
-    
+
           <section class="plain" data-background-image="img/team-white-logo.png" data-background-size="1000px">
             <h2>Team White</h2>
             <table>
@@ -307,14 +307,14 @@
 
         <section>
             <h2>Team Amber</h2>
-  
+
             <h3>Sprint 19 - Wait, w00t?!</h3>
-  
+
             <img src="img/team-amber-logo-caganer.png" style="border:none; box-shadow:none; background:none; width:200px;">
         </section>
 
         <!-- ================================================================= -->
-        
+
         <section>
             <section>
                 <h2>Business KPIs and shop statistics</h2>
@@ -364,13 +364,13 @@
 
                 <ul style="list-style-type: none; margin: 0;">
                     <li class="fragment">
-                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i> Provide shop statistics in a widgets in merchant-ui
+                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i> Provide shop statistics widgets embedded in merchant-ui
                     </li>
                     <li class="fragment">
-                        <i class="fa fa-exclamation-circle" style="margin: 6px;" aria-hidden="true"></i> No option to style widgets, resposiveness is not perfect
+                        <i class="fa fa-exclamation-circle" style="margin: 6px;" aria-hidden="true"></i> No option to style widgets, responsiveness is not perfect
                     </li>
                     <li class="fragment">
-                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i> Option to optain raw data to create custom charts
+                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i> Option to obtain raw data to create custom charts
                     </li>
                 </ul>
             </section>
@@ -380,10 +380,10 @@
 
                 <ul style="list-style-type: none; margin: 0;">
                     <li class="fragment">
-                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i> Piwik has a multi-user / multi-website conecept
+                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i> Piwik has a multi-user / multi-website concept
                     </li>
                     <li class="fragment">
-                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i> It's possible to  create users and sites trough the API
+                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i> It's possible to create users and sites using the API
                     </li>
                 </ul>
             </section>
@@ -393,10 +393,29 @@
 
                 <ul style="list-style-type: none; margin: 0;">
                     <li class="fragment">
-                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i> Offers a concept to aggreated data of multiple sites 
+                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i> Offers a concept of aggregated data from multiple sites
                     </li>
                     <li class="fragment">
                         <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i> Piwik UI can be used as PM analytics tool
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Other findings</h3>
+
+                <ul style="list-style-type: none; margin: 0;">
+                    <li class="fragment">
+                        <i class="fa fa-exclamation-circle" style="margin: 6px;" aria-hidden="true"></i> The piwik API is old-fashioned and a bit quirky
+                    </li>
+                    <li class="fragment">
+                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i> But it works and supports many use-cases 
+                    </li>
+                    <li class="fragment">
+                        <i class="fa fa-exclamation-circle" style="margin: 6px;" aria-hidden="true"></i> Piwik had an outage on the first day we were using it
+                    </li>
+                    <li class="fragment">
+                        <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i> Was fixed pretty quickly
                     </li>
                 </ul>
             </section>
@@ -405,165 +424,163 @@
         <!-- ================================================================= -->
 
         <section>
-            <h2>Feature Definitions</h2>
-        </section>
-
-        <section>
-
             <section>
-                <img class="noborder" data-src="img/feature-definitions/features-1.png">
+                <h2>Feature Definitions</h2>
             </section>
 
             <section>
-                <img class="noborder" data-src="img/feature-definitions/features-2.png">
-            </section>
-
-            <section>
-                <img class="noborder" data-src="img/feature-definitions/features-3.png">
-            </section>
-
-            <section>
-                <h3>Feature definition registration</h3>
-
-<pre><code data-trim data-noescape>{
-  "messageType" : "originating-service.feature-definition.register.command",
-    "timestamp" : "2017-12-13T14:49:31.323",
-    "tenantId" : 1,
-    "payload" : {
-        "_payloadType" : "feature-definition-register-command",
-        "feature" : {
-            "name" : "maxProducts",
-            "type" : "counter", /* can also be 'toggle' */
-            "details" : {
-                "globalMaxValue" : 10000
+                    <img class="noborder" data-src="img/feature-definitions/features-1.png">
+                </section>
+    
+                <section>
+                    <img class="noborder" data-src="img/feature-definitions/features-2.png">
+                </section>
+    
+                <section>
+                    <img class="noborder" data-src="img/feature-definitions/features-3.png">
+                </section>
+    
+                <section>
+                    <h3>Feature definition registration</h3>
+    
+    <pre><code data-trim data-noescape>{
+      "messageType" : "originating-service.feature-definition.register.command",
+        "timestamp" : "2017-12-13T14:49:31.323",
+        "tenantId" : 1,
+        "payload" : {
+            "_payloadType" : "feature-definition-register-command",
+            "feature" : {
+                "name" : "maxProducts",
+                "type" : "counter", /* can also be 'toggle' */
+                "details" : {
+                    "globalMaxValue" : 10000
+                }
             }
         }
-    }
-}</code></pre>
-            </section>
-
-            <section>
-                <h3>Feature definition listing</h3>
-                <pre><code data-trim data-noescape>GET https://yourshop.api.urn/feature-definitions</code></pre>
-<pre><code data-trim data-noescape>{
-  "_embedded": {
-    "features": [
-      {
-        "name": "maxProducts",
-        "type": "counter",
-        "details": {
-          "globalMaxValue": 10000
-        },
-        "_links": {
-          "self": {
-            "href": "https://yourshop.api.urn/feature-definitions/42504650-9f33-4c56-b0cf-0490c83cb27b"
+    }</code></pre>
+                </section>
+    
+                <section>
+                    <h3>Feature definition listing</h3>
+                    <pre><code data-trim data-noescape>GET https://system/feature-definitions</code></pre>
+    <pre><code data-trim data-noescape>{
+      "_embedded": {
+        "features": [
+          {
+            "name": "maxProducts",
+            "type": "counter",
+            "details": {
+              "globalMaxValue": 10000
+            },
+            "_links": {
+              "self": {
+                "href": "https://system/feature-definitions/42504650-9f33-4c56-b0cf-0490c83cb27b"
+              }
+            }
+          },
+          {
+            "name": "marketing.google-shopping.product-export",
+            "type": "toggle",
+            "details": null,
+            "_links": {
+              "self": {
+                "href": "https://system/feature-definitions/9bf19cd1-330b-4f43-a619-91546ce6e969"
+              }
+            }
           }
+        ]
+      },
+      "_links": {
+        "self": {
+          "href": "https://system/feature-definitions"
         }
       },
-      {
-        "name": "marketing.google-shopping.product-export",
-        "type": "toggle",
-        "details": null,
-        "_links": {
-          "self": {
-            "href": "https://yourshop.api.urn/feature-definitions/9bf19cd1-330b-4f43-a619-91546ce6e969"
-          }
+      "page": {
+        "size": 20,
+        "totalElements": 2,
+        "totalPages": 1,
+        "number": 0
+      }
+    }</code></pre>
+                </section>
+    
+                <section>
+                        <h3>Feature definition retrieval</h3>
+                        <pre><code data-trim data-noescape>GET https://system/feature-definitions/{id}</code></pre>
+    <pre><code data-trim data-noescape>{
+      "name": "marketing.google-shopping.product-export",
+      "type": "toggle",
+      "details": null,
+      "_links": {
+        "self": {
+          "href": "https://system/feature-definitions/cd88bd0f-7e05-401b-9033-90777995f90e"
         }
       }
-    ]
-  },
-  "_links": {
-    "self": {
-      "href": "https://yourshop.api.urn/feature-definitions"
-    }
-  },
-  "page": {
-    "size": 20,
-    "totalElements": 2,
-    "totalPages": 1,
-    "number": 0
-  }
-}</code></pre>
-            </section>
-
-            <section>
-                    <h3>Feature definition retrieval</h3>
-                    <pre><code data-trim data-noescape>GET https://yourshop.api.urn/feature-definitions/{id}</code></pre>
-<pre><code data-trim data-noescape>{
-  "name": "marketing.google-shopping.product-export",
-  "type": "toggle",
-  "details": null,
-  "_links": {
-    "self": {
-      "href": "https://yourshop.api.urn/feature-definitions/cd88bd0f-7e05-401b-9033-90777995f90e"
-    }
-  }
-}</code></pre>
-                </section>
-
+    }</code></pre>
+                    </section>
         </section>
 
         <!-- ================================================================= -->
 
         <section>
             <h2>Site Attributes</h2>
-            
-            <section>                     
-                <h3>Requirements driven by MATe</h3>
+
+            <section>
+                <h3>Requirements driven by MATe 3.0</h3>
 
                 <ul style="list-style-type: none; margin: 0;">
                     <li class="fragment">
-                        <i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Distinguish sites of different resellers   
+                        <i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Distinguish sites of different resellers
                     </li>
                     <li class="fragment">
-                        <i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Distinguish developers sites 
-                    </li>                    
+                        <i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Distinguish developers sites
+                    </li>
                     <li class="fragment">
-                        <i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Provide flexible implementation ready for changes   
-                    </li>                    
+                        <i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Provide flexible implementation ready for changes
+                    </li>
               </ul>
-            </section> 
+            </section>
 
-            <section>                       
-                <h3>Solution</h3>                    
+            <section>
+                <h3>Solution</h3>
                 <i class="fa fa-check-circle" style="margin: 6px;" aria-hidden="true"></i>Introduce custom string attributes to <b>ng-site</b>
             </section>
 
-            <section>                
+            <section>
                 <h3>Managed via REST API</h3>
-                <ul style="list-style-type: none; margin: 0;">                                                    
-                    <li>                        
+                <ul style="list-style-type: none; margin: 0;">
+                    <li>
 <pre><code style="font-size: 100%;">POST /sites/{uuid}/attributes/</code></pre>
 <pre><code data-trim>
 {
   "name"  : "reseller",
-  "value" : "La Poste",                                    
+  "value" : "La Poste",
 }
 </code></pre>
-            
+
 <pre><code data-trim>
 HTTP/1.1 201 Created
 ...
 Location: https://system.beyondshop.cloud/sites/{uuid}/attributes/
 </code></pre>
 
-                    </li>                    
-                </ul>                    
-            </section> 
+                    </li>
+                </ul>
+            </section>
 
-            <section>                                    
-                <ul style="list-style-type: none; margin: 0;">                                                    
-                    <li>                                
+            <section>
+                <ul style="list-style-type: none; margin: 0;">
+                    <li>
 <pre><code style="font-size: 100%;">DELETE /sites/{uuid}/reseller</code></pre>
 <pre><code data-trim>
 HTTP/1.1 204 No Content
 ...
-</code></pre>            
-                    </li>                    
-                </ul>                    
+</code></pre>
+                    </li>
+                </ul>
             </section>
 
-            <section>                        
+            <section>
                 <h3>Communicate via messages to other services</h3>
                 <pre><code data-trim>
 {
@@ -580,8 +597,8 @@ HTTP/1.1 204 No Content
     }
 }
 </code></pre>
-                                          
-            </section>  
+
+            </section>
         </section>
 
         <!-- ================================================================= -->
@@ -596,29 +613,31 @@ HTTP/1.1 204 No Content
         <section>
             <h3>Simplify Subscriber Configuration</h3>
 
-            <section>                                     
+            <section>
                 <h3>Motivation</h3>
                 <ul style="list-style-type: none; margin: 0;">
-                    <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Remove a source of a service misconfiguration</li>                    
+                    <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Remove a source of a service misconfiguration</li>
                     <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Reduce a service complexity</li>
                     <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Increase the development speed</li>
                 </ul>
             </section>
 
-            <section>                                     
+            <section>
                 <h3>Implementation</h3>
                 <ul style="list-style-type: none; margin: 0;">
                     <li><i class="fa fa-github-alt" style="margin: 6px;" aria-hidden="true"></i>Uses <a href="https://github.com/ronmamo/reflections/" target="_blank">org.reflections</a></li>
                     <li><i class="fa fa-code" style="margin: 6px;" aria-hidden="true" aria-hidden="true"></i>Part of <b>ng-shared</b></li>
-                    <li><i class="fa fa-gears" style="margin: 6px;" aria-hidden="true"></i>Backward compartible</li>
+                    <li><i class="fa fa-gears" style="margin: 6px;" aria-hidden="true"></i>Backward compatible</li>
                     <li><i class="fa fa-plug" style="margin: 6px;" aria-hidden="true" aria-hidden="true"></i>Provide Jackson configuration extension</li>
-                    <li><i class="fa fa-plug" style="margin: 6px;" aria-hidden="true" aria-hidden="true"></i>Provide Rabbit QM subscriber configuration</li>
+                    <li><i class="fa fa-plug" style="margin: 6px;" aria-hidden="true" aria-hidden="true"></i>Provide RabbitMQ subscriber configuration</li>
                     <li><i class="fa fa-check-square-o" style="margin: 6px;" aria-hidden="true" aria-hidden="true"></i>Reduce configuraion LOC from <i>~70</i> to <i>~20</i> lines for <b>ng-site</b></li>                    
                 </ul>
             </section>
 
         </section>
          
+
+
         <!-- ================================================================= -->
 
         <section>

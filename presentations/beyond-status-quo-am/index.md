@@ -75,6 +75,9 @@ date-meta:  20.12.2017
 
 ---
 
-# Backup and Recovery (how to guarantee data integrity)
+# Backup and Recovery
+
+(how to guarantee data integrity)
+
 * Restore data completely
 * Restore partial data
