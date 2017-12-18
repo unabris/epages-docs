@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jens Fischer j.fischer@epages.com">
+  <meta name="dcterms.date" content="20.12.2017">
+  <title>BEYOND Status Quo through the eyes of AM</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="/css/theme/solarized.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '/css/print/pdf.css' : '/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <!-- jQuery -->
+  <script src="lib/css/jquery/jquery.min.js"></script>
+  
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="lib/css/font-awesome/css/font-awesome.min.css">
+  
+  <!-- Team Black default customizations -->
+  <link rel="stylesheet" href="custom.css">
+  
+  <!-- fit an image -->
+  <script>
+      $(function() {
+      $(window).resize(function() {
+          var $i = $('.fit img');
+          var $c = $i.parent().parent().parent();
+          var i_ar = $i.width() / $i.height(), c_ar = $c.width() / $c.height();
+          $i.width(i_ar > c_ar ? $c.width() : $c.height() * (i_ar));
+      });
+      $(window).resize();
+  });
+  </script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="beyond-status-quo" class="slide level1">
+<h1>BEYOND Status Quo</h1>
+<h2>
+through the eyes of AM
+</h2>
+</section>
+<section class="slide level1">
+
+<section id="infrastructure" class="level2">
+<h2>Infrastructure</h2>
+<ul>
+<li><a href="https://cloud.google.com/">Google Cloud Platform</a>
+<ul>
+<li><a href="https://cloud.google.com/compute/">Compute Engine</a></li>
+<li><a href="https://cloud.google.com/kubernetes-engine/">Kubernetes Engine</a></li>
+</ul></li>
+<li>dnsimple.com (<code style="font-size: 80%;"><a href="https://dnsimple.com/a/51209/domains/epages.works/records">*.epages.works</a></code> &amp; <code style="font-size: 80%;">*.beyondshop.cloud</code>)</li>
+<li>MySQL (<a href="https://cloud.google.com/sql/">GCP Cloud SQL</a> vs. <a href="https://github.com/ePages-de/ng-docker-images/tree/master/ng-mysql-microservices">custom Docker image</a>)</li>
+<li>RabbitMQ (<a href="https://artistic-duckbill.rmq.cloudamqp.com">CloudAMQP</a> vs. <a href="https://github.com/ePages-de/ng-docker-images/tree/master/ng-rabbitmq">custom Docker image</a>)</li>
+<li>Storage (<a href="https://cloud.google.com/storage/">GCP Cloud Storage</a> vs. <code style="font-size: 80%;"><a href="https://github.com/ePages-de/ng-infra/blob/master/deploy/automated-gce/environments/_acceptance/manifest-overrides/product/deployments/product-elasticsearch-statefulset.override.yaml">emptyDir</a>)</code></li>
+<li>Outbound emailing (<a href="https://documentation.mailgun.com/en/latest/api_reference.html">Mailgun REST API</a>)</li>
+<li>ElasticSearch (<a href="https://github.com/ePages-de/ng-infra/blob/master/deploy/automated-gce/_template/manifests/product/deployments/product-elasticsearch-statefulset.yaml">self-managed</a> vs. <a href="https://github.com/ePages-de/ng-docker-images/tree/master/ng-elasticsearch">custom Docker image</a> )</li>
+</ul>
+</section>
+<section id="central-components" class="level2">
+<h2>Central components</h2>
+<ul>
+<li><a href="https://github.com/ePages-de/ng-cluster-gateway">ng-cluster-gateway</a>
+<ul>
+<li>SSL termination &amp; <a href="img/clustergateway-custom-ssl-certificates-010.png">dynamic lookup</a></li>
+<li><a href="https://github.com/ePages-de/ng-certificate-management">ng-certificate-management</a> using Let's Encrypt</li>
+<li><a href="https://management.beyondshop.cloud/shop/system">management.beyondshop.cloud</a> backdoor</li>
+</ul></li>
+<li><a href="https://github.com/ePages-de/ng-config-server">ng-config-server</a> &amp; <a href="https://github.com/ePages-de/ng-config-repo">ng-config-repo</a>
+<ul>
+<li>global Spring Boot <a href="https://github.com/ePages-de/ng-infra/blob/master/deploy/automated-gce/_template/manifests/infrastructure/configs/application-properties-configMap.yaml">application.properties</a></li>
+</ul></li>
+<li><a href="https://github.com/ePages-de/ng-api-proxy">ng-api-proxy</a> &amp; <a href="https://github.com/ePages-de/ng-config-repo/blob/gce/api-proxy.yml">service routing config</a></li>
+<li><a href="https://github.com/ePages-de/ng-auth">ng-auth</a>
+<ul>
+<li><a href="http://build.epages.works:8080/view/Build%20master/job/core_auth_build/REST_API_Documentation/index.html#_tokens">OAuth2 flows</a> with <a href="https://jwt.io/">JWT</a></li>
+<li><a href="https://github.com/ePages-de/ng-auth/blob/master/src/main/resources/application.yml">scopes</a> and clients/roles</li>
+</ul></li>
+<li>example of some regular business PODs
+<ul>
+<li><code style="font-size: 80%;"><a href="https://github.com/ePages-de/ng-shop/blob/master/src/deploy/k8s/shopadmin/deployments/shop-deployment.yaml">shop-deployment.yaml</a></code></li>
+<li><code style="font-size: 80%;"><a href="https://github.com/ePages-de/ng-checkout/blob/master/src/deploy/k8s/order/deployments/checkout-deployment.yaml">checkout-deployment.yaml</a></code></li>
+</ul></li>
+</ul>
+</section>
+<section id="differences-between-stages" class="level2">
+<h2>Differences between stages</h2>
+<ul>
+<li>Kubernetes manifests and overrides
+<ul>
+<li>Hashicorp Vault</li>
+</ul></li>
+<li>High level CDP process
+<ul>
+<li>jenkins-build, artifactory, hub.docker.com, jenkins-cdp</li>
+<li>debug environments</li>
+</ul></li>
+</ul>
+</section>
+<section id="monitoring-and-logging" class="level2">
+<h2>Monitoring and Logging</h2>
+<ul>
+<li>Spring Boot Actuators/Health Check</li>
+<li>GCP <a href="https://cloud.google.com/stackdriver/">Stackdriver</a> logging</li>
+<li>Zipkin</li>
+<li>Prometheus &amp; Grafana</li>
+<li>kubedash and readiness</li>
+<li>ElasticSearch kopf plugin</li>
+<li>sentry.io</li>
+</ul>
+</section>
+<section id="clients" class="level2">
+<h2>Clients</h2>
+<ul>
+<li>storefront</li>
+<li>merchant-ui</li>
+<li>Apps</li>
+<li>signup form</li>
+<li>MATe 3.0</li>
+</ul>
+</section>
+<section id="backup-and-recovery-how-to-guarantee-data-integrity" class="level2">
+<h2>Backup and Recovery (how to guarantee data integrity)</h2>
+<ul>
+<li>Restore data completely</li>
+<li>Restore partial data</li>
+</ul>
+</section>
+</section>
+    </div>
+  </div>
+
+  <script src="/lib/js/head.min.js"></script>
+  <script src="/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '/plugin/zoom-js/zoom.js', async: true },
+          { src: '/plugin/notes/notes.js', async: true },
+/* CUSTOMIZATION */
+          { src: '/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+//          { src: '/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: '/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+/* END CUSTOMIZATION */
+        ]
+      });
+    </script>
+    </body>
+</html>
