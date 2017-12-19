@@ -565,6 +565,40 @@ Location: .../sites/{uuid}/attributes/
             </section>
 
             <section>
+              <ul style="list-style-type: none; margin: 0;">
+                  <li>
+<pre><code style="font-size: 100%;">GET /sites/{uuid}/attributes</code></pre>
+<pre><code data-trim>
+HTTP/1.1 200 OK
+
+{
+  "_embedded" : {
+    "attributes" : [ {
+      "name" : "reseller",
+      "value" : "La Poste"
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : ".../sites/{uuid}/attributes"
+    },
+    "owner" : {
+      "href" : ".../sites/{uuid}"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 2,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}
+</code></pre>
+                  </li>
+              </ul>
+            </section>
+
+            <section>
                 <ul style="list-style-type: none; margin: 0;">
                     <li>
 <pre><code style="font-size: 100%;">DELETE /sites/{uuid}/attributes/reseller</code></pre>
@@ -601,7 +635,7 @@ HTTP/1.1 204 No Content
 
         <section>
           <h2>Other tasks</h2>
-          <ul style="list-style-type: none; margin: 0;">            
+          <ul style="list-style-type: none; margin: 0;">
             <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Simplify Message Subscriber Configuration</li>
             <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Evaluate sentry.io</li>
         </ul>
@@ -624,7 +658,7 @@ HTTP/1.1 204 No Content
                 <p></p>
                 <h3  class="fragment">Solution</h3>
                 <ul style="list-style-type: none; margin: 0;"  class="fragment">
-                    <li><i class="fa fa-check-square-o" style="margin: 6px;" aria-hidden="true" aria-hidden="true"></i>Reduced configuration LOC from <i>~70</i> to <i>~20</i> for <b>ng-site</b></li>                    
+                    <li><i class="fa fa-check-square-o" style="margin: 6px;" aria-hidden="true" aria-hidden="true"></i>Reduced configuration LOC from <i>~70</i> to <i>~20</i> for <b>ng-site</b></li>
                 </ul>
             </section>
 
@@ -636,7 +670,7 @@ HTTP/1.1 204 No Content
             <h3>Evaluation of sentry.io</h3>
 
             <img src="img/sentry_io.png" style="margin:-5px 5px; border:none; box-shadow:none; background:none; width:30px;"><a href="https://sentry.io" target="_blank">sentry.io</a>
-                        
+
             <blockquote cite="https://sentry.io/welcome">
                 &ldquo;Open-source error tracking that helps developers monitor and fix crashes in real time.
                  Iterate continuously. Boost efficiency. Improve user experience.&rdquo;
