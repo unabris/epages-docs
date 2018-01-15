@@ -390,9 +390,9 @@ Location: .../sites/{siteId}/features/{featureName}
 
           <section>
             <ul style="list-style-type: none; margin: 0;">
-              <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Introducted new attribute definition type <b>Number</b></li>
-              <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>With option to specify number format</li>
-              <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i><b>Number</b> superseeds <b>Long</b> and <b>Double*</b> formats</li>
+              <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Introduced new attribute definitions type <b>Number</b></li>
+              <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>With option to specify a number format</li>
+              <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i><b>Number</b> supersedes <b>Long</b> and <b>Double*</b> formats</li>
               <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Migrated exisitng numeric types to <b>Number</b></li>
             </ul>
           </section>
@@ -449,7 +449,7 @@ HTTP/1.1 200 OK
       "attributes" : [ {
         "namespace" : "custom",
         "name" : "filling_capacity",
-        "value" : "cardigan-bordeaux",
+        "value" : 3000.5,
         "displayName" : "Filling Capacity",
         <mark class="highlight-block">"format" : "#,###.## L",</mark>
         <mark class="highlight-block">"formattedValue" : "3,000.50 L"</mark>
@@ -478,7 +478,7 @@ HTTP/1.1 200 OK
             <h2>Next Steps</h2>
 
             <ul>
-              <li>Primarely working on backend integration with Motomo</li>
+              <li>Primarely working on backend integration with Matomo</li>
             </ul>
 
         </section>
