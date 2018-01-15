@@ -132,6 +132,43 @@
 
         <section>
             <h2>Signup form referrer URL</h2>
+            <section>
+              <h3>Recall: site attributes</h3>
+              <ul>
+                <li class="fragment">API supports storing arbitrary key/value pairs for each site.</li>
+                <li class="fragment">Filtering/sorting by attributes will be introduced soon.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Use case</h3>
+              <ul>
+                <li class="fragment">On signup form, we also provide a distinct <code>signup.form.uri</code> value as site attribute.</li>
+                <li class="fragment">This identifies the form URI used for submission.
+                <li class="fragment">Different sources of submission use different values, e.g.
+                  <ul style="font-size: 80%;">
+                    <li class="fragment"><code>https://signup.beyondshop.cloud</code></li>
+                    <li class="fragment"><code>https://mate.beyondshop.cloud</code></li>
+                    <li class="fragment"><code>https://epages.elavon.com</code></li>
+                    <li class="fragment"><code>...</code></li>
+                  </ul>
+                </li>
+              </ul>
+            </section>
+
+            <section>
+              <h3>Utilization</h3>
+              <ul>
+                <li class="fragment">Clients (like MATe 3.0) with access to site service will be able to filter all sites by this referrer.</li>
+                <li class="fragment">More arbitrary attributes can be added as meta data on site provisioning, like
+                  <ul style="font-size: 80%;">
+                    <li class="fragment"><code>mate.authorized.user=tsenechal</code></li>
+                    <li class="fragment"><code>mate.auto.delete=2018-03-01T00:00:00Z</code></li>
+                    <li class="fragment"><code>reseller=SAGE</code></li>
+                  </ul>
+                </li>
+              </ul>
+            </section>
         </section>
 
         <!-- ================================================================= -->
