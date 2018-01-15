@@ -324,12 +324,6 @@ Location: .../sites/{siteId}/features/{featureName}
         <!-- ================================================================= -->
 
         <section>
-            <h2>Decimal numbers as custom attributes</h2>
-        </section>
-
-        <!-- ================================================================= -->
-
-        <section>
             <h2>Signup form referrer URL</h2>
             <section>
               <h3>Recall: site attributes</h3>
@@ -392,13 +386,101 @@ Location: .../sites/{siteId}/features/{featureName}
         <!-- ================================================================= -->
 
         <section>
+            <h2>Decimal numbers as custom attributes</h2>
+
+          <section>
+            <ul style="list-style-type: none; margin: 0;">
+              <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Introducted new attribute definition type <b>Number</b></li>
+              <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>With option to specify number format</li>
+              <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i><b>Number</b> superseeds <b>Long</b> and <b>Double*</b> formats</li>
+              <li><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Migrated exisitng numeric types to <b>Number</b></li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <h3>Attribute Definition Creation</h3>
+
+<pre><code style="font-size: 100%;">POST https://.../product-attribute-definitions</code></pre>
+<pre><code data-noescape data-trim style="font-size: 100%;">{
+  "namespace" : "custom",
+  "name" : "filling_capacity",
+  "displayName" : "Filling Capacity",
+  <mark class="highlight-block">"type" : "NUMBER",</mark>
+  <mark class="highlight-block">"format" : "#,###.## L"</mark>
+}</code></pre>
+
+        </section>
+
+        <section>
+          <h3>Attribute Definition Creation</h3>
+
+<pre><code data-noescape data-trim style="font-size: 100%;">
+HTTP/1.1 200 OK
+{
+  "name" : "filling_capacity",
+  "namespace" : "custom",
+  <mark class="highlight-block">"format" : "#,###.## L"</mark>
+  <mark class="highlight-block">"type" : "NUMBER",</mark>
+  "displayName" : "Filling Capacity",
+  "_id" : "{uuid}",
+  "_links" : {
+    "self" : {
+      "href" : "https://.../product-attribute-definitions/{uuid}"
+    },
+    "product-attribute-definition" : {
+      "href" : "https://.../product-attribute-definitions/{uuid}"
+    }
+  }
+}
+</code></pre>
+        </section>
+
+        <section>
+          <h3>List Products</h3>
+
+<pre><code style="font-size: 100%;">GET https://.../product-view/producs</code></pre>
+<pre><code data-noescape data-trim style="font-size: 100%;">{
+  "_embedded" : {
+    "products" : [ {
+      "_id" : "{uuid}",
+      "sku" : "0000042-swimming-pool",
+      "name" : "Swimming pool",
+      "attributes" : [ {
+        "namespace" : "custom",
+        "name" : "filling_capacity",
+        "value" : "cardigan-bordeaux",
+        "displayName" : "Filling Capacity",
+        <mark class="highlight-block">"format" : "#,###.## L",</mark>
+        <mark class="highlight-block">"formattedValue" : "3,000.50 L"</mark>
+      }
+      ...
+    }]
+  }
+}
+</code></pre>
+        </section>
+
+        <!-- ================================================================= -->
+
+        <section>
             <h2>Other tasks</h2>
+
+            <ul style="list-style-type: none; margin: 0;">
+              <li class="fragment"><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Enabled MBO access to <b>ng-site</b></li>
+              <li class="fragment"><i class="fa fa-hand-o-right" style="margin: 6px;" aria-hidden="true"></i>Cleaned up unwanted sites</li>
+            </ul>
         </section>
 
         <!-- ================================================================= -->
 
         <section>
             <h2>Next Steps</h2>
+
+            <ul>
+              <li>Primarely working on backend integration with Motomo</li>
+            </ul>
+
         </section>
 
         <!-- ================================================================= -->
