@@ -208,8 +208,7 @@
   "type" : "TOGGLE",
   "name" : "{featureName}",
   "details" : { }
-}
-    </code></pre>
+}</code></pre>
     <pre><code>HTTP/1.1 201 Created
 ...
 Location: .../sites/{siteId}/features/{featureName}
@@ -248,71 +247,71 @@ Location: .../sites/{siteId}/features/{featureName}
             </section>
 
             <section>
-                <h3>Feature assigned</h3>
+                <h4>Feature assigned</h4>
 <pre><code>{
-    "messageType" : "site.feature-assignment.created.event",
-    "timestamp" : "2018-01-15T09:39:51.943",
-    "tenantId" : 42,
-    "payload" : {
-        "_payloadType" : "feature-assignment",
-        "_refs" : {
-            "owner" : "2d111a6a-5ddf-45c3-882b-369be7c1bbf8"
-        },
-        "_context" : {
-            "optLock" : 1
-        },
-        "name" : "shop-admin.shop.max-products",
-        "details" : {
-            "maxValue" : 10,
-            "currentValue" : 0
-        }
+  "messageType" : "site.feature-assignment.created.event",
+  "timestamp" : "2018-01-15T09:39:51.943",
+  "tenantId" : 42,
+  "payload" : {
+    "_payloadType" : "feature-assignment",
+    "_refs" : {
+      "owner" : "2d111a6a-5ddf-45c3-882b-369be7c1bbf8"
+    },
+    "_context" : {
+      "optLock" : 1
+    },
+    "name" : "shop-admin.shop.max-products",
+    "details" : {
+      "maxValue" : 10,
+      "currentValue" : 0
     }
+  }
 }</code></pre>
             </section>
 
             <section>
-                    <h3>Feature updated</h3>
+                    <h4>Feature updated</h4>
 <pre><code>{
-    "messageType" : "site.feature-assignment.updated.event",
-    "timestamp" : "2018-01-15T09:39:51.962",
-    "tenantId" : 42,
-    "payload" : {
-        "_payloadType" : "feature-assignment",
-        "_refs" : {
-            "owner" : "6524e3a7-3309-4ac0-be80-0234c1e51dd6"
-        },
-        "_context" : {
-            "optLock" : 1
-        },
-        "name" : "shop-admin.shop.max-products",
-        "details" : {
-            "maxValue" : 10,
-            "currentValue" : 0
-        }
+  "messageType" : "site.feature-assignment.updated.event",
+  "timestamp" : "2018-01-15T09:39:51.962",
+  "tenantId" : 42,
+  "payload" : {
+    "_payloadType" : "feature-assignment",
+    "_refs" : {
+      "owner" : "6524e3a7-3309-4ac0-be80-0234c1e51dd6"
+    },
+    "_context" : {
+      "optLock" : 1
+    },
+    "name" : "shop-admin.shop.max-products",
+    "details" : {
+      "maxValue" : 10,
+      "currentValue" : 0
     }
+  }
 }</code></pre>
                 </section>
 
                 <section>
-                        <h3>Feature unassinged</h3>
+                        <h4>Feature unassinged</h4>
     <pre><code>{
-    "messageType" : "site.feature-assignment.deleted.event",
-    "timestamp" : "2018-01-15T09:39:51.922",
-    "tenantId" : 42,
-    "payload" : {
-        "_payloadType" : "feature-assignment",
-        "_refs" : {
-            "owner" : "111eb54d-ee51-481f-93f9-2bce9ac11551"
-        },
-        "_context" : {
-            "optLock" : 1
-        },
-        "name" : "shop-admin.shop.max-products",
-        "details" : {
-            "maxValue" : 10,
-            "currentValue" : 0
-        }
+  "messageType" : "site.feature-assignment.deleted.event",
+  "timestamp" : "2018-01-15T09:39:51.922",
+  "tenantId" : 42,
+  "payload" : {
+    "_payloadType" : "feature-assignment",
+    "_refs" : {
+      "owner" : "111eb54d-ee51-481f-93f9-2bce9ac11551"
+    },
+    "_context" : {
+      "optLock" : 1
+    },
+    "name" : "shop-admin.shop.max-products",
+    "details" : {
+      "maxValue" : 10,
+      "currentValue" : 0
     }
+  }
 }</code></pre>
                     </section>
         </section>
