@@ -186,10 +186,10 @@
 
             <script>
               var gitHub = {
-                "repos": ["ng-shared", "ng-docker-images", "ng-intercom-connector", "ng-google-shopping", "ng-product-management", "ng-product-view", "ng-checkout", "ng-auth", "ng-provisioning", "ng-site", "ng-amazon-marketplace", "ng-webhook", "ng-order", "ng-matomo"],
-                "commits": [8, 4, 1, 7, 3, 6, 17, 10, 8, 14, 5, 6, 26, 72],
-                "additions": [108, 105, 2, 219, 82, 469, 440, 629, 787, 748, 1151, 1413, 1286, 2611],
-                "deletions": [-28, -83, -322, -208, -351, -205, -335, -197, -284, -401, -81, -317, -687, -987],
+                "commits": [8, 4, 1, 3, 8, 6, 17, 11, 8, 14, 6, 28, 6, 77],
+                "additions": [108, 105, 2, 82, 228, 469, 440, 720, 787, 748, 1413, 1318, 1929, 2706],
+                "deletions": [-28, -83, -322, -351, -217, -205, -335, -321, -284, -401, -317, -705, -473, -1073],
+                "repos": ["ng-shared", "ng-docker-images", "ng-intercom-connector", "ng-product-management", "ng-google-shopping", "ng-product-view", "ng-checkout", "ng-auth", "ng-provisioning", "ng-site", "ng-webhook", "ng-order", "ng-amazon-marketplace", "ng-matomo"],
                 "subtitle": "between 2018-01-14 and 2018-02-04",
                 "owners": ["ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de"]
               };
@@ -213,8 +213,7 @@
                             datalabels: {
                                 anchor: 'end',
                                 align: 'right',
-                                color: 'rgba(44, 190, 78, 1)',
-                                rotation: -45 * 0
+                                color: 'rgba(44, 190, 78, 1)'
                             }
                         }, {
                             label: 'Deletions',
@@ -226,17 +225,8 @@
                                 formatter: Math.abs,
                                 anchor: 'start',
                                 align: 'left',
-                                color: 'rgba(203, 36, 49, 1)',
-                                rotation: 45 * 0
+                                color: 'rgba(203, 36, 49, 1)'
                             }
-            /*
-                        }, {
-                            label: 'Commits',
-                            data: gitHub.commits.reverse(),
-                            backgroundColor: 'rgba(103, 36, 49, 0.2)',
-                            borderColor: 'rgba(103, 36, 49, 1)',
-                            borderWidth: 1
-            */
                         }]
                     },
 
@@ -244,18 +234,14 @@
                         scales: {
                             xAxes: [{
                                 ticks: {
-                                    //stepSize: 500,
                                     // get a little extra space left of deletions for datalabels
                                     suggestedMin: Math.min(...gitHub.deletions) * 1.05,
-                                    suggestedMax: Math.max(...gitHub.additions) * 1.05,
+                                    suggestedMax: Math.max(...gitHub.additions) * 1.05
                                 }
                             }],
 
                             yAxes: [{
-                                stacked: true,
-                                ticks: {
-                                    padding: 10
-                                }
+                                stacked: true
                             }]
                         },
 
