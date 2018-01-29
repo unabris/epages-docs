@@ -120,6 +120,45 @@
 
         <section>
             <h2>Matomo</h2>
+
+            <section>
+              <h3>Implementation progress</h3>
+
+              <ul style="list-style-type: none">
+                <li class="fragment">🍅 Infrastructural work</li>
+                  <ul style="font-size: 75%;">
+                    <li class="fragment">Typical stuff when you need to create yet another microservice</li>
+                  </ul>
+                <li class="fragment">🍅 Merchant onboarding</li>
+                  <ul style="font-size: 75%;">
+                    <li class="fragment">React on 'provisioning done' event to initialize thirdparty entities</li>
+                  </ul>
+                <li class="fragment">🍅 Track order created events</li>
+                <ul style="font-size: 75%;">
+                  <li class="fragment">Including OrderNumber</li>
+                  <li class="fragment">Detailed ProductLineItems information</li>
+                  <li class="fragment">Tax information</li>
+                  <li class="fragment">Shipping costs</li>
+                  <li class="fragment">Partial address information: City</li>
+                  <li class="fragment">No payment costs reported yet</li>
+                </ul>
+              </ul>
+            </section>
+
+            <section>
+                🔥 TODO Insert 🖼️ from @usauer
+            </section>
+
+            <section>
+              <h3>Before reporting more data to Matomo</h3>
+
+              <ul>
+                <li class="fragment">Evaluate Custom Dimentions vs Custom Variables</li>
+                <li class="fragment">Decide how to track Payment costs</li>
+                <li class="fragment">Enrich 'order created event' to include country code</li>
+              </ul>
+            </section>
+
         </section>
 
         <!-- ================================================================= -->
@@ -159,7 +198,7 @@
                 <li><i class="fa fa-trash" style="margin: 6px;" aria-hidden="true"></i> Remove unsupported attribute types</li>
                 <li><i class="fa fa-rocket" style="margin: 6px;" aria-hidden="true"></i> Features initialization</li>
             </ul>
-    
+
         </section>
 
         <!-- ================================================================= -->
