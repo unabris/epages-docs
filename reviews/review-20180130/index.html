@@ -177,6 +177,138 @@
 
         <section>
             <h2>Gathering GitHub stats</h2>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.2.0"></script>
+
+            <div class="container">
+                <canvas id="chart"></canvas>
+            </div>
+
+            <script>
+              var gitHub = {
+                "repos": ["ng-shared", "ng-docker-images", "ng-intercom-connector", "ng-google-shopping", "ng-product-management", "ng-product-view", "ng-checkout", "ng-auth", "ng-provisioning", "ng-site", "ng-amazon-marketplace", "ng-webhook", "ng-order", "ng-matomo"],
+                "commits": [8, 4, 1, 7, 3, 6, 17, 10, 8, 14, 5, 6, 26, 72],
+                "additions": [108, 105, 2, 219, 82, 469, 440, 629, 787, 748, 1151, 1413, 1286, 2611],
+                "deletions": [-28, -83, -322, -208, -351, -205, -335, -197, -284, -401, -81, -317, -687, -987],
+                "subtitle": "between 2018-01-14 and 2018-02-04",
+                "owners": ["ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de", "ePages-de"]
+              };
+            </script>
+
+            <script>
+                // see http://www.chartjs.org/docs/latest/configuration/
+                var context = document.getElementById("chart").getContext("2d");
+                new Chart(context, {
+                    type: 'horizontalBar',
+
+                    data: {
+                        labels: gitHub.repos.reverse(),
+
+                        datasets: [{
+                            label: 'Additions',
+                            data: gitHub.additions.reverse(),
+                            backgroundColor: 'rgba(44, 190, 78, 0.2)',
+                            borderColor: 'rgba(44, 190, 78, 1)',
+                            borderWidth: 1,
+                            datalabels: {
+                                anchor: 'end',
+                                align: 'right',
+                                color: 'rgba(44, 190, 78, 1)',
+                                rotation: -45 * 0
+                            }
+                        }, {
+                            label: 'Deletions',
+                            data: gitHub.deletions.reverse(),
+                            backgroundColor: 'rgba(203, 36, 49, 0.2)',
+                            borderColor: 'rgba(203, 36, 49, 1)',
+                            borderWidth: 1,
+                            datalabels: {
+                                formatter: Math.abs,
+                                anchor: 'start',
+                                align: 'left',
+                                color: 'rgba(203, 36, 49, 1)',
+                                rotation: 45 * 0
+                            }
+            /*
+                        }, {
+                            label: 'Commits',
+                            data: gitHub.commits.reverse(),
+                            backgroundColor: 'rgba(103, 36, 49, 0.2)',
+                            borderColor: 'rgba(103, 36, 49, 1)',
+                            borderWidth: 1
+            */
+                        }]
+                    },
+
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    //stepSize: 500,
+                                    // get a little extra space left of deletions for datalabels
+                                    suggestedMin: Math.min(...gitHub.deletions) * 1.05,
+                                    suggestedMax: Math.max(...gitHub.additions) * 1.05,
+                                }
+                            }],
+
+                            yAxes: [{
+                                stacked: true,
+                                ticks: {
+                                    padding: 10
+                                }
+                            }]
+                        },
+
+                        title: {
+                            display: true,
+                            position: 'top',
+                            fontSize: '20',
+                            fontColor: '#666',
+                            fontStyle: 'bold',
+                            text: ['GitHub contributions', gitHub.subtitle]
+                        },
+
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            reverse: true,
+                            labels: {
+                                boxWidth: 100,
+                                fontSize: 12,
+                                fontStyle: 'normal',
+                                fontColor: '#666'
+                            }
+                        },
+
+                        tooltips: {
+                            enabled: false,
+                            intersect: false,
+                            mode: 'index',
+                            position: 'nearest',
+                            callbacks: {
+                                // see https://github.com/chartjs/Chart.js/blob/4e47c178e42fe84e40d39f9e2b7e26030cc0fc23/src/core/core.tooltip.js#L65
+                                label: function(tooltipItem, data) {
+                                    var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += Math.abs(tooltipItem.xLabel);
+                                    return label;
+                                }
+                            }
+                        },
+
+                        plugins: {
+                            // https://chartjs-plugin-datalabels.netlify.com/options
+                            datalabels: {
+                                display: true
+                            }
+                        }
+                    }
+                });
+            </script>
         </section>
 
         <!-- ================================================================= -->
