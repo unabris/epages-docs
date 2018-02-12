@@ -410,9 +410,31 @@
         <!-- ================================================================= -->
 
         <section>
-            <h2>Merchant-UI pageview tacking</h2>
+            <h2>Cockpit Pageview Tracking</h2>
 
-            <a href="https://epages-test.innocraft.cloud/index.php" target="_blank"><img data-src="img/action.png" class="noborder"></a>
+            <section>
+                <h3>Retrieving the Matomo Tracking ID</h3>
+
+                <pre><code>GET .../matomo/frontends/{qualifier}</code></pre>
+                
+                <pre><code>HTTP/1.1 200 OK
+{
+    "qualifier" : "STOREFRONT",
+    "trackingId" : 1,
+    "baseUri" : "https://epages-beyond.innocraft.cloud",
+    "_links" : {
+      "self" : {
+        "href" : "https://.../matomo/frontends/{qualifier}"
+    }
+  }
+}</code></pre>
+            </section>
+
+            <section>
+                <a href="https://skinny.beyondshop.cloud/merchant-ui" target="_blank"><img data-src="img/action.png" class="noborder"></a>
+                <br/>
+                <a href="https://epages-test.innocraft.cloud/index.php?module=CoreHome&action=index&idSite=16&period=day&date=yesterday&updated=3#?idSite=16&period=day&date=2018-02-12&category=Dashboard_Dashboard&subcategory=1&popover=" target="_blank"><img data-src="img/matomo-logo.svg" width="200" class="noborder"></a>
+            </section>
         </section>
 
         <!-- ================================================================= -->
