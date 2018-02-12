@@ -290,21 +290,105 @@
         <section data-state="deployments">
             <h2>Production Deployments</h2>
 
-            <div id="deployments" style="font-size: 500%; color: green; text-shadow: 0 0 3px #0c3, 8px 8px 15px #333;">89</div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.2.0"></script>
 
-            <script src="js/custom/countUp.js"></script>
-            <script>
-            var options = {
-              useEasing : true,
-              useGrouping : true,
-              separator : ',',
-              decimal : '.',
-              prefix : '',
-              suffix : ''
-            };
+            <div class="container">
+                <canvas id="jenkins"></canvas>
+            </div>
 
-            var deployments = new CountUp("deployments", 0, 89, 0, 5.0, options);
-            </script>
+            <script type="text/javascript">
+                var jenkins = {
+                    "from":"2018-01-30",
+                    "to":"2018-02-13",
+                    "deployments":[13,11,9,8,7,6,5,4,4,4,3,2,2,1,1,1,1,1,1,1],
+                    "repos":["ng-order","ng-amazon-marketplace","ng-matomo","ng-site","ng-shop","ng-checkout","ng-webhook","ng-auth","ng-google-shopping","ng-merchant-ui","ng-product-management","ng-api-proxy","ng-provisioning","ng-cluster-gateway","ng-paypal-express","ng-pdf-rendering","ng-unity-connector","ng-tax","ng-certificate-management","ng-product-view"],
+                    "subtitle":"between 2018-01-30 and 2018-02-13",
+                    "total":85
+                };
+           </script>
+           <script type="text/javascript">
+                // see http://www.chartjs.org/docs/latest/configuration/
+                var context = document.getElementById("jenkins").getContext("2d");
+                new Chart(context, {
+                    type: 'horizontalBar',
+
+                    data: {
+                        labels: jenkins.repos,
+
+                        datasets: [{
+                            label: 'Additions',
+                            data: jenkins.deployments,
+                            backgroundColor: 'rgba(44, 190, 78, 0.2)',
+                            borderColor: 'rgba(44, 190, 78, 1)',
+                            borderWidth: 1,
+                            datalabels: {
+                                anchor: 'end',
+                                align: 'right',
+                                color: 'rgba(44, 190, 78, 1)'
+                            }
+                        }]
+                    },
+
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    // get a little extra space left of deletions for datalabels
+                                    suggestedMin: Math.min(...jenkins.deployments) * 1.05
+                                }
+                            }]
+                        },
+
+                        title: {
+                            display: true,
+                            position: 'top',
+                            fontSize: '20',
+                            fontColor: '#666',
+                            fontStyle: 'bold',
+                            text: ['Deployments', jenkins.subtitle]
+                        },
+
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            reverse: true,
+                            labels: {
+                                boxWidth: 100,
+                                fontSize: 12,
+                                fontStyle: 'normal',
+                                fontColor: '#666'
+                            }
+                        },
+
+                        tooltips: {
+                            enabled: false,
+                            intersect: false,
+                            mode: 'index',
+                            position: 'nearest',
+                            callbacks: {
+                                // see https://github.com/chartjs/Chart.js/blob/4e47c178e42fe84e40d39f9e2b7e26030cc0fc23/src/core/core.tooltip.js#L65
+                                label: function(tooltipItem, data) {
+                                    var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += Math.abs(tooltipItem.xLabel);
+                                    return label;
+                                }
+                            }
+                        },
+
+                        plugins: {
+                            // https://chartjs-plugin-datalabels.netlify.com
+                            datalabels: {
+                                display: true
+                            }
+                        }
+                    }
+                });
+           </script>
         </section>
 
         <!-- ================================================================= -->
@@ -444,11 +528,6 @@
             { src: 'plugin/notes/notes.js', async: true }
         ]
     });
-
-    Reveal.addEventListener('deployments', function () {
-      deployments.reset();
-      deployments.start();
-    }, false);
 
 </script>
 
