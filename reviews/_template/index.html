@@ -2,225 +2,419 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 
-    <title>Team Amber Review {{DATE}}</title>
+  <title>Team 42 - Sprint Review #{{SPRINT_NUMBER}}</title>
 
-    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-    <meta name="author" content="Hakim El Hattab">
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
 
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
 
-    <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="lib/css/zenburn.css">
+  <link rel="stylesheet" href="lib/css/zenburn.css">
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="lib/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="lib/css/font-awesome/css/font-awesome.min.css">
 
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild( link );
+  </script>
 
-    </script>
+  <style>
+    pre {
+      width: 800px !important;
+    }
 
-    <style>
-      pre {
-        width: 800px !important;
-      }
+    .reveal .noborder {
+      border: none;
+      box-shadow: none;
+      background: none;
+    }
+  </style>
 
-      .reveal .noborder {
-          border: none;
-          box-shadow: none;
-          background: none;
-      }
-    </style>
+  <style>
+    .metrics.table-striped>tbody>tr:nth-child(odd)>td, .metrics.table-striped>tbody>tr:nth-child(odd)>th
+    {
+      background-color: rgb(229, 223, 206);
+    }
 
-    <!-- quality metrics -->
-    <style>
-        .metrics.table-striped>tbody>tr:nth-child(odd)>td, .metrics.table-striped>tbody>tr:nth-child(odd)>th
-        {
-            background-color: rgb(229, 223, 206);
-        }
+    table.metrics {
+      font-size: 70%;
+    }
 
-        table.metrics {
-            font-size: 70%;
-        }
+    table.metrics .summary {
+      font-weight: bold;
+    }
 
-        table.metrics tr.glowing:focus {
+    table.metrics th {
+      text-align: center;
+    }
 
-        }
+    table.metrics .metrics-name {
+      text-align: left;
+      white-space: nowrap;
+    }
 
-        table.metrics .summary {
-            font-weight: bold;
-        }
+    table.metrics .metric-value {
+      text-align: right;
+    }
 
-        table.metrics th {
-            text-align: center;
-        }
+    table.metrics .metric-delta {
+      text-align: right;
+      font-size: 60%;
+    }
 
-        table.metrics .metrics-name {
-            text-align: left;
-            white-space: nowrap;
-        }
+    table.metrics .metric-improve {
+      color: rgb(50, 200, 50);
+    }
 
-        table.metrics .metric-value {
-            text-align: right;
-        }
+    table.metrics .metric-decrease {
+      color: rgb(200, 50, 50);
+    }
 
-        table.metrics .metric-delta {
-            text-align: right;
-            font-size: 60%;
-        }
+    .backgrounds {
+      opacity:0.1;
+      filter: blur(10px);
+    }
+  </style>
 
-        table.metrics .metric-improve {
-            color: rgb(50, 200, 50);
-        }
+  <style>
+    body {
+      background: #424242;
+    }
+    .reveal h1 {
+      color: #ffe0b2;
+      text-transform: none;
+    }
+    .reveal h1.krypton {
+      color: #99cf70;
+      text-transform: none;
+    }
+    .reveal h2 {
+      color: #ffe0b2;
+      text-transform: none;
+    }
+    .reveal h2.krypton {
+      color: #99cf70;
+      text-transform: none;
+    }
+    .reveal h3 {
+      color: #fff;
+      text-transform: none;
+    }
+    .reveal h5 {
+      color: #fff;
+      text-transform: none;
+      font-style: italic;
+    }
+    .reveal {
+      color: #fff;
+    }
+    .reveal a {
+      color: #ffe0b2;
+    }
+    .reveal .progress span {
+      background: #ffe0b2;
+    }
+    .reveal .controls div.navigate-left,
+    .reveal .controls div.navigate-left.enabled {
+      border-right-color: #ffe0b2;
+    }
+    .reveal .controls div.navigate-right,
+    .reveal .controls div.navigate-right.enabled {
+      border-left-color: #ffe0b2;
+    }
+    .reveal .controls div.navigate-down,
+    .reveal .controls div.navigate-down.enabled {
+      border-top-color: #ffe0b2;
+    }
+    .reveal .controls div.navigate-up,
+    .reveal .controls div.navigate-up.enabled {
+      border-bottom-color: #ffe0b2;
+    }
+    .reveal section img {
+      border: none;
+    }
+  </style>
 
-        table.metrics .metric-decrease {
-            color: rgb(200, 50, 50);
-        }
-
-        .backgrounds {
-             opacity:0.1;
-             filter: blur(10px);
-         }
-    </style>
-    <!-- /quality metrics -->
-
-    <!--[if lt IE 9]>
+  <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
-    <![endif]-->
+  <![endif]-->
 </head>
 
 <body>
 
-<div class="reveal">
+  <div class="reveal">
 
-    <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
+
+      <section>
+        <img src="img/team-42-logo.png" style="border:none; box-shadow:none; background:none; width:300px;" />
+
+        <h1>Team 42</h1>
+
+        <h3>Sprint Review #{{SPRINT_NUMBER}}</h3>
+
+        <h5>{{SPRINT_TITLE}}</h5>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h2>Agenda</h2>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>ePages Docs</td>
+            </tr>
+            <tr>
+              <td>ePages Devportal</td>
+            </tr>
+            <tr>
+              <td>Krypton</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>GitHub Statistics</h2>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.2.0"></script>
+
+        <div class="container">
+          <canvas id="chart"></canvas>
+        </div>
+
+        <script>
+          var gitHub = {
+            "repos": ["krypton", "epages-devportal", "epages-docs"],
+            "files": [40, 184, 189],
+            "additions": [40, 184, 189],
+            "deletions": [-117, -45, -147]
+          };
+        </script>
+
+        <script>
+          var context = document.getElementById("chart").getContext("2d");
+          new Chart(context, {
+            type: 'horizontalBar',
+
+            data: {
+              labels: gitHub.repos,
+
+              datasets: [{
+                label: 'Additions',
+                data: gitHub.additions,
+                backgroundColor: 'rgba(147, 196, 125, .4)',
+                borderColor: 'rgba(147, 196, 125, 1)',
+                borderWidth: 1,
+                datalabels: {
+                  anchor: 'end',
+                  align: 'right',
+                  color: 'rgba(147, 196, 125, 1)'
+                }
+              }, {
+                label: 'Deletions',
+                data: gitHub.deletions,
+                backgroundColor: 'rgba(204, 65, 37, .4)',
+                borderColor: 'rgba(204, 65, 37, 1)',
+                borderWidth: 1,
+                datalabels: {
+                  formatter: Math.abs,
+                  anchor: 'start',
+                  align: 'left',
+                  color: 'rgba(204, 65, 37, 1)'
+                }
+              }]
+            },
+
+            options: {
+              scales: {
+
+                xAxes: [{
+                  ticks: {
+                    suggestedMin: Math.min(...gitHub.deletions) * 1.05,
+                    suggestedMax: Math.max(...gitHub.additions) * 1.05
+                  }
+                }],
+
+                yAxes: [{
+                  stacked: true,
+                  ticks: {
+                    fontSize: 20,
+                    fontColor: '#fff',
+                    callback: function(value, index, values) {
+                      return (value + '\n (' + gitHub.files[index] + ' files changed)');
+                    }
+                  }
+                }]
+              },
+
+              legend: {
+                display: true,
+                position: 'bottom',
+                reverse: true,
+                labels: {
+                  boxWidth: 100,
+                  fontSize: 12,
+                  fontStyle: 'normal',
+                  fontColor: '#fff'
+                }
+              },
+
+              tooltips: {
+                enabled: false,
+                intersect: false,
+                mode: 'index',
+                position: 'nearest',
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                    if (label) {
+                      label += ': ';
+                    }
+
+                    label += Math.abs(tooltipItem.xLabel);
+                    return label;
+                  }
+                }
+              },
+
+              plugins: {
+                datalabels: {
+                  display: true
+                }
+              }
+            }
+          });
+        </script>
+
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>ePages Docs</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>ePages Docs</h2>
+
         <section>
-            <h2>Team Amber Review</h2>
-
-            <h3>Sprint {{SPRINT_NUMBER}} - {{SPRINT_TITLE}}</h3>
-
-            <img src="img/team-amber-logo.png" style="border:none; box-shadow:none; background:none; width:200px;">
+          <h3>Task 1</h3>
         </section>
-
-        <!-- ================================================================= -->
 
         <section>
-            <h2>The Plan</h2>
-            <table>
-                <tbody>
-                <tr>
-                    <td>Introduction</td>
-                    <td>05 min</td>
-                </tr>
-                <tr>
-                    <td>Q&amp;A</td>
-                </tr>
-                </tbody>
-            </table>
+          <h3>Questions?</h3>
         </section>
+      </section>
 
+      <!-- ================================================================= -->
 
-        <!-- ================================================================= -->
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>ePages Devportal</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>ePages Devportal</h2>
 
         <section>
-            <h2>Quality Metrics</h2>
-            <!--
-                git clone https://github.com/jensfischerhh/sonardash.git
-                cd sonardash
-                ./gradlew bootRun
-                open http://localhost:3274/delta?&from={{SONARDASH_DATE}}&hide=title&hide=resource-link&nameFilter=%20origin%2Fmaster&suppress=skipped_tests&suppress=class_complexity&suppress=test_execution_time&key=com.epages.ng:ng-api-proxy:origin/master&key=com.epages.ng:ng-auth:origin/master&key=com.epages.ng:ng-businessunit:origin/master&key=com.epages.ng:ng-product-management:origin/master&key=com.epages.ng:shared-parent:origin/master&key=com.epages.ng:ng-shop:origin/master&key=com.epages.ng:ng-site:origin/master&key=com.epages.ng:ng-tenant:origin/master&key=com.epages.ng:ng-product-view:origin/master&key=com.epages.ng:ng-tax:origin/master&key=com.epages.ng:ng-checkout:origin/master&key=com.epages.ng:ng-unity-connector:origin/master&key=com.epages.ng:ng-mail-rendering:origin/master&key=com.epages.ng:ng-order:origin/master&key=com.epages.ng:ng-mail-gateway:origin/master&key=com.epages.ng:ng-pdf-rendering:origin/master&key=com.epages.ng:ng-storage-proxy:origin/master&key=com.epages.ng:ng-legal-content:origin/master
-            -->
+          <h3>Task 1</h3>
         </section>
-
-        <!-- ================================================================= -->
-
-        <section data-state="deployments">
-            <h2>Production Deployments</h2>
-
-            <div id="deployments" style="font-size: 500%; color: green; text-shadow: 0 0 3px #0c3, 8px 8px 15px #333;">0</div>
-
-            <script src="js/custom/countUp.js"></script>
-            <script>
-            var options = {
-              useEasing : true,
-              useGrouping : true,
-              separator : ',',
-              decimal : '.',
-              prefix : '',
-              suffix : ''
-            };
-
-            var deployments = new CountUp("deployments", 0, 9999, 0, 5.0, options);
-            </script>
-        </section>
-
-        <!-- ================================================================= -->
 
         <section>
-            <h2></h2>
+          <h3>Questions?</h3>
         </section>
+      </section>
 
-        <!-- ================================================================= -->
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/krypton-logo.png" data-background-size="1300px">
+        <h1 class="krypton">Krypton</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2 class="krypton">Krypton</h2>
 
         <section>
-            <h2>Next Steps</h2>
+          <h3>Task 1</h3>
         </section>
-
-        <!-- ================================================================= -->
 
         <section>
-            <h2>Questions?</h2>
+          <h3>Questions?</h3>
         </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>Next Steps</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>Next Steps</h2>
+
+        <section>
+          <h3>Roadmap</h3>
+
+          <img src="img/roadmap.png" />
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>Thank you and don't panic!</h1>
+      </section>
 
     </div>
+  </div>
 
-</div>
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
 
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
-
-<script>
-    // Full list of configuration options available at:
-    // https://github.com/hakimel/reveal.js#configuration
+  <script>
     Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
 
-        transition: 'slide', // none/fade/slide/convex/concave/zoom
+      transition: 'slide',
 
-        // Optional reveal.js plugins
-        dependencies: [
-            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-            { src: 'plugin/zoom-js/zoom.js', async: true },
-            { src: 'plugin/notes/notes.js', async: true }
-        ]
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
     });
-
-    Reveal.addEventListener('deployments', function () {
-      deployments.reset();
-      deployments.start();
-    }, false);
-
-</script>
+  </script>
 
 </body>
 </html>
