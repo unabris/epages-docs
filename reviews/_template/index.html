@@ -122,6 +122,16 @@
     .reveal a {
       color: #ffe0b2;
     }
+    .reveal a.krypton {
+      color: #99cf70;
+    }
+    .reveal a.krypton:hover {
+      color: #268bd2;
+    }
+    .reveal a i.fa.fa-thumbs-up,
+    .reveal a i.fa.fa-rocket {
+      font-size: 200px;
+    }
     .reveal .progress span {
       background: #ffe0b2;
     }
@@ -143,6 +153,8 @@
     }
     .reveal section img {
       border: none;
+      background: transparent;
+      box-shadow: none;
     }
   </style>
 
@@ -182,6 +194,9 @@
             </tr>
             <tr>
               <td>Krypton</td>
+            </tr>
+            <tr>
+              <td>Next Steps</td>
             </tr>
           </tbody>
         </table>
@@ -247,8 +262,8 @@
 
                 xAxes: [{
                   ticks: {
-                    suggestedMin: Math.min(...gitHub.deletions) * 1.05,
-                    suggestedMax: Math.max(...gitHub.additions) * 1.05
+                    suggestedMin: Math.min(...gitHub.deletions) * 1.5,
+                    suggestedMax: Math.max(...gitHub.additions) * 1
                   }
                 }],
 
@@ -309,40 +324,39 @@
       <!-- ================================================================= -->
 
       <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>ePages Docs</h1>
+        <h1>Project 1</h1>
       </section>
 
       <!-- ================================================================= -->
 
       <section>
-        <h2>ePages Docs</h2>
+        <h2>Task 1</h2>
 
         <section>
-          <h3>Task 1</h3>
+          <h3>List example</h3>
+
+          <ul>
+            <li class="fragment visible" data-fragment-index="0">List item 1</li>
+            <li class="fragment visible" data-fragment-index="1">List item 2</li>
+            <li class="fragment visible" data-fragment-index="2">List item 3</li>
+          </ul>
         </section>
 
         <section>
-          <h3>Questions?</h3>
-        </section>
-      </section>
+          <h3>Code example</h3>
 
-      <!-- ================================================================= -->
-
-      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>ePages Devportal</h1>
-      </section>
-
-      <!-- ================================================================= -->
-
-      <section>
-        <h2>ePages Devportal</h2>
-
-        <section>
-          <h3>Task 1</h3>
+          <pre class="fragment visible" data-fragment-index="0"><code>def create
+  provision_id = BeyondApi::Provisioning.provision(shop_params)
+  redirect_to provision_status_path(provision_id)
+end</code></pre>
         </section>
 
         <section>
-          <h3>Questions?</h3>
+          <h3>Live example</h3>
+          <br />
+          <a href="#" target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
         </section>
       </section>
 
@@ -358,12 +372,37 @@
         <h2 class="krypton">Krypton</h2>
 
         <section>
-          <h3>Task 1</h3>
+          <h3>List example</h3>
+
+          <ul>
+            <li class="fragment visible" data-fragment-index="0">List item 1</li>
+            <li class="fragment visible" data-fragment-index="1">List item 2</li>
+            <li class="fragment visible" data-fragment-index="2">List item 3</li>
+          </ul>
         </section>
 
         <section>
-          <h3>Questions?</h3>
+          <h3>Code example</h3>
+
+          <pre class="fragment visible" data-fragment-index="0"><code>def create
+  provision_id = BeyondApi::Provisioning.provision(shop_params)
+  redirect_to provision_status_path(provision_id)
+end</code></pre>
         </section>
+
+        <section>
+          <h3>Live example</h3>
+          <br />
+          <a class="krypton" href="#" target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>Questions?</h1>
       </section>
 
       <!-- ================================================================= -->
@@ -377,11 +416,19 @@
       <section>
         <h2>Next Steps</h2>
 
-        <section>
-          <h3>Roadmap</h3>
-
-          <img src="img/roadmap.png" />
-        </section>
+        <table>
+          <tbody>
+            <tr>
+              <td>Next Step 1</td>
+            </tr>
+            <tr>
+              <td>Next Step 2</td>
+            </tr>
+            <tr>
+              <td>Next Step 3</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <!-- ================================================================= -->
