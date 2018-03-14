@@ -11,6 +11,7 @@ function runDocker() {
   --name $CONTAINER_NAME \
   -v $PRESENTATION_DIR/index.html:/slides/index.html \
   -v $PRESENTATION_DIR/img/:/slides/img/ \
+  -v $PRESENTATION_DIR/coverage/:/slides/coverage/ \
   -v $PRESENTATION_DIR/js/custom/:/slides/js/custom/ \
   -p $HOST_PORT:8000 \
   "epages/reveal.js:latest"
