@@ -215,6 +215,8 @@
         </div>
 
         <script>
+          // git log --shortstat --no-merges --since "2 weeks ago" | grep "files changed" | awk '{files+=$1; inserted+=$4; deleted+=$6} END {print files, "files changed,", inserted, "insertions(+),", deleted, "deletions(-)"}'
+
           var gitHub = {
             "repos": ["krypton", "epages-devportal", "epages-docs"],
             "files": [40, 184, 189],
@@ -336,16 +338,16 @@
           <h3>List example</h3>
 
           <ul>
-            <li class="fragment visible" data-fragment-index="0">List item 1</li>
-            <li class="fragment visible" data-fragment-index="1">List item 2</li>
-            <li class="fragment visible" data-fragment-index="2">List item 3</li>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
           </ul>
         </section>
 
         <section>
           <h3>Code example</h3>
 
-          <pre class="fragment visible" data-fragment-index="0"><code>def create
+          <pre><code>def create
   provision_id = BeyondApi::Provisioning.provision(shop_params)
   redirect_to provision_status_path(provision_id)
 end</code></pre>
@@ -383,16 +385,16 @@ end</code></pre>
           <h3>List example</h3>
 
           <ul>
-            <li class="fragment visible" data-fragment-index="0">List item 1</li>
-            <li class="fragment visible" data-fragment-index="1">List item 2</li>
-            <li class="fragment visible" data-fragment-index="2">List item 3</li>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
           </ul>
         </section>
 
         <section>
           <h3>Code example</h3>
 
-          <pre class="fragment visible" data-fragment-index="0"><code>def create
+          <pr><code>def create
   provision_id = BeyondApi::Provisioning.provision(shop_params)
   redirect_to provision_status_path(provision_id)
 end</code></pre>
