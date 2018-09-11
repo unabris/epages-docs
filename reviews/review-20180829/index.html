@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Team 42 - Sprint Review #18</title>
+
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <link rel="stylesheet" href="lib/css/font-awesome/css/font-awesome.min.css">
+
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild( link );
+  </script>
+
+  <style>
+    pre {
+      width: 800px !important;
+    }
+
+    .reveal .noborder {
+      border: none;
+      box-shadow: none;
+      background: none;
+    }
+  </style>
+
+  <style>
+    .metrics.table-striped>tbody>tr:nth-child(odd)>td, .metrics.table-striped>tbody>tr:nth-child(odd)>th
+    {
+      background-color: rgb(229, 223, 206);
+    }
+
+    table.metrics {
+      font-size: 70%;
+    }
+
+    table.metrics .summary {
+      font-weight: bold;
+    }
+
+    table.metrics th {
+      text-align: center;
+    }
+
+    table.metrics .metrics-name {
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    table.metrics .metric-value {
+      text-align: right;
+    }
+
+    table.metrics .metric-delta {
+      text-align: right;
+      font-size: 60%;
+    }
+
+    table.metrics .metric-improve {
+      color: rgb(50, 200, 50);
+    }
+
+    table.metrics .metric-decrease {
+      color: rgb(200, 50, 50);
+    }
+
+    .backgrounds {
+      opacity:0.1;
+      filter: blur(10px);
+    }
+  </style>
+
+  <style>
+    body {
+      background: #424242;
+    }
+    .reveal h1 {
+      color: #ffe0b2;
+      text-transform: none;
+    }
+    .reveal h1.krypton {
+      color: #99cf70;
+      text-transform: none;
+    }
+    .reveal h2 {
+      color: #ffe0b2;
+      text-transform: none;
+    }
+    .reveal h2.krypton {
+      color: #99cf70;
+      text-transform: none;
+    }
+    .reveal h3 {
+      color: #fff;
+      text-transform: none;
+    }
+    .reveal h5 {
+      color: #fff;
+      text-transform: none;
+      font-style: italic;
+    }
+    .reveal {
+      color: #fff;
+    }
+    .reveal a {
+      color: #ffe0b2;
+    }
+    .reveal a.krypton {
+      color: #99cf70;
+    }
+    .reveal a.krypton:hover {
+      color: #268bd2;
+    }
+    .reveal a i.fa.fa-thumbs-up,
+    .reveal a i.fa.fa-rocket {
+      font-size: 200px;
+    }
+    .reveal .progress span {
+      background: #ffe0b2;
+    }
+    .reveal .controls div.navigate-left,
+    .reveal .controls div.navigate-left.enabled {
+      border-right-color: #ffe0b2;
+    }
+    .reveal .controls div.navigate-right,
+    .reveal .controls div.navigate-right.enabled {
+      border-left-color: #ffe0b2;
+    }
+    .reveal .controls div.navigate-down,
+    .reveal .controls div.navigate-down.enabled {
+      border-top-color: #ffe0b2;
+    }
+    .reveal .controls div.navigate-up,
+    .reveal .controls div.navigate-up.enabled {
+      border-bottom-color: #ffe0b2;
+    }
+    .reveal section img {
+      border: none;
+      background: transparent;
+      box-shadow: none;
+    }
+  </style>
+
+  <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+  <div class="reveal">
+
+    <div class="slides">
+
+      <section>
+        <img src="img/team-42-logo.png" style="border:none; box-shadow:none; background:none; width:300px;" />
+
+        <h1>Team 42</h1>
+
+        <h3>Sprint Review #18</h3>
+
+        <h5></h5>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h2>Agenda</h2>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>ePages Devportal</td>
+            </tr>
+            <tr>
+              <td>Krypton</td>
+            </tr>
+            <tr>
+              <td>Next Steps</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>ePages Devportal</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>Add basic sidebar to Beyond Essence</h2>
+
+        <section>
+          <h3>Plugin configuration</h3>
+
+          <pre><code>#_data/beyond_essence.yml
+
+- title: Experience
+  entries:
+    - title: Experience compass
+      link: beyond-essence/experience/compass.md
+
+    - title: Target group
+      link: beyond-essence/experience/targetgroup.md</code></pre>
+        </section>
+
+        <section>
+          <br />
+          <a href="https://developer.epages.com/beyond-essence/content/language/" target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/krypton-logo.png" data-background-size="1300px">
+        <h1 class="krypton">Krypton</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2 class="krypton">Add CircleCI</h2>
+
+        <section>
+          <h3>Current checks</h3>
+          <ul>
+            <li>Rubocop (ruby code analyzer and formatter)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Future checks</h3>
+          <ul>
+            <li>Sass lint</li>
+            <li>Rails tests</li>
+            <li>Translation status checks</li>
+            <li>...</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2 class="krypton">Refactor Beyond API</h2>
+
+        <section>
+          <h3>What has been done</h3>
+
+          <ul>
+            <li>Site to Shop in the whole project</li>
+            <li>Proper names to variables and methods</li>
+            <li>Better object structure</li>
+            <li>...</li>
+          </ul>
+        </section>
+
+        <section>
+          <br />
+          <a class="krypton" href="https://github.com/ePages-de/krypton/pull/93" target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2 class="krypton">Other tasks</h2>
+
+        <section>
+          <ul>
+            <li>Fix Stripe</li>
+            <li>Disable storefront open/close</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>Questions?</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>Next Steps</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>Next Steps</h2>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>Migrate ePages Devportal to AWS S3 service</td>
+            </tr>
+            <tr>
+              <td>Style Beyond Essence sidebar</td>
+            </tr>
+            <tr>
+              <td>More Krypton</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>Thank you and don't panic!</h1>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide',
+
+      dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+  </script>
+
+</body>
+</html>
