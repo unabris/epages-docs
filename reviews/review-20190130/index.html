@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Team 42 - Sprint Review #{{SPRINT_NUMBER}}</title>
+  <title>Team 42 - Sprint Review #27</title>
 
   <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
   <meta name="author" content="Hakim El Hattab">
@@ -132,7 +132,7 @@
       color: #268bd2;
     }
     .reveal a i.fa.fa-thumbs-up,
-    .reveal a i.fa.fa-rocket {
+    .reveal a i.fas.fa-rocket {
       font-size: 200px;
     }
     .reveal .progress span {
@@ -177,9 +177,9 @@
 
         <h1>Team 42</h1>
 
-        <h3>Sprint Review #{{SPRINT_NUMBER}}</h3>
+        <h3>Sprint Review #27</h3>
 
-        <h5>{{SPRINT_TITLE}}</h5>
+        <h5></h5>
       </section>
 
       <!-- ================================================================= -->
@@ -189,12 +189,6 @@
 
         <table>
           <tbody>
-            <tr>
-              <td>ePages Docs</td>
-            </tr>
-            <tr>
-              <td>ePages Devportal</td>
-            </tr>
             <tr>
               <td>Krypton</td>
             </tr>
@@ -221,10 +215,10 @@
           // git log --shortstat --no-merges --since "2 weeks ago" | grep "files changed" | awk '{files+=$1; inserted+=$4; deleted+=$6} END {print files, "files changed,", inserted, "insertions(+),", deleted, "deletions(-)"}'
 
           var gitHub = {
-            "repos": ["krypton", "epages-devportal", "epages-docs"],
-            "files": [40, 184, 189],
-            "additions": [40, 184, 189],
-            "deletions": [-117, -45, -147]
+            "repos": ["krypton"],
+            "files": [94],
+            "additions": [656],
+            "deletions": [-438]
           };
         </script>
 
@@ -328,44 +322,6 @@
 
       <!-- ================================================================= -->
 
-      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>Project 1</h1>
-      </section>
-
-      <!-- ================================================================= -->
-
-      <section>
-        <h2>Task 1</h2>
-
-        <section>
-          <h3>List example</h3>
-
-          <ul>
-            <li>List item 1</li>
-            <li>List item 2</li>
-            <li>List item 3</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Code example</h3>
-
-          <pre><code>def create
-  provision_id = BeyondApi::Provisioning.provision(shop_params)
-  redirect_to provision_status_path(provision_id)
-end</code></pre>
-        </section>
-
-        <section>
-          <br />
-          <a href="#" target="_blank">
-            <i class="fa fa-rocket"></i>
-          </a>
-        </section>
-      </section>
-
-      <!-- ================================================================= -->
-
       <section class="plain" data-background-image="img/krypton-logo.png" data-background-size="1300px">
         <h1 class="krypton">Krypton</h1>
       </section>
@@ -373,32 +329,91 @@ end</code></pre>
       <!-- ================================================================= -->
 
       <section>
-        <h2 class="krypton">Krypton</h2>
+        <h2 class="krypton">Hostname and password validation endpoints</h2>
 
         <section>
-          <h3>List example</h3>
+          <pre><code>&gt;&gt; Beyond::Api::Validations.valid_password?("ePages01")
+=> true</code></pre>
+
+    <pre><code>&gt;&gt; Beyond::Api::Validations.available_hostname?("epages.com")
+=> false</code></pre>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2 class="krypton">Krypton domains</h2>
+
+        <section>
+          <h3>Staging</h3>
 
           <ul>
-            <li>List item 1</li>
-            <li>List item 2</li>
-            <li>List item 3</li>
+            <li><a class="krypton" href="https://staging.admin.beyondshop.cloud" target="_blank">staging.admin.beyondshop.cloud</a> </li>
+            <li><a class="krypton" href="https://staging.reseller.beyondshop.cloud" target="_blank">staging.reseller.beyondshop.cloud</a></li>
           </ul>
         </section>
 
         <section>
-          <h3>Code example</h3>
+          <h3>Phraseapp</h3>
 
-          <pre><code>def create
-  provision_id = BeyondApi::Provisioning.provision(shop_params)
-  redirect_to provision_status_path(provision_id)
-end</code></pre>
+          <ul>
+            <li><a class="krypton" href="https://phraseapp.admin.beyondshop.cloud" target="_blank">phraseapp.admin.beyondshop.cloud</a></li>
+            <li><a class="krypton" href="https://phraseapp.reseller.beyondshop.cloud" target="_blank">phraseapp.reseller.beyondshop.cloud</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Production</h3>
+
+          <ul>
+            <li><a class="krypton" href="https://admin.beyondshop.cloud" target="_blank">admin.beyondshop.cloud</a></li>
+            <li><a class="krypton" href="https://reseller.beyondshop.cloud" target="_blank">reseller.beyondshop.cloud</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <ul>
+            <li>Each user can login withing his allowed subdomain</li>
+            <li>Superadmins ➡ admin</li>
+            <li>Resellers ➡ reseller</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2 class="krypton">Package management</h2>
+
+        <section>
+          <h3>What</h3>
+
+          <ul>
+            <li>Add COUNTER type features to packages</li>
+            <li>Allow to change package visibility</li>
+            <li>Add reseller and country filtering for superadmin users</li>
+          </ul>
         </section>
 
         <section>
           <br />
-          <a class="krypton" href="#" target="_blank">
-            <i class="fa fa-rocket"></i>
+          <a class="krypton" href="https://staging.admin.beyondshop.cloud/packages?country=DE" target="_blank">
+            <i class="fas fa-rocket"></i>
           </a>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2 class="krypton">Other tasks</h2>
+
+        <section>
+          <ul>
+            <li>Upgrade dependencies</li>
+            <li>Translate literals</li>
+          </ul>
         </section>
       </section>
 
@@ -422,13 +437,10 @@ end</code></pre>
         <table>
           <tbody>
             <tr>
-              <td>Next Step 1</td>
+              <td>Prepare Krypton for launch (Week of February 18th)</td>
             </tr>
             <tr>
-              <td>Next Step 2</td>
-            </tr>
-            <tr>
-              <td>Next Step 3</td>
+              <td></td>
             </tr>
           </tbody>
         </table>
