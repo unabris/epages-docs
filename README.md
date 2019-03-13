@@ -19,7 +19,7 @@ Slides of all our reviews, PDFs can be found on [confluence](https://epages.atla
 Or to get the latest review slides:
 
 ```
-./review/latest.sh
+./reviews/latest.sh
 ```
 
 
