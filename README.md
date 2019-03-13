@@ -10,18 +10,17 @@ Slides of all our reviews, PDFs can be found on [confluence](https://epages.atla
 
 ## Usage
 
-
+Generate a new review:
 
 ```
-./powerpoint.exe ./reviews/review-YYYYMMDD
+./reviews/template.sh YYYYMMDD <sprint_number> ""
 ```
 
-Or to get the latest review slides:
+Build last review:
 
 ```
 ./reviews/latest.sh
 ```
-
 
 * Access presentation: http://0.0.0.0:8000
 * Export PDF: http://0.0.0.0:8000/?print-pdf
