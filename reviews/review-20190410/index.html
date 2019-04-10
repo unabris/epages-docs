@@ -192,13 +192,16 @@
               <td>ePages Devportal</td>
             </tr>
             <tr>
-              <td>Beyond Private Sdk</td>
+              <td>Beyond Private SDK</td>
             </tr>
             <tr>
-              <td>Krypton Provisioning</td>
+              <td>Krypton sign up form</td>
             </tr>
             <tr>
               <td>Krypton</td>
+            </tr>
+            <tr>
+              <td>Team 42</td>
             </tr>
           </tbody>
         </table>
@@ -341,29 +344,33 @@
         </section>
       </section>
 
+      <!-- ================================================================= -->
+
       <section>
-        <h2>Remove scroll tracking</h2>
+        <h2>Other tasks</h2>
 
         <section>
-          <br />
-          <a href="#" target="_blank">
-            <i class="fa fa-rocket"></i>
-          </a>
+          <ul>
+            <li>Remove scroll tracking</li>
+          </ul>
         </section>
       </section>
 
       <!-- ================================================================= -->
 
       <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>Beyond Private Sdk</h1>
+        <h1>Beyond Private SDK</h1>
+        <h3>Gem is now finished!!</h3>
       </section>
 
       <!-- ================================================================= -->
 
       <section>
-        <h2>Added endpoints</h2>
+        <h2>Beyond Private SDK</h2>
 
         <section>
+          <h3>Last added endpoints</h3>
+
           <ul>
             <li>
               <pre><code>/api/shops/{shop_id}/domains/{domain_name}/assign</code></pre>
@@ -373,24 +380,55 @@
             </li>
           </ul>
         </section>
+
+        <section>
+          <h3>GitHub repository</h3>
+          <br />
+          <a class="krypton" href="https://github.com/ePages-de/beyond-private_sdk" target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
+        </section>
       </section>
 
       <!-- ================================================================= -->
 
       <section class="plain" data-background-image="img/krypton-logo.png" data-background-size="1300px">
-        <h1 class="krypton">Krypton Provisioning</h1>
+        <h1 class="krypton">Krypton sign up form</h1>
       </section>
 
+      <!-- ================================================================= -->
+
       <section>
-        <h2>Generate public signup form</h2>
+        <h2>Krypton sign up form</h2>
+
+        <section>
+          <h3>What?</h3>
+
+          <ul>
+            <li>Allows us to automatically create reseller based public sign up form to create shops</li>
+            <li>Move provisioning code out of Krypton and make it easy to maintain</li>
+          </ul>
+        </section>
 
         <section>
           <h3>Why?</h3>
+
           <ul>
-            <li>Allows resellers to have a public page to create shops</li>
-            <li>Refactor, clean up the code and make it easy to maintain</li>
+            <li>Give Jens the opportunity to delete ng-signup before he leaves :(</li>
           </ul>
         </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/krypton-logo.png" data-background-size="1300px">
+        <h1 class="krypton">Krypton</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>Add sign up form creation button</h2>
 
         <section>
           <br />
@@ -400,35 +438,7 @@
         </section>
       </section>
 
-      <section class="plain" data-background-image="img/krypton-logo.png" data-background-size="1300px">
-        <h1 class="krypton">Krypton</h1>
-      </section>
-
       <!-- ================================================================= -->
-
-      <section>
-        <h2>Migrate to Ruby 2.6</h2>
-
-        <section>
-          <h3>Why?</h3>
-          <ul>
-            <li>Allows us to use it on different projects (e.g. custom signup form for resellers)</li>
-            <li>Refactor, clean up the code and make it easy to maintain</li>
-          </ul>
-        </section>
-      </section>
-
-      <section>
-        <h2>Migrate to Bundler 2.0</h2>
-
-        <section>
-          <h3>Why?</h3>
-          <ul>
-            <li>Allows us to use it on different projects (e.g. custom signup form for resellers)</li>
-            <li>Refactor, clean up the code and make it easy to maintain</li>
-          </ul>
-        </section>
-      </section>
 
       <section>
         <h2>Add pagination to Resellers and Users</h2>
@@ -441,8 +451,20 @@
         </section>
       </section>
 
+      <!-- ================================================================= -->
+
       <section>
         <h2>User limit per reseller</h2>
+
+        <section>
+          <h3>What?</h3>
+
+          <ul>
+            <li>Resellers can have 5 users by default</li>
+            <li>We can increase or decrease the user limit by Rails Console</li>
+            <li>Resellers with user limit equal 0 can create as much users they want</li>
+          </ul>
+        </section>
 
         <section>
           <br />
@@ -452,27 +474,30 @@
         </section>
       </section>
 
+      <!-- ================================================================= -->
+
       <section>
         <h2>App submission</h2>
 
         <section>
-          <br />
-          <a class="krypton" href="https://staging.reseller.beyondshop.cloud/apps/new" target="_blank">
-            <i class="fa fa-rocket"></i>
-          </a>
-        </section>
-      </section>
+          <h3>What?</h3>
 
-      <section>
-        <h2>Allow to create shops without password</h2>
+          <ul>
+            <li>Allow to submit App information</li>
+            <li>Usually this will be triggered from the cockpit, sending the App ID as query param</li>
+            <li>We also allow to create App submissions for logged in users</li>
+          </ul>
+        </section>
 
         <section>
           <br />
-          <a class="krypton" href="https://staging.reseller.beyondshop.cloud/shops/new" target="_blank">
+          <a class="krypton" href="https://staging.admin.beyondshop.cloud/apps/new" target="_blank">
             <i class="fa fa-rocket"></i>
           </a>
         </section>
       </section>
+
+      <!-- ================================================================= -->
 
       <section>
         <h2>Domain management</h2>
@@ -498,8 +523,56 @@
 
       <!-- ================================================================= -->
 
+      <section>
+        <h2>Other tasks</h2>
+
+        <section>
+          <ul>
+            <li>Allow to create shops without password</li>
+            <li>Migrate to Ruby 2.6</li>
+            <li>Migrate to Bundler 2.0</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>What about the new sign up form?</h2>
+      </section>
+
+      <!-- ================================================================= -->
+
       <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
         <h1>Questions?</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>Team 42</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>Team 42 is growing!!</h2>
+
+        <section>
+          <h3>Kathia, as Ruby developer</h3>
+        </section>
+
+        <section>
+          <h3>Kathia, do you want to introduce yourself...</h3>
+          <h3>...again?</h3>
+
+         <img src="img/male.png">
+        </section>
+
+        <section>
+          <h3>No!</h3>
+         <img src="img/female.jpg">
+        </section>
       </section>
 
       <!-- ================================================================= -->
