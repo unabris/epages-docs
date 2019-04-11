@@ -196,7 +196,16 @@
               <td>ePages Devportal</td>
             </tr>
             <tr>
+              <td>Beyond Private SDK</td>
+            </tr>
+            <tr>
+              <td>Krypton sign up form</td>
+            </tr>
+            <tr>
               <td>Krypton</td>
+            </tr>
+            <tr>
+              <td>Team 42</td>
             </tr>
             <tr>
               <td>Next Steps</td>
@@ -221,10 +230,10 @@
           // git log --shortstat --no-merges --since "2 weeks ago" | grep "files changed" | awk '{files+=$1; inserted+=$4; deleted+=$6} END {print files, "files changed,", inserted, "insertions(+),", deleted, "deletions(-)"}'
 
           var gitHub = {
-            "repos": ["krypton", "epages-devportal", "epages-docs"],
-            "files": [40, 184, 189],
-            "additions": [40, 184, 189],
-            "deletions": [-117, -45, -147]
+            "repos": ["krypton", "epages-devportal",  "epages-docs", "beyond-private_sdk", "krypton-provisioning"],
+            "files": [282, 92, 189, 63, 180],
+            "additions": [3594, 1367, 189, 1096, 5693],
+            "deletions": [-1476, -699, -147, -132, -264]
           };
         </script>
 
@@ -359,6 +368,39 @@ end</code></pre>
         <section>
           <br />
           <a href="#" target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>Beyond Private SDK</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>Beyond Private SDK</h2>
+
+        <section>
+          <h3>Last added endpoints</h3>
+
+          <ul>
+            <li>
+              <pre><code>/api/shops/{shop_id}/domains/{domain_name}/assign</code></pre>
+            </li>
+            <li>
+              <pre><code>/api/shops/{shop_id}/domains/{domain_name}/register-and-assign</code></pre>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>GitHub repository</h3>
+          <br />
+          <a class="krypton" href="https://github.com/ePages-de/beyond-private_sdk" target="_blank">
             <i class="fa fa-rocket"></i>
           </a>
         </section>
