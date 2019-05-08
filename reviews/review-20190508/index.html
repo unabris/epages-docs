@@ -344,13 +344,25 @@
 
       <!-- ================================================================= -->
 
+      <section>
+        <h2>Update "Get in touch with us" card</h2>
+
+        <section>
+          <br />
+          <a href="https://developer.epages.com/devjobs" target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
      <section>
       <h2>Other tasks</h2>
 
       <section>
         <ul>
           <li>Fix table layout</li>
-          <li>Update "Get in touch with us" card on /devjobs</li>
         </ul>
       </section>
     </section>
@@ -371,38 +383,18 @@
 
           <ul>
             <li>
-              <pre><code>/api/add-on-management/apps/{app_id}</code></pre>
+              <pre><code>GET  /api/add-on-management/apps</code></pre>
             </li>
             <li>
-              <pre><code>/api/add-on-management/apps</code></pre>
+              <pre><code>GET  /api/add-on-management/apps/{app_id}</code></pre>
             </li>
             <li>
-              <pre><code>/api/custom-apps/{app_id}/upgrade</code></pre>
+              <pre><code>POST /api/custom-apps/{app_id}/upgrade</code></pre>
             </li>
             <li>
-              <pre><code>/api/shops/{shop_id}/features</code></pre>
+              <pre><code>POST /api/shops/{shop_id}/features</code></pre>
             </li>
           </ul>
-        </section>
-
-        <section>
-          <h3>Update package payment methods</h3>
-          <pre><code>if data["paymentMethods"]
-  @payment_methods = []
-  data.delete("paymentMethods").each do |payment_method|
-    @payment_methods << "cash" if I18n.t("beyond.package.defaults.payment_methods.cash.name", locale: set_locale(data.dig("country"))) == payment_method.dig("name")
-    @payment_methods << "invoice" if I18n.t("beyond.package.defaults.payment_methods.invoice.name", locale: set_locale(data.dig("country"))) == payment_method.dig("name")
-    @payment_methods << "payment_in_advance" if I18n.t("beyond.package.defaults.payment_methods.payment_in_advance.name", locale: set_locale(data.dig("country"))) == payment_method.dig("name")
-  end
-end</code></pre>
-        </section>
-
-        <section>
-          <h3>GitHub repository</h3>
-          <br />
-          <a class="krypton" href="https://github.com/ePages-de/beyond-private_sdk" target="_blank">
-            <i class="fa fa-rocket"></i>
-          </a>
         </section>
       </section>
 
@@ -418,23 +410,14 @@ end</code></pre>
         <h2 class="krypton">Add official app listing and retrieving</h2>
 
         <section>
-          <h3>What?</h3>
-
-          <ul>
-            <li>Show the list of official apps</li>
-            <li>Show the details of each app</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Code example</h3>
+          <h3>Code examples</h3>
 
           <pre><code>def index
-  authorize OfficialApp
   @apps = Beyond::App.all
 end
+</code></pre>
 
-def set_app
+          <pre><code>def set_app
   @app = Beyond::App.find(params[:id])
 end
 </code></pre>
@@ -454,31 +437,20 @@ end
           <h2 class="krypton">Promote a Krypton app to official app</h2>
 
           <section>
-            <h3>What?</h3>
-
-            <ul>
-              <li>Upgrade a custom app to a official app</li>
-            </ul>
-          </section>
-
-          <section>
             <h3>Code example</h3>
 
             <pre><code>def upgrade
-  authorize @app
-
-  @app.hostname = Rails.application.credentials[Rails.env.to_sym][:domain]
+  ...
   hash = @app.generate_upgrade_app_hash
   beyond_app = Beyond::App.new(hash)
 
   if beyond_app.upgrade
     @app.update published: true
-    redirect_to official_apps_path, flash: { success: t("apps.flash.upgrade.success") }
+    ...
   else
-    redirect_to edit_app_path, flash: { error: t("apps.flash.upgrade.error") }
+    ...
   end
-end
-  </code></pre>
+end</code></pre>
           </section>
 
           <section>
@@ -498,7 +470,9 @@ end
               <h3>What?</h3>
 
               <ul>
-                <li>Define payment methods as part of package creation</li>
+                <li>Define basic payment methods as part of package creation</li>
+                <li>Payment methods: Invoice, Payment in advance and Cash</li>
+                <li>Package must contain at least one payment method</li>
               </ul>
             </section>
 
@@ -513,53 +487,42 @@ end
           <!-- ================================================================= -->
 
           <section>
-              <h2 class="krypton">Feature assignment to a shop</h2>
+            <h2 class="krypton">Feature assignment to a shop</h2>
 
-              <section>
-                <h3>What?</h3>
+            <section>
+              <h3>Code example</h3>
 
-                <ul>
-                  <li>Add an app or a feature to a shop</li>
-                </ul>
-              </section>
-
-              <section>
-                  <h3>Code example</h3>
-
-                  <pre><code>def update
-  authorize @shop, policy_class: ShopPolicy
-
+              <pre><code>def update
+  ...
   edit_shop_feature_params[:features].each do |feature|
     @shop.assign_feature(feature)
   end
-
-  redirect_to edit_shop_path(@shop.id), flash: { success: t("shops.flash.update.success") }
-end
-              </code></pre>
+  ...
+end</code></pre>
             </section>
 
-              <section>
-                <br />
-                <a class="krypton" href="https://staging.admin.beyondshop.cloud/shops/616e34d1-f090-4a5b-a4df-1b5c9397c4b7/edit" target="_blank">
-                  <i class="fa fa-rocket"></i>
-                </a>
-              </section>
+            <section>
+              <br />
+              <a class="krypton" href="https://staging.admin.beyondshop.cloud/shops/616e34d1-f090-4a5b-a4df-1b5c9397c4b7/edit" target="_blank">
+                <i class="fa fa-rocket"></i>
+              </a>
             </section>
+          </section>
 
       <!-- ================================================================= -->
 
       <section>
-          <h2>Other tasks</h2>
+          <h2 class="krypton">Other tasks</h2>
 
           <section>
             <ul>
+              <li><a class="krypton" href="https://admin.beyondshop.cloud" target="_blank">Show an ellipsis on the shops pagination</a></li>
+              <li><a class="krypton" href="https://staging.admin.beyondshop.cloud" target="_blank">Add filter by Reseller to Shops and Packages</a></li>
+              <li><a class="krypton" href="https://staging.admin.beyondshop.cloud/apps" target="_blank">Update app listing views</a></li>
               <li>Send email after app submission</li>
-              <li>Lock user account after 3 failed attempts</li>
-              <li>Update app listing views</li>
+              <li>Lock user account after 3 failed login attempts</li>
               <li>Remove Docker configuration</li>
               <li>Add Visual Studio Code settings</li>
-              <li>Show an ellipsis on the shops pagination</li>
-              <li>Add filter by Reseller to Shops and Packages</li>
             </ul>
           </section>
         </section>
