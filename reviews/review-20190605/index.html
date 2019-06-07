@@ -326,21 +326,59 @@
       <!-- ================================================================= -->
 
       <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>Krypton</h1>
+        <h1>Beyond Private SDK</h1>
       </section>
 
       <!-- ================================================================= -->
 
       <section>
-        <h2>Remove non-live resellers from dropdown</h2>
+        <h2>Other tasks</h2>
 
         <section>
-          <h3>Code example</h3>
+          <ul>
+            <li>Add validations to official apps</li>
+          </ul>
+        </section>
+      </section>
 
-          <pre><code>def create
-  provision_id = BeyondApi::Provisioning.provision(shop_params)
-  redirect_to provision_status_path(provision_id)
-end</code></pre>
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/krypton-logo.png" data-background-size="1300px">
+        <h1 class="krypton">Krypton</h1>
+      </section>
+
+      <!-- ================================================================= -->
+      <section>
+        <h2 class="krypton">Allow to assign multiple resellers to a user</h2>
+
+        <section>
+          <h3>What?</h3>
+
+          <ul>
+            <li>A single user can now administrate multiple resellers (create, edit shops...)</li>
+          </ul>
+        </section>
+
+        <section>
+          <br />
+          <a class="krypton" href="https://admin.beyondshop.cloud/users"
+            target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2 class="krypton">Remove non-live resellers from dropdown</h2>
+
+        <section>
+          <h3>What?</h3>
+
+          <ul>
+            <li>Prevent switching to resellers that aren't configured on the Beyond Backend to avoid app crashes</li>
+          </ul>
         </section>
 
         <section>
@@ -353,9 +391,9 @@ end</code></pre>
         </section>
       </section>
 
-      <!-- ================================================================= -->
+    <!-- ================================================================= -->
       <section>
-        <h2>Add fields "phone" and "state/province" to "Register Domain"</h2>
+        <h2 class="krypton">Add fields phone and state/province to register domain</h2>
 
         <section>
           <br />
@@ -366,7 +404,7 @@ end</code></pre>
           </a>
         </section>
       </section>
-
+  
       <!-- ================================================================= -->
 
       <section>
@@ -374,10 +412,10 @@ end</code></pre>
 
         <ul>
           <li>
-            Make app video url optional
+            Rework permissions
           </li>
           <li>
-            Add app detail validations to beyond private sdk gem
+            Make app video url optional
           </li>
           <li>
             Setup shippo skeleton app
