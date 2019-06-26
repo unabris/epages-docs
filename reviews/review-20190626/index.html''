@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Team 42 - Sprint Review #33</title>
+  <title>Team 42 - Sprint Review #{{SPRINT_NUMBER}}</title>
 
   <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
   <meta name="author" content="Hakim El Hattab">
@@ -177,9 +177,9 @@
 
         <h1>Team 42</h1>
 
-        <h3>Sprint Review #33</h3>
+        <h3>Sprint Review #{{SPRINT_NUMBER}}</h3>
 
-        <h5></h5>
+        <h5>{{SPRINT_TITLE}}</h5>
       </section>
 
       <!-- ================================================================= -->
@@ -190,13 +190,25 @@
         <table>
           <tbody>
             <tr>
-              <td>MATe</td>
+              <td>ePages Docs</td>
+            </tr>
+            <tr>
+              <td>ePages Devportal</td>
             </tr>
             <tr>
               <td>Beyond Private SDK</td>
             </tr>
             <tr>
+              <td>Krypton sign up form</td>
+            </tr>
+            <tr>
               <td>Krypton</td>
+            </tr>
+            <tr>
+              <td>Team 42</td>
+            </tr>
+            <tr>
+              <td>Next Steps</td>
             </tr>
           </tbody>
         </table>
@@ -218,10 +230,10 @@
           // git log --shortstat --no-merges --since "2 weeks ago" | grep "files changed" | awk '{files+=$1; inserted+=$4; deleted+=$6} END {print files, "files changed,", inserted, "insertions(+),", deleted, "deletions(-)"}'
 
           var gitHub = {
-            "repos": ["krypton", "beyond-private_sdk", "krypton-provisioning"],
-            "files": [74, 11, 1],
-            "additions": [941, 186, 1],
-            "deletions": [-265, -65, -1]
+            "repos": ["krypton", "epages-devportal",  "epages-docs", "beyond-private_sdk", "krypton-provisioning"],
+            "files": [282, 92, 189, 63, 180],
+            "additions": [3594, 1367, 189, 1096, 5693],
+            "deletions": [-1476, -699, -147, -132, -264]
           };
         </script>
 
@@ -326,26 +338,38 @@
       <!-- ================================================================= -->
 
       <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>MATe</h1>
+        <h1>Project 1</h1>
       </section>
 
       <!-- ================================================================= -->
 
       <section>
-        <h2>Change Ruby memory allocator to jemalloc</h2>
+        <h2>Task 1</h2>
 
         <section>
-          <h3>Why?</h3>
+          <h3>List example</h3>
 
           <ul>
-            <li>To improve memory consumption on our nightly calls</li>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
           </ul>
         </section>
 
         <section>
-          <h3>Result</h3>
+          <h3>Code example</h3>
 
-          <img src="img/heroku-mate-7d.png" width="900px" />
+          <pre><code>def create
+  provision_id = BeyondApi::Provisioning.provision(shop_params)
+  redirect_to provision_status_path(provision_id)
+end</code></pre>
+        </section>
+
+        <section>
+          <br />
+          <a href="#" target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
         </section>
       </section>
 
@@ -357,6 +381,33 @@
 
       <!-- ================================================================= -->
 
+      <section>
+        <h2>Beyond Private SDK</h2>
+
+        <section>
+          <h3>Last added endpoints</h3>
+
+          <ul>
+            <li>
+              <pre><code>/api/shops/{shop_id}/domains/{domain_name}/assign</code></pre>
+            </li>
+            <li>
+              <pre><code>/api/shops/{shop_id}/domains/{domain_name}/register-and-assign</code></pre>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>GitHub repository</h3>
+          <br />
+          <a class="krypton" href="https://github.com/ePages-de/beyond-private_sdk" target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
       <section class="plain" data-background-image="img/krypton-logo.png" data-background-size="1300px">
         <h1 class="krypton">Krypton</h1>
       </section>
@@ -364,71 +415,65 @@
       <!-- ================================================================= -->
 
       <section>
-        <h2 class="krypton">Update official apps</h2>
+        <h2 class="krypton">Krypton</h2>
+
+        <section>
+          <h3>List example</h3>
+
+          <ul>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Code example</h3>
+
+          <pre><code>def create
+  provision_id = BeyondApi::Provisioning.provision(shop_params)
+  redirect_to provision_status_path(provision_id)
+end</code></pre>
+        </section>
 
         <section>
           <br />
-          <a class="krypton" href="https://staging.admin.beyondshop.cloud/official_apps/52ad7985-4dba-4828-82ed-060f984ee7b6/edit" target="_blank">
+          <a class="krypton" href="#" target="_blank">
             <i class="fa fa-rocket"></i>
           </a>
         </section>
-      </section>
-
-      <!-- ================================================================= -->
-
-      <section>
-        <h2 class="krypton">Update shop address fields</h2>
-
-        <section>
-          <br />
-          <a class="krypton" href="https://staging.admin.beyondshop.cloud/shops/9d772cbb-6cbf-4d21-bb5e-fdba1e4faa09/edit" target="_blank">
-            <i class="fa fa-rocket"></i>
-          </a>
-        </section>
-      </section>
-
-      <!-- ================================================================= -->
-
-      <section>
-        <h2 class="krypton">Add payment method to shop creation</h2>
-
-        <section>
-          <br />
-          <a class="krypton" href="https://staging.admin.beyondshop.cloud/shops/new" target="_blank">
-            <i class="fa fa-rocket"></i>
-          </a>
-        </section>
-      </section>
-
-      <!-- ================================================================= -->
-
-      <section>
-        <h2 class="krypton">Other tasks</h2>
-
-        <ul>
-          <li>
-            Move feature names and descriptions to the private gem
-          </li>
-          <li>
-            <a class="krypton" href="https://staging.admin.beyondshop.cloud/official_apps" target="_blank">
-              Add pagination to apps, official apps and packages
-            </a>
-          </li>
-          <li>
-            <a class="krypton" href="https://dashboard.heroku.com/apps/epages-krypton-production/metrics/web?ending=undefined-hours-ago&starting=undefined-hours-ago" target="_blank">
-              Enable ruby monitoring in Heroku
-            </a>
-          </li>
-          <li>
-            Add yard documentation to Beyond Private SDK
-          </li>
-        </ul>
       </section>
 
       <!-- ================================================================= -->
 
       <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
         <h1>Questions?</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>Next Steps</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>Next Steps</h2>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>Next Step 1</td>
+            </tr>
+            <tr>
+              <td>Next Step 2</td>
+            </tr>
+            <tr>
+              <td>Next Step 3</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <!-- ================================================================= -->

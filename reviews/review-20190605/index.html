@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Team 42 - Sprint Review #33</title>
+  <title>Team 42 - Sprint Review #34</title>
 
   <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
   <meta name="author" content="Hakim El Hattab">
@@ -177,7 +177,7 @@
 
         <h1>Team 42</h1>
 
-        <h3>Sprint Review #33</h3>
+        <h3>Sprint Review #34</h3>
 
         <h5></h5>
       </section>
@@ -190,13 +190,13 @@
         <table>
           <tbody>
             <tr>
-              <td>MATe</td>
-            </tr>
-            <tr>
               <td>Beyond Private SDK</td>
             </tr>
             <tr>
               <td>Krypton</td>
+            </tr>
+            <tr>
+              <td>Others tasks</td>
             </tr>
           </tbody>
         </table>
@@ -218,10 +218,10 @@
           // git log --shortstat --no-merges --since "2 weeks ago" | grep "files changed" | awk '{files+=$1; inserted+=$4; deleted+=$6} END {print files, "files changed,", inserted, "insertions(+),", deleted, "deletions(-)"}'
 
           var gitHub = {
-            "repos": ["krypton", "beyond-private_sdk", "krypton-provisioning"],
-            "files": [74, 11, 1],
-            "additions": [941, 186, 1],
-            "deletions": [-265, -65, -1]
+            "repos": ["krypton", "beyond-private_sdk"],
+            "files": [94, 2],
+            "additions": [983, 29],
+            "deletions": [-461, -2]
           };
         </script>
 
@@ -265,7 +265,7 @@
                 xAxes: [{
                   ticks: {
                     suggestedMin: Math.min(...gitHub.deletions) * 1.5,
-                    suggestedMax: Math.max(...gitHub.additions) * 1
+                    suggestedMax: Math.max(...gitHub.additions) * 1.2
                   }
                 }],
 
@@ -326,33 +326,19 @@
       <!-- ================================================================= -->
 
       <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>MATe</h1>
+        <h1>Beyond Private SDK</h1>
       </section>
 
       <!-- ================================================================= -->
 
       <section>
-        <h2>Change Ruby memory allocator to jemalloc</h2>
+        <h2>Other tasks</h2>
 
         <section>
-          <h3>Why?</h3>
-
           <ul>
-            <li>To improve memory consumption on our nightly calls</li>
+            <li>Add validations to official apps</li>
           </ul>
         </section>
-
-        <section>
-          <h3>Result</h3>
-
-          <img src="img/heroku-mate-7d.png" width="900px" />
-        </section>
-      </section>
-
-      <!-- ================================================================= -->
-
-      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>Beyond Private SDK</h1>
       </section>
 
       <!-- ================================================================= -->
@@ -364,37 +350,34 @@
       <!-- ================================================================= -->
 
       <section>
-        <h2 class="krypton">Update official apps</h2>
+        <h2 class="krypton">Add fields phone and state/province to register domain</h2>
 
         <section>
           <br />
-          <a class="krypton" href="https://staging.admin.beyondshop.cloud/official_apps/52ad7985-4dba-4828-82ed-060f984ee7b6/edit" target="_blank">
+          <a class="krypton"
+            href="https://staging.admin.beyondshop.cloud/shops/2bb9cb1b-b149-4399-85e6-e98cbae96b93/edit"
+            target="_blank">
             <i class="fa fa-rocket"></i>
           </a>
         </section>
       </section>
 
       <!-- ================================================================= -->
-
       <section>
-        <h2 class="krypton">Update shop address fields</h2>
+        <h2 class="krypton">Allow to assign multiple resellers to a user</h2>
 
         <section>
-          <br />
-          <a class="krypton" href="https://staging.admin.beyondshop.cloud/shops/9d772cbb-6cbf-4d21-bb5e-fdba1e4faa09/edit" target="_blank">
-            <i class="fa fa-rocket"></i>
-          </a>
+          <h3>What?</h3>
+
+          <ul>
+            <li>A single user can now administrate multiple resellers (create, edit shops...)</li>
+          </ul>
         </section>
-      </section>
-
-      <!-- ================================================================= -->
-
-      <section>
-        <h2 class="krypton">Add payment method to shop creation</h2>
 
         <section>
           <br />
-          <a class="krypton" href="https://staging.admin.beyondshop.cloud/shops/new" target="_blank">
+          <a class="krypton" href="https://admin.beyondshop.cloud/users"
+            target="_blank">
             <i class="fa fa-rocket"></i>
           </a>
         </section>
@@ -407,20 +390,19 @@
 
         <ul>
           <li>
-            Move feature names and descriptions to the private gem
+            Remove non-live resellers from dropdown
           </li>
           <li>
-            <a class="krypton" href="https://staging.admin.beyondshop.cloud/official_apps" target="_blank">
-              Add pagination to apps, official apps and packages
-            </a>
+            Rework permissions
           </li>
           <li>
-            <a class="krypton" href="https://dashboard.heroku.com/apps/epages-krypton-production/metrics/web?ending=undefined-hours-ago&starting=undefined-hours-ago" target="_blank">
-              Enable ruby monitoring in Heroku
-            </a>
+            Make app video url optional
           </li>
           <li>
-            Add yard documentation to Beyond Private SDK
+            Setup shippo skeleton app
+          </li>
+          <li>
+            Setup beyond-ruby_sdk public gem
           </li>
         </ul>
       </section>

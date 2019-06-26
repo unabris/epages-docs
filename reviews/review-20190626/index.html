@@ -4,29 +4,31 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Team 42 - Sprint Review #33</title>
+  <title>Team 42 - Sprint Review #35</title>
 
   <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
   <meta name="author" content="Hakim El Hattab">
 
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
   <link rel="stylesheet" href="css/reveal.css">
   <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
 
   <link rel="stylesheet" href="lib/css/zenburn.css">
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
   <script>
     var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-    document.getElementsByTagName('head')[0].appendChild( link );
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
   </script>
 
   <style>
@@ -42,8 +44,8 @@
   </style>
 
   <style>
-    .metrics.table-striped>tbody>tr:nth-child(odd)>td, .metrics.table-striped>tbody>tr:nth-child(odd)>th
-    {
+    .metrics.table-striped>tbody>tr:nth-child(odd)>td,
+    .metrics.table-striped>tbody>tr:nth-child(odd)>th {
       background-color: rgb(229, 223, 206);
     }
 
@@ -82,7 +84,7 @@
     }
 
     .backgrounds {
-      opacity:0.1;
+      opacity: 0.1;
       filter: blur(10px);
     }
   </style>
@@ -91,69 +93,87 @@
     body {
       background: #424242;
     }
+
     .reveal h1 {
       color: #ffe0b2;
       text-transform: none;
     }
+
     .reveal h1.krypton {
       color: #99cf70;
       text-transform: none;
     }
+
     .reveal h2 {
       color: #ffe0b2;
       text-transform: none;
     }
+
     .reveal h2.krypton {
       color: #99cf70;
       text-transform: none;
     }
+
     .reveal h3 {
       color: #fff;
       text-transform: none;
     }
+
     .reveal h5 {
       color: #fff;
       text-transform: none;
       font-style: italic;
     }
+
     .reveal {
       color: #fff;
     }
+
     .reveal a {
       color: #ffe0b2;
     }
+
     .reveal a.krypton {
       color: #99cf70;
     }
+
     .reveal a.krypton.no-hover:hover {
       color: #99cf70;
     }
+
     .reveal a.krypton:hover {
       color: #268bd2;
     }
+
     .reveal a i.fa.fa-thumbs-up,
     .reveal a i.fa.fa-rocket {
       font-size: 200px;
     }
+
     .reveal .progress span {
       background: #ffe0b2;
     }
+
     .reveal .controls div.navigate-left,
     .reveal .controls div.navigate-left.enabled {
       border-right-color: #ffe0b2;
     }
+
     .reveal .controls div.navigate-right,
     .reveal .controls div.navigate-right.enabled {
       border-left-color: #ffe0b2;
     }
+
     .reveal .controls div.navigate-down,
     .reveal .controls div.navigate-down.enabled {
       border-top-color: #ffe0b2;
     }
+
     .reveal .controls div.navigate-up,
     .reveal .controls div.navigate-up.enabled {
       border-bottom-color: #ffe0b2;
     }
+
     .reveal section img {
       border: none;
       background: transparent;
@@ -177,7 +197,7 @@
 
         <h1>Team 42</h1>
 
-        <h3>Sprint Review #33</h3>
+        <h3>Sprint Review #35</h3>
 
         <h5></h5>
       </section>
@@ -190,13 +210,16 @@
         <table>
           <tbody>
             <tr>
-              <td>MATe</td>
+              <td>Beyond Public SDK</td>
             </tr>
             <tr>
-              <td>Beyond Private SDK</td>
+              <td>Shippo App</td>
             </tr>
             <tr>
               <td>Krypton</td>
+            </tr>
+            <tr>
+              <td>ePages Devportal</td>
             </tr>
           </tbody>
         </table>
@@ -218,10 +241,10 @@
           // git log --shortstat --no-merges --since "2 weeks ago" | grep "files changed" | awk '{files+=$1; inserted+=$4; deleted+=$6} END {print files, "files changed,", inserted, "insertions(+),", deleted, "deletions(-)"}'
 
           var gitHub = {
-            "repos": ["krypton", "beyond-private_sdk", "krypton-provisioning"],
-            "files": [74, 11, 1],
-            "additions": [941, 186, 1],
-            "deletions": [-265, -65, -1]
+            "repos": ["krypton", "shippo-app", "beyond-public_sdk", "epages-devportal"],
+            "files": [100,8,6,28],
+            "additions": [999,261,187,399],
+            "deletions": [-681,-102,-41,-3]
           };
         </script>
 
@@ -264,8 +287,8 @@
 
                 xAxes: [{
                   ticks: {
-                    suggestedMin: Math.min(...gitHub.deletions) * 1.5,
-                    suggestedMax: Math.max(...gitHub.additions) * 1
+                    suggestedMin: Math.min(...gitHub.deletions) * 1.1,
+                    suggestedMax: Math.max(...gitHub.additions) * 1.1
                   }
                 }],
 
@@ -274,7 +297,7 @@
                   ticks: {
                     fontSize: 20,
                     fontColor: '#fff',
-                    callback: function(value, index, values) {
+                    callback: function (value, index, values) {
                       return (value + '\n (' + gitHub.files[index] + ' files changed)');
                     }
                   }
@@ -299,7 +322,7 @@
                 mode: 'index',
                 position: 'nearest',
                 callbacks: {
-                  label: function(tooltipItem, data) {
+                  label: function (tooltipItem, data) {
                     var label = data.datasets[tooltipItem.datasetIndex].label || '';
 
                     if (label) {
@@ -326,33 +349,47 @@
       <!-- ================================================================= -->
 
       <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>MATe</h1>
+        <h1>Beyond Public SDK</h1>
       </section>
 
       <!-- ================================================================= -->
 
       <section>
-        <h2>Change Ruby memory allocator to jemalloc</h2>
+        <h2>Beyond Public SDK</h2>
 
         <section>
-          <h3>Why?</h3>
+          <h3>Added endpoints</h3>
 
           <ul>
-            <li>To improve memory consumption on our nightly calls</li>
+            <li>
+              <pre><code>POST /api/oauth/token (create a JWT token) </code></pre>
+            </li>
+            <li>
+              <pre><code>POST /api/oauth/token (refresh token) </code></pre>
+            </li>
           </ul>
-        </section>
-
-        <section>
-          <h3>Result</h3>
-
-          <img src="img/heroku-mate-7d.png" width="900px" />
         </section>
       </section>
 
       <!-- ================================================================= -->
 
       <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>Beyond Private SDK</h1>
+        <h1>Shippo App</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>User registration flow</h2>
+
+        <section>
+          <br />
+          <a 
+            href="https://team42.beyondshop.cloud/cockpit/custom-apps"
+            target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
+        </section>
       </section>
 
       <!-- ================================================================= -->
@@ -364,37 +401,24 @@
       <!-- ================================================================= -->
 
       <section>
-        <h2 class="krypton">Update official apps</h2>
+        <h2 class="krypton">Krypton</h2>
 
         <section>
-          <br />
-          <a class="krypton" href="https://staging.admin.beyondshop.cloud/official_apps/52ad7985-4dba-4828-82ed-060f984ee7b6/edit" target="_blank">
-            <i class="fa fa-rocket"></i>
-          </a>
+          <h3>Custom and official apps images</h3>
+
+          <ul>
+            <li>Preview selected images before upload</li>
+          </ul>
+          <ul>
+            <li>Allow to delete images</li>
+          </ul>
         </section>
-      </section>
-
-      <!-- ================================================================= -->
-
-      <section>
-        <h2 class="krypton">Update shop address fields</h2>
 
         <section>
           <br />
-          <a class="krypton" href="https://staging.admin.beyondshop.cloud/shops/9d772cbb-6cbf-4d21-bb5e-fdba1e4faa09/edit" target="_blank">
-            <i class="fa fa-rocket"></i>
-          </a>
-        </section>
-      </section>
-
-      <!-- ================================================================= -->
-
-      <section>
-        <h2 class="krypton">Add payment method to shop creation</h2>
-
-        <section>
-          <br />
-          <a class="krypton" href="https://staging.admin.beyondshop.cloud/shops/new" target="_blank">
+          <a class="krypton"
+            href="https://staging.admin.beyondshop.cloud/apps/14473e99-b2f5-4a2b-b2ed-59bb5eac3476/edit"
+            target="_blank">
             <i class="fa fa-rocket"></i>
           </a>
         </section>
@@ -407,22 +431,38 @@
 
         <ul>
           <li>
-            Move feature names and descriptions to the private gem
-          </li>
-          <li>
-            <a class="krypton" href="https://staging.admin.beyondshop.cloud/official_apps" target="_blank">
-              Add pagination to apps, official apps and packages
+            <a class="krypton"
+              href="https://staging.admin.beyondshop.cloud/shops/"
+              target="_blank">
+              Disable links and buttons when an action is in progress
             </a>
           </li>
           <li>
-            <a class="krypton" href="https://dashboard.heroku.com/apps/epages-krypton-production/metrics/web?ending=undefined-hours-ago&starting=undefined-hours-ago" target="_blank">
-              Enable ruby monitoring in Heroku
-            </a>
-          </li>
-          <li>
-            Add yard documentation to Beyond Private SDK
+            Hide features card, apps cards on shop details and official apps for resellers
           </li>
         </ul>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>ePages Devportal</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>ePages Devportal</h2>
+
+        <section>
+          <h3>Tasks</h3>
+
+          <ul>
+            <li>Blogpost about EuRuKo Conference</li>
+            <li>Update Google Maps JS Key</li>
+            <li>Fix position of images inline with text</li>
+          </ul>
+        </section>
       </section>
 
       <!-- ================================================================= -->
@@ -452,16 +492,46 @@
 
       transition: 'slide',
 
-      dependencies: [
-        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-        { src: 'plugin/zoom-js/zoom.js', async: true },
-        { src: 'plugin/notes/notes.js', async: true }
+      dependencies: [{
+          src: 'lib/js/classList.js',
+          condition: function () {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: 'plugin/markdown/marked.js',
+          condition: function () {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: 'plugin/markdown/markdown.js',
+          condition: function () {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: 'plugin/highlight/highlight.js',
+          async: true,
+          condition: function () {
+            return !!document.querySelector('pre code');
+          },
+          callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: 'plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: 'plugin/notes/notes.js',
+          async: true
+        }
       ]
     });
   </script>
 
 </body>
+
 </html>
