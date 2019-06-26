@@ -210,19 +210,16 @@
         <table>
           <tbody>
             <tr>
-              <td>ePages Devportal</td>
-            </tr>
-            <tr>
               <td>Beyond Public SDK</td>
             </tr>
             <tr>
-              <td>Beyond Private SDK</td>
+              <td>Shippo App</td>
             </tr>
             <tr>
               <td>Krypton</td>
             </tr>
             <tr>
-              <td>Next Steps</td>
+              <td>ePages Devportal</td>
             </tr>
           </tbody>
         </table>
@@ -244,10 +241,10 @@
           // git log --shortstat --no-merges --since "2 weeks ago" | grep "files changed" | awk '{files+=$1; inserted+=$4; deleted+=$6} END {print files, "files changed,", inserted, "insertions(+),", deleted, "deletions(-)"}'
 
           var gitHub = {
-            "repos": ["krypton", "epages-devportal", "beyond-private_sdk", "beyond-public_sdk"],
-            "files": [0,0,0,0],
-            "additions": [0,0,0,0],
-            "deletions": [-0,-0,-0,-0]
+            "repos": ["krypton", "shippo-app", "beyond-public_sdk", "epages-devportal"],
+            "files": [100,8,6,28],
+            "additions": [999,261,187,399],
+            "deletions": [-681,-102,-41,-3]
           };
         </script>
 
@@ -290,8 +287,8 @@
 
                 xAxes: [{
                   ticks: {
-                    suggestedMin: Math.min(...gitHub.deletions) * 1.5,
-                    suggestedMax: Math.max(...gitHub.additions) * 1
+                    suggestedMin: Math.min(...gitHub.deletions) * 1.1,
+                    suggestedMax: Math.max(...gitHub.additions) * 1.1
                   }
                 }],
 
@@ -352,28 +349,6 @@
       <!-- ================================================================= -->
 
       <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>ePages Devportal</h1>
-      </section>
-
-      <!-- ================================================================= -->
-
-      <section>
-        <h2>ePages Devportal</h2>
-
-        <section>
-          <h3>Tasks</h3>
-
-          <ul>
-            <li>Blogpost about EuRuKo Conference</li>
-            <li>Update Google Maps JS Key</li>
-            <li>Fix position of images inline with text</li>
-          </ul>
-        </section>
-      </section>
-
-      <!-- ================================================================= -->
-
-      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
         <h1>Beyond Public SDK</h1>
       </section>
 
@@ -383,12 +358,14 @@
         <h2>Beyond Public SDK</h2>
 
         <section>
-          <h3>Tasks</h3>
+          <h3>Added endpoints</h3>
 
           <ul>
             <li>
+              <pre><code>POST /api/oauth/token (create a JWT token) </code></pre>
             </li>
             <li>
+              <pre><code>POST /api/oauth/token (refresh token) </code></pre>
             </li>
           </ul>
         </section>
@@ -397,25 +374,21 @@
       <!-- ================================================================= -->
 
       <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>Beyond Private SDK</h1>
+        <h1>Shippo App</h1>
       </section>
 
       <!-- ================================================================= -->
 
       <section>
-        <h2>Beyond Private SDK</h2>
+        <h2>User registration flow</h2>
 
         <section>
-          <h3>Updated endpoints</h3>
-
-          <ul>
-            <li>
-              <pre><code>GET  /api/resellers/{reseller_code}/provisionings/{id} </code></pre>
-            </li>
-            <li>
-              <pre><code>POST /api/resellers/{reseller_code}/shops/{shop_id}/features</code></pre>
-            </li>
-          </ul>
+          <br />
+          <a 
+            href="https://team42.beyondshop.cloud/cockpit/custom-apps"
+            target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
         </section>
       </section>
 
@@ -431,7 +404,7 @@
         <h2 class="krypton">Krypton</h2>
 
         <section>
-          <h3>Custom and official apps management</h3>
+          <h3>Custom and official apps images</h3>
 
           <ul>
             <li>Preview selected images before upload</li>
@@ -459,18 +432,37 @@
         <ul>
           <li>
             <a class="krypton"
-              href="https://staging.admin.beyondshop.cloud/shops/2bb9cb1b-b149-4399-85e6-e98cbae96b93/edit"
+              href="https://staging.admin.beyondshop.cloud/shops/"
               target="_blank">
-              Add loading status to buttons
+              Disable links and buttons when an action is in progress
             </a>
           </li>
           <li>
             Hide features card, apps cards on shop details and official apps for resellers
           </li>
-          <li>
-            Upload ERD to Jira
-          </li>
         </ul>
+      </section>
+      
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>ePages Devportal</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>ePages Devportal</h2>
+
+        <section>
+          <h3>Tasks</h3>
+
+          <ul>
+            <li>Blogpost about EuRuKo Conference</li>
+            <li>Update Google Maps JS Key</li>
+            <li>Fix position of images inline with text</li>
+          </ul>
+        </section>
       </section>
 
       <!-- ================================================================= -->
