@@ -228,9 +228,9 @@
 
           var gitHub = {
             "repos": ["krypton", "beyond-private_sdk", "shippo-connector-app", "beyond-canvas", "epages-devportal", "epages-docs"],
-            "files": [0,0,0,0,0,0],
-            "additions": [0,0,0,0,0,0],
-            "deletions": [-0,-0,0,0,0,0]
+            "files": [16,8,48,0,0,0],
+            "additions": [104,36,312,0,0,0],
+            "deletions": [-63,-36,-247,-0,-0,-0]
           };
         </script>
 
@@ -344,12 +344,10 @@
         <h2>Beyond Private SDK</h2>
 
         <section>
-          <h3>Updated endpoints</h3>
+          <h3>Domain Management</h3>
 
           <ul>
-            <li>
-              <pre><code>POST /api/xxx/xxx/ </code></pre>
-            </li>
+            <li>Updated "register domain" endpoint to work with extendedAttributes</li>
           </ul>
         </section>
       </section>
@@ -380,7 +378,18 @@
 
         <section>
           <ul>
-            <li></li>
+            <li>email</li>
+            <li>password</li>
+            <li>reset_password_token</li>
+            <li>signature</li>
+            <li>api_url</li>
+            <li>beyond_api_url</li>
+            <li>beyond_access_token</li>
+            <li>beyond_refresh_token</li>
+            <li>shippo_access_token</li>
+            <li>code</li>
+            <!-- <li>Do not log the following data: email, password, reset_password_token, signature, return_url, api_url, access_token_url, beyond_api_url, -->
+            <!-- beyond_access_token, beyond_refresh_token, shippo_access_token, code, authenticity_token</li> -->
           </ul>
         </section>
       </section>
@@ -467,7 +476,13 @@
           <h3>Tasks</h3>
 
           <ul>
-            <li>Enable Newsletter function for Dev Portal</li>
+            <li>
+              <a class="krypton"
+                href="https://developer.epages.com/"
+                target="_blank">
+                Enable Newsletter function for Dev Portal
+              </a>
+            </li>
             <li>Add Mathjax to Dev Portal</li>
           </ul>
         </section>
