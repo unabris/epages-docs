@@ -196,7 +196,7 @@
               <td>Shippo Connector App</td>
             </tr>
             <tr>
-              <td>Beyond API Documentation</td>
+              <td>ePages Docs</td>
             </tr>
             <tr>
               <td>Beyond Private SDK</td>
@@ -228,9 +228,9 @@
 
           var gitHub = {
             "repos": ["krypton", "beyond-private_sdk", "shippo-connector-app", "beyond-canvas", "epages-devportal", "epages-docs"],
-            "files": [16,8,48,0,0,0],
-            "additions": [104,36,312,0,0,0],
-            "deletions": [-63,-36,-247,-0,-0,-0]
+            "files":     [ 28,   8,   90,  51,  20,  18],
+            "additions": [171,  36,  731, 596, 513,  89],
+            "deletions": [-97, -36, -480, -52, -51, -28]
           };
         </script>
 
@@ -335,19 +335,48 @@
       <!-- ================================================================= -->
 
       <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>Beyond Private SDK</h1>
+        <h1>Beyond Canvas</h1>
       </section>
 
       <!-- ================================================================= -->
 
       <section>
-        <h2>Beyond Private SDK</h2>
-
         <section>
-          <h3>Domain Management</h3>
+          <h2>What?</h2>
 
           <ul>
-            <li>Updated "register domain" endpoint to work with extendedAttributes</li>
+            <li>Ruby Gem for Ruby on Rails</li>
+            <li>Kind of Bootstrap for Beyond apps</li>
+            <li>Contains CSS, JavaScript and Rails helpers</li>
+            <li>Customizable in terms of brand colors</li>
+            <li>Open Source</li>
+            <li>In the future we'll also compile the styles to automatically generate a npm package</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Why?</h2>
+
+          <ul>
+            <li>Make App appearance consistent</li>
+            <li>Make App development easy and fast</li>
+            <li>Allows to have the styling up to date along all Apps just updating the gem version</li>
+          </ul>
+        </section>
+
+        <section>
+          <br />
+          <a href="http://localhost:3000/users/signin" target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
+        </section>
+
+        <section>
+          <h2>Check it!</h2>
+
+          <ul>
+            <li><a href="https://github.com/ePages-de/beyond_canvas">https://github.com/ePages-de/beyond_canvas</a></li>
+            <li><a href="https://rubygems.org/gems/beyond_canvas">https://rubygems.org/gems/beyond_canvas</a></li>
           </ul>
         </section>
       </section>
@@ -361,35 +390,32 @@
       <!-- ================================================================= -->
 
       <section>
-        <h2>Create orders in Shippo</h2>
+        <h2>Current flow (will change)</h2>
 
         <section>
-          <ul>
-            <li>Subscribe to "orders.updated" event of Beyond Webhooks</li>
-            <li>Transform order object from Beyond webhook message to Shippo format</li>
-            <li>Check the "paymentStatus" of the received messages</li>
-            <li>If "paymentStatus" is "PAID", forward the order to Shippo</li>
-          </ul>
+          <ol>
+            <li>User clicks on "install app" button on the cockpit</li>
+            <li>Redirects to app registration form</li>
+            <li>Fills the email, password and Shippo token</li>
+            <li>The app subscribes the user to Beyond order webhooks</li>
+            <li>When the app receives an order created event, it creates the order in Shippo</li>
+          </ol>
+        </section>
+
+        <section>
+          <br />
+          <a href="https://team42.beyondshop.cloud/cockpit/apps/custom-apps/edit/99faed2c-4e3f-4207-8e47-6e3f3696050e" target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
         </section>
       </section>
 
       <section>
-        <h2>Keep sensitive data out of logs</h2>
+        <h2>Other tasks</h2>
 
         <section>
           <ul>
-            <li>email</li>
-            <li>password</li>
-            <li>reset_password_token</li>
-            <li>signature</li>
-            <li>api_url</li>
-            <li>beyond_api_url</li>
-            <li>beyond_access_token</li>
-            <li>beyond_refresh_token</li>
-            <li>shippo_access_token</li>
-            <li>code</li>
-            <!-- <li>Do not log the following data: email, password, reset_password_token, signature, return_url, api_url, access_token_url, beyond_api_url, -->
-            <!-- beyond_access_token, beyond_refresh_token, shippo_access_token, code, authenticity_token</li> -->
+            <li>Keep sensitive data out of logs (user information, tokens...)</li>
           </ul>
         </section>
       </section>
@@ -397,21 +423,37 @@
       <!-- ================================================================= -->
 
       <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>Beyond API Documentation</h1>
+        <h1>ePages Docs</h1>
       </section>
 
       <!-- ================================================================= -->
 
       <section>
-        <h2>Beyond API Documentation</h2>
+        <h2>Add Beyond API Documentation view</h2>
 
         <section>
           <br />
-          <a 
-            href="http://localhost:4000/beyond-docs/"
-            target="_blank">
+          <a href="http://localhost:4000/beyond-docs/" target="_blank">
             <i class="fa fa-rocket"></i>
           </a>
+        </section>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
+        <h1>Beyond Private SDK</h1>
+      </section>
+
+      <!-- ================================================================= -->
+
+      <section>
+        <h2>Domain Management</h2>
+
+        <section>
+          <ul>
+            <li>Update "register domain" endpoint to work with extended attributes (DNSimple requirement)</li>
+          </ul>
         </section>
       </section>
 
@@ -424,38 +466,25 @@
       <!-- ================================================================= -->
 
       <section>
-        <h2 class="krypton">Krypton</h2>
-
-        <section>
-          <h3>Register .uk and .co.uk domain</h3>
-
-          <ul>
-            <li>Validate if is a correct company number when legal type is: LTD, PLC, LLP, RCHAR, SCH</li>
-            <pre><code>/(^(AC|ZC|FC|GE|LP|OC|SE|SA|SZ|SF|GS|SL|SO|SL|SC|ES|NA|NZ|NF|GN|NL|NC|R0|NI|EN|IP|SP|IC|SI|NP|NV|RC|SR|NR|NO)\d{6}$)|(^0\d{7}$)/i</code></pre>
-          </ul>
-        </section>
+        <h2 class="krypton">Allow to register .uk and .co.uk domains</h2>
 
         <section>
           <br />
-          <a class="krypton"
-            href="https://staging.admin.beyondshop.cloud/shops/2bb9cb1b-b149-4399-85e6-e98cbae96b93/edit"
-            target="_blank">
+          <a class="krypton" href="https://staging.admin.beyondshop.cloud/shops/2bb9cb1b-b149-4399-85e6-e98cbae96b93/edit" target="_blank">
             <i class="fa fa-rocket"></i>
           </a>
         </section>
       </section>
 
       <section>
-        <h3>Validate phone numbers on edit shop address</h3>
-      </section>
+        <h2 class="krypton">Validate phone numbers on edit shop address</h2>
 
-      <section>
-        <br />
-        <a class="krypton"
-          href="https://staging.admin.beyondshop.cloud/shops/2bb9cb1b-b149-4399-85e6-e98cbae96b93/edit"
-          target="_blank">
-          <i class="fa fa-rocket"></i>
-        </a>
+        <section>
+          <br />
+          <a class="krypton" href="https://staging.admin.beyondshop.cloud/shops/2bb9cb1b-b149-4399-85e6-e98cbae96b93/edit" target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
+        </section>
       </section>
     </section>
 
@@ -468,20 +497,22 @@
       <!-- ================================================================= -->
 
       <section>
-        <h2>ePages Devportal</h2>
+        <h2>Enable newsletter function</h2>
 
         <section>
-          <h3>Tasks</h3>
+          <br />
+          <a href="https://developer.epages.com" target="_blank">
+            <i class="fa fa-rocket"></i>
+          </a>
+        </section>
+      </section>
 
+      <section>
+        <h2>Other tasks</h2>
+
+        <section>
           <ul>
-            <li>
-              <a class="krypton"
-                href="https://developer.epages.com/"
-                target="_blank">
-                Enable Newsletter function for Dev Portal
-              </a>
-            </li>
-            <li>Add Mathjax to Dev Portal</li>
+            <li>Add Mathjax library</li>
           </ul>
         </section>
       </section>
