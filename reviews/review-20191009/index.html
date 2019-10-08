@@ -193,10 +193,7 @@
               <td>Shippo Connector App</td>
             </tr>
             <tr>
-              <td>Beyond API</td>
-            </tr>
-            <tr>
-              <td>ePages Docs</td>
+              <td>Beyond API Ruby Client</td>
             </tr>
             <tr>
               <td>ePages Devportal</td>
@@ -221,10 +218,10 @@
           // git log --shortstat --no-merges --since "2 weeks ago" | grep "files changed" | awk '{files+=$1; inserted+=$4; deleted+=$6} END {print files, "files changed,", inserted, "insertions(+),", deleted, "deletions(-)"}'
 
           var gitHub = {
-            "repos": ["beyond-api", "shippo-connector-app", "epages-docs", "epages-devportal"],
-            "files": [0, 0, 0, 0],
-            "additions": [0, 0, 0, 0],
-            "deletions": [-0, -0, -0, -0]
+            "repos": ["beyond_api-ruby_client", "shippo-connector-app", "epages-devportal"],
+            "files": [52, 46, 7],
+            "additions": [6298, 333, 136],
+            "deletions": [-46, -200, -0]
           };
         </script>
 
@@ -341,7 +338,7 @@
           <ul>
             <li>Make Beyond API calls to:
               <ul>
-                <li>Create shipping process</li>
+                <li>Create shipping process with tracking link and code</li>
                 <li>Mark the shipment as shipped</li>
               </ul>
             </li>
@@ -367,32 +364,15 @@
           <ul>
             <li>Move webhook handling to workers</li>
             <li>Migrate to use the new Beyond Ruby Client</li>
-            <li>Change the database structure</li>
           </ul>
         </section>
       </section>
 
-      <!-- ================================================================= -->
-
-      <section class="plain" data-background-size="1300px">
-        <h1>Beyond API</h1>
-      </section>
-
-      <!-- ================================================================= -->
       <section>
-        <h2>Tasks</h2>
+        <h2>Demo</h2>
         <section>
-          <h2>What?</h2>
-
-          <ul>
-            <li>lalala</li>
-            <li>lalala</li>
-            <li>lalala</li>
-          </ul>
-        </section>
-
-        <section>
-          <a href="https://url.com" target="_blank">
+          <a href="https://team42.beyondshop.cloud/cockpit/apps/custom-apps/edit/99faed2c-4e3f-4207-8e47-6e3f3696050e"
+            target="_blank">
             <i class="fa fa-rocket"></i>
           </a>
         </section>
@@ -400,22 +380,21 @@
 
       <!-- ================================================================= -->
 
-      <section class="plain" data-background-image="img/team-42-logo.png" data-background-size="1300px">
-        <h1>ePages Docs</h1>
+      <section class="plain" data-background-size="1300px">
+        <h1>Beyond API Ruby Client</h1>
       </section>
 
       <!-- ================================================================= -->
       <section>
-        <h2>Fixes in the new sidebar for Beyond Docs</h2>
-
+        <h2>Tasks</h2>
         <section>
           <ul>
-            <li>Issue with titles containing multiple words</li>
-            <li>Implement an automatic "scroll up"</li>
-            <li>Introduce a 3rd level for the sidebar structure</li>
+            <li>Finish missing endpoints</li>
+            <li><a href="https://rubygems.org/gems/beyond_api" target="_blank">Publish into RubyGems as pre-release</a>
+            </li>
           </ul>
         </section>
-      </section>
+      </section>      
 
       <!-- ================================================================= -->
 
