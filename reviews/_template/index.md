@@ -50,7 +50,7 @@ revealOptions:
 
 <!-- .slide: data-background="./img/team42-logo.png" data-background-size="1300px" -->
 
-# Proyect
+# Project
 
 ---
 
