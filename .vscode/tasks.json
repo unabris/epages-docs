@@ -1,0 +1,45 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "template ${input:datetime} ${input:sprintNumber} ${input:sprintTitle}",
+      "label": "Create a new review",
+      "problemMatcher": [],
+      "presentation": {
+        "echo": false,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      }
+    },
+    {
+      "type": "npm",
+      "script": "start",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "datetime",
+      "description": "Introduce a date of review",
+      "default": "yyyymmdd",
+      "type": "promptString"
+    },
+    {
+      "id": "sprintNumber",
+      "description": "Introduce sprint number",
+      "default": "",
+      "type": "promptString"
+    },
+    {
+      "id": "sprintTitle",
+      "description": "Introduce sprint title",
+      "default": "",
+      "type": "promptString",
+
+    }
+  ]
+}
