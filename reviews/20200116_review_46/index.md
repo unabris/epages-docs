@@ -30,10 +30,10 @@ _"Leftovers"_
 | ---------------------- |
 | ePages Devportal       |
 | Beyond Canvas          |
-| CSV Import App         |
-| Beyond Api Ruby Client |
 | Shippo Connector App   |
 | Krypton                |
+| CSV Import App         |
+| Beyond Api Ruby Client |
 | Misc. tasks            |
 | Next Steps             |
 
@@ -57,6 +57,8 @@ _"Leftovers"_
 
 <section>
 
+[![marvin](img/link.png)](https://developer.epages.com/sitemap.xml)
+
 </section>
 
 ---
@@ -65,7 +67,15 @@ _"Leftovers"_
 
 <section>
 
-  Poner ids para poder enviar los links a la gente
+### Why?
+
+To be able to reference to a specific endpoint
+
+</section>
+
+<section>
+
+[![marvin](img/link.png)](https://developer.epages.com/beyond-docs/#create_a_jsonwebtoken_from_refresh_token)
 
 </section>
 
@@ -74,6 +84,10 @@ _"Leftovers"_
 ## Identify required cookies
 
 <section>
+
+### Why?
+
+To collect the necessary information for the cookie advice
 
 </section>
 
@@ -89,6 +103,21 @@ _"Leftovers"_
 
 <section>
 
+### What?
+
+It's a Rails command that generates:
+
+* the general configuration file (e.g. to set up the company logo)
+* some Rails utils
+
+</section>
+
+<section>
+
+```bash
+$ rails generate beyond_canvas:install
+```
+
 </section>
 
 ---
@@ -96,6 +125,18 @@ _"Leftovers"_
 ## Add custom style generator
 
 <section>
+
+### What?
+
+Beyond Canvas comes with _out-of-the-box_ styles to make your app look like as a Beyond integrated one. But you can also customize them with a generator
+
+</section>
+
+<section>
+
+```bash
+$ rails generate beyond_canvas:custom_styles
+```
 
 </section>
 
@@ -114,51 +155,6 @@ _"Leftovers"_
 
 <!-- .slide: data-background="./img/team42-logo.png" data-background-size="1300px" -->
 
-# CSV Import Apps
-
----
-
-## Create product validation page
-
-<section>
-
-[![marvin](img/demo.png)](https://epages.atlassian.net/wiki/x/IIASU?atlOrigin=eyJwIjoiYyIsImkiOiI1NDgyNzczRkUxMzU0QzQ0OEVDQzVGNjNGQTNDMjExQiJ9)
-
-</section>
-
----
-
-<!-- .slide: data-background="./img/team42-logo.png" data-background-size="1300px" -->
-
-# Beyond Api Ruby Client
-
----
-
-## Automatically upload gem documentation to Rubydoc
-
-<section>
-
-[![marvin](img/demo.png)](https://rubydoc.info/github/ePages-de/beyond_api-ruby_client)
-
-</section>
-
----
-
-## Other tasks
-
-<section>
-
-* Add new endpoints
-* Remove depredated endpoints
-* Update outdated yard documentation
-
-</section>
-
----
-
-
-<!-- .slide: data-background="./img/team42-logo.png" data-background-size="1300px" -->
-
 # Shippo Connector App
 
 ---
@@ -168,13 +164,13 @@ _"Leftovers"_
 <section>
 
 * Add keys for registration steps
+* Add information message
 
 </section>
 
 <section>
 
-<!-- TODO: Update link -->
-[![marvin](img/demo.png)](https://shippoconnector.apps.beyondshop.cloud/shops/new?access_token_url=https://team42.beyondshop.cloud/api/oauth/token&api_url=https://team42.beyondshop.cloud/api&code=ALGTqQ&return_url=https://team42.beyondshop.cloud/cockpit/apps/custom-apps/edit/1f0c62ea-ef09-40fd-8980-7bd16128a3b8&signature=KAc4OtY99OgwwBByKRA29Oht1NI%3D)
+![marvin](img/shippo.png)
 
 </section>
 
@@ -190,8 +186,7 @@ _"Leftovers"_
 
 <section>
 
-<!-- TODO: Put production link -->
-[![marvin](img/demo.png)](https://staging.admin.beyondshop.cloud/official_apps/52ad7985-4dba-4828-82ed-060f984ee7b6/edit)
+[![marvin](img/link.png)](https://admin.beyondshop.cloud/official_apps/8d7650f7-40ce-41a1-88c5-47d21d7bbab5/edit)
 
 </section>
 
@@ -207,12 +202,55 @@ _"Leftovers"_
 
 ---
 
-## Create a rake task to remove features/apps from shops
+## Other tasks
 
 <section>
 
-<!-- TODO: Prepare example  -->
-[![marvin](img/demo.png)](https://staging.admin.beyondshop.cloud/official_apps/52ad7985-4dba-4828-82ed-060f984ee7b6/edit)
+* Create a rake task to remove features/apps from shops
+
+</section>
+
+---
+
+<!-- .slide: data-background="./img/team42-logo.png" data-background-size="1300px" -->
+
+# CSV Import App
+
+---
+
+## Create product validation page
+
+<section>
+
+[![marvin](img/link.png)](https://epages.atlassian.net/wiki/x/IIASU?atlOrigin=eyJwIjoiYyIsImkiOiI1NDgyNzczRkUxMzU0QzQ0OEVDQzVGNjNGQTNDMjExQiJ9)
+
+</section>
+
+---
+
+<!-- .slide: data-background="./img/team42-logo.png" data-background-size="1300px" -->
+
+# Beyond API Ruby Client
+
+---
+
+## Automatically upload gem documentation to Rubydoc
+
+<section>
+
+[![marvin](img/link.png)](https://rubydoc.info/github/ePages-de/beyond_api-ruby_client)
+
+</section>
+
+---
+
+## Other tasks
+
+<section>
+
+* Add new endpoints
+* Remove depredated endpoints
+* Update outdated yard documentation
 
 </section>
 
@@ -256,7 +294,7 @@ _"Leftovers"_
 
 ---
 
-### Other tasks
+## Other tasks
 
 <section>
 
@@ -287,5 +325,9 @@ _"Leftovers"_
 | Display app data from feature-definitions call in app list |
 
 ---
+
+<!-- .slide: data-background="./img/team42-logo.png" data-background-size="1300px" -->
+
+# Thank you!
 
 ![marvin](img/dont_panic.png)
