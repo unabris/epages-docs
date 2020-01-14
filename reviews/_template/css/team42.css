@@ -287,3 +287,21 @@ body {
 @media print {
   .backgrounds {
     background-color: #424242; } }
+
+/*********************************************
+ * CODE
+ *********************************************/
+code:not(.hljs) {
+  font-size: 28px;
+  background: #5d5d5d;
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin: 0 4px;
+  position: relative;
+  top: -4px;
+}
+
+.hljs {
+  border-radius: 4px;
+  background: #5d5d5d !important;
+}
